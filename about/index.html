@@ -127,7 +127,7 @@
       border: 0;
     }
     .vid-cap {
-      margin: 10px 0 0;
+      margin: 0 0 12px;
       text-align: center;
       color: #fff4e6;
       font-size: 16px;
@@ -138,6 +138,44 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
+
+    .about-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    @media (min-width: 700px) {
+      .about-wrap {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 24px;
+      }
+    }
+    .about-photo {
+      flex: 0 0 auto;
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+      border-radius: 8px;
+      display: block;
+    }
+    @media (min-width: 700px) {
+      .about-photo {
+        width: 42%;
+        max-width: 300px;
+        margin: 0;
+      }
+    }
+    .about-copy {
+      flex: 1 1 auto;
+      color: #fff4e6;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    .about-copy p { margin: 0; }
 </style>
 </head>
 <body>
@@ -156,9 +194,17 @@
       <a href="../videos/">Videos</a>
       <a href="../links/">Links</a>
     </nav>
-    <div class="page">
-      <h1>About</h1>
-      <p>Coming soon — Jenny’s story.</p>
+    <div class="about-wrap">
+      <img
+        class="about-photo"
+        src="../assets/about-jenny.jpg?v=1"
+        alt="Jenny winning the '84 Camaro"
+        width="600"
+        height="480"
+      />
+      <div class="about-copy">
+        <p>Well, let's start at the beginning. I mean, I've been around for a while, but nobody thought to call me Jenny until now. Who was Jenny? She was the sweet lady</p>
+      </div>
     </div>
   </main>
 </body>
