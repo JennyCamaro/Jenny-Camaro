@@ -60,6 +60,31 @@
       margin: 0 auto;
       border-radius: 8px;
     }
+    .thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      max-width: 360px;
+      margin: 12px auto 0;
+      padding: 0;
+    }
+    .thumb {
+      padding: 0;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+      line-height: 0;
+      overflow: hidden;
+    }
+    .thumb img {
+      display: block;
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+    }
+    .thumb.is-active { border-color: #f48c06; }
     .bio {
       max-width: 360px;
       margin: 36px auto 0;
@@ -117,7 +142,7 @@
 </head>
 <body>
   <header>
-    <a href="./">
+    <a href="./" id="home-logo">
       <img class="logo" src="./assets/logo.png?v=2" alt="Jenny Camaro" width="600" height="259" />
     </a>
   </header>
@@ -133,13 +158,52 @@
       <a href="./links/">Links</a>
     </nav>
     <img
+      id="hero"
       class="photo"
       src="./assets/gallery/01.jpg"
       alt="Jenny — white third-gen Camaro"
       width="800"
       height="600"
     />
+    <div class="thumbs" id="thumbs">
+      <button type="button" class="thumb" data-full="./assets/gallery/01.jpg" aria-label="Photo 1"><img src="./assets/gallery/01.jpg" alt="" loading="lazy" /></button>
+      <button type="button" class="thumb" data-full="./assets/gallery/02.jpg?v=4" aria-label="Photo 2"><img src="./assets/gallery/02.jpg?v=4" alt="" loading="lazy" /></button>
+      <button type="button" class="thumb" data-full="./assets/gallery/03.jpg?v=4" aria-label="Photo 3"><img src="./assets/gallery/03.jpg?v=4" alt="" loading="lazy" /></button>
+      <button type="button" class="thumb" data-full="./assets/gallery/04.jpg" aria-label="Photo 4"><img src="./assets/gallery/04.jpg" alt="" loading="lazy" /></button>
+      <button type="button" class="thumb" data-full="./assets/gallery/05.jpg" aria-label="Photo 5"><img src="./assets/gallery/05.jpg" alt="" loading="lazy" /></button>
+      <button type="button" class="thumb" data-full="./assets/gallery/06.jpg" aria-label="Photo 6"><img src="./assets/gallery/06.jpg" alt="" loading="lazy" /></button>
+      <button type="button" class="thumb" data-full="./assets/gallery/07.jpg" aria-label="Photo 7"><img src="./assets/gallery/07.jpg" alt="" loading="lazy" /></button>
+      <button type="button" class="thumb" data-full="./assets/gallery/08.jpg" aria-label="Photo 8"><img src="./assets/gallery/08.jpg" alt="" loading="lazy" /></button>
+    </div>
     <p class="bio">Hi, I'm Jenny, I may be over 40 years old, but I don't really look my age. Sure, I've been around the block, and I leak, squeak, and rattle, but nobody's perfect. When you open my hood you'll find no surprises, I'm a mostly stock old girl. 305 LG4 700R4...</p>
   </main>
+  <script>
+    (function () {
+      var DEFAULT = './assets/gallery/01.jpg';
+      var hero = document.getElementById('hero');
+      var thumbs = document.getElementById('thumbs');
+      function setHero(src, btn) {
+        hero.src = src;
+        thumbs.querySelectorAll('.thumb').forEach(function (b) {
+          b.classList.toggle('is-active', b === btn);
+        });
+      }
+      thumbs.addEventListener('click', function (e) {
+        var btn = e.target.closest('.thumb');
+        if (!btn) return;
+        setHero(btn.getAttribute('data-full'), btn);
+      });
+      function goHome(e) {
+        e.preventDefault();
+        var first = thumbs.querySelector('.thumb');
+        setHero(DEFAULT, first);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      document.getElementById('home-link').addEventListener('click', goHome);
+      document.getElementById('home-logo').addEventListener('click', goHome);
+      var first = thumbs.querySelector('.thumb');
+      if (first) first.classList.add('is-active');
+    })();
+  </script>
 </body>
 </html>
