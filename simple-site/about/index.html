@@ -141,39 +141,38 @@
 
     .about-wrap {
       display: flex;
-      flex-direction: column;
-      gap: 16px;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 12px;
+      width: 100%;
       max-width: 720px;
       margin: 0 auto;
+      padding: 0 4px;
       text-align: left;
-    }
-    @media (min-width: 700px) {
-      .about-wrap {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 24px;
-      }
+      box-sizing: border-box;
     }
     .about-photo {
-      flex: 0 0 auto;
-      width: 100%;
-      max-width: 280px;
-      margin: 0 auto;
-      border-radius: 8px;
+      flex: 0 0 48%;
+      width: 48%;
+      max-width: 48%;
+      height: auto;
+      margin: 0;
+      border-radius: 6px;
       display: block;
-    }
-    @media (min-width: 700px) {
-      .about-photo {
-        width: 42%;
-        max-width: 300px;
-        margin: 0;
-      }
+      object-fit: cover;
+      object-position: center top;
     }
     .about-copy {
-      flex: 1 1 auto;
+      flex: 1 1 52%;
+      min-width: 0;
       color: #fff4e6;
-      font-size: 16px;
-      line-height: 1.55;
+      font-size: 14px;
+      line-height: 1.45;
+      padding-top: 2px;
+    }
+    @media (min-width: 700px) {
+      .about-copy { font-size: 16px; line-height: 1.55; }
+      .about-wrap { gap: 20px; }
     }
     .about-copy p { margin: 0; }
 </style>
@@ -197,7 +196,7 @@
     <div class="about-wrap">
       <img
         class="about-photo"
-        src="../assets/about-jenny.jpg?v=1"
+        src="../assets/about-jenny.jpg?v=2"
         alt="Jenny winning the '84 Camaro"
         width="600"
         height="480"
