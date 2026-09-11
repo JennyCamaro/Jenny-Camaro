@@ -1,19 +1,9 @@
 ---
-import { withBase } from '../lib/site';
-
 const year = new Date().getFullYear();
 ---
 
-<footer class="mt-16 border-t border-sunset-500/15 bg-dusk-900/60">
-  <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-8 text-sm text-cream-muted sm:flex-row sm:items-center sm:justify-between sm:px-6">
-    <p>
-      © {year} Jenny Camaro · Norwood-born, still rolling ·
-      <span class="text-sunset-400">It’s complicated.</span>
-    </p>
-    <p class="flex flex-wrap gap-3">
-      <a class="hover:text-sunset-300" href={withBase('about/')}>Specs</a>
-      <a class="hover:text-sunset-300" href={withBase('gallery/')}>Gallery</a>
-      <a class="hover:text-sunset-300" href={withBase('log/')}>Ownership log</a>
-    </p>
+<footer class="border-t border-sunset-500/10 bg-dusk-950">
+  <div class="mx-auto max-w-6xl px-4 py-4 text-xs text-cream-muted sm:px-6">
+    © {year} Jenny Camaro
   </div>
 </footer>

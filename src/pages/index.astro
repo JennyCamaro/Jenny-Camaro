@@ -1,151 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-import { withBase, formatPostDate } from '../lib/site';
-
-const posts = (await getCollection('log')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-const latest = posts.slice(0, 2);
+import { withBase } from '../lib/site';
 ---
 
 <Layout
-  title="Jenny Camaro — Hi, I'm Jenny"
-  description="Hi, I'm Jenny. I may be over 40, but I don't really look my age. Very stock, 305 700R4. Showcase and ownership log for a white third-gen Chevrolet Camaro."
+  title="Jenny Camaro"
+  description="Jenny — white third-gen Camaro."
+  ogImage="assets/jenny-meet.jpg"
 >
-  <section class="hero-gradient relative overflow-hidden">
-    <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:items-center lg:py-20">
-      <div>
-        <p class="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-sunset-400">
-          White · Third-gen · Still stock
-        </p>
-        <h1 class="text-4xl font-bold tracking-tight text-cream sm:text-5xl lg:text-6xl">
-          Hi, I’m <span class="bg-gradient-to-r from-sunset-500 via-sunset-400 to-sunset-300 bg-clip-text text-transparent">Jenny</span>.
-        </h1>
-        <p class="mt-5 max-w-xl text-lg leading-relaxed text-cream-muted">
-          I may be over 40, but I don’t really look my age. Very stock,
-          <strong class="text-cream">305</strong>{' '}
-          <strong class="text-cream">700R4</strong>.
-          Born with a Norwood, Ohio vibe — and yes, relationship status:
-          <em class="text-sunset-300">It’s complicated.</em>
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a
-            href={withBase('about/')}
-            class="rounded-full bg-gradient-to-r from-sunset-500 to-sunset-400 px-5 py-2.5 text-sm font-semibold text-dusk-950 shadow-[0_8px_24px_rgba(255,107,53,0.35)] transition hover:brightness-110"
-          >
-            Meet the specs
-          </a>
-          <a
-            href={withBase('log/')}
-            class="rounded-full border border-sunset-400/40 bg-dusk-800/50 px-5 py-2.5 text-sm font-semibold text-cream transition hover:border-sunset-300 hover:bg-dusk-700"
-          >
-            Ownership log
-          </a>
-        </div>
-        <dl class="mt-10 grid max-w-md grid-cols-3 gap-4 text-center sm:text-left">
-          <div class="rounded-xl border border-sunset-500/15 bg-dusk-900/50 p-3">
-            <dt class="text-xs uppercase tracking-wide text-cream-muted">Engine</dt>
-            <dd class="mt-1 font-semibold text-sunset-200">305 V8</dd>
-          </div>
-          <div class="rounded-xl border border-sunset-500/15 bg-dusk-900/50 p-3">
-            <dt class="text-xs uppercase tracking-wide text-cream-muted">Trans</dt>
-            <dd class="mt-1 font-semibold text-sunset-200">700R4</dd>
-          </div>
-          <div class="rounded-xl border border-sunset-500/15 bg-dusk-900/50 p-3">
-            <dt class="text-xs uppercase tracking-wide text-cream-muted">Since</dt>
-            <dd class="mt-1 font-semibold text-sunset-200">Oct ’83</dd>
-          </div>
-        </dl>
-      </div>
-
-      <figure class="relative">
-        <div class="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-sunset-500/30 via-transparent to-sunset-300/20 blur-2xl" aria-hidden="true"></div>
-        <div class="card-glow relative overflow-hidden rounded-[1.5rem] border border-sunset-500/25 bg-dusk-900">
-          <img
-            src={withBase('assets/jenny-hero.png')}
-            alt="Jenny — white third-gen Chevrolet Camaro at dusk, name script on the bumper"
-            class="aspect-[16/10] w-full object-cover object-center"
-            width="1320"
-            height="340"
-            loading="eager"
-          />
-          <figcaption class="border-t border-sunset-500/15 bg-dusk-950/90 px-4 py-3 text-sm text-cream-muted">
-            Golden-hour bumper script — more photos landing soon.
-          </figcaption>
-        </div>
-      </figure>
-    </div>
-  </section>
-
-  <section class="border-y border-sunset-500/10 bg-dusk-900/50">
-    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
-      <p class="text-sm font-medium uppercase tracking-[0.2em] text-sunset-400">How good can this get?</p>
-      <h2 class="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-cream sm:text-4xl">
-        Pretty damn good — think boutique car-brand energy, not a free template.
-      </h2>
-      <div class="mt-8 grid gap-5 md:grid-cols-3">
-        <div class="rounded-2xl border border-sunset-500/15 bg-dusk-800/50 p-5">
-          <h3 class="text-lg font-semibold text-sunset-200">With solid photos</h3>
-          <p class="mt-2 text-sm leading-relaxed text-cream-muted">
-            A cinematic hero, a real gallery, log posts with pictures — already “wow, she has a site.”
-            Phone shots in good light beat any font tweak.
-          </p>
-        </div>
-        <div class="rounded-2xl border border-sunset-500/15 bg-dusk-800/50 p-5">
-          <h3 class="text-lg font-semibold text-sunset-200">With a bit more love</h3>
-          <p class="mt-2 text-sm leading-relaxed text-cream-muted">
-            Custom wordmark, subtle motion, Norwood / meet notes, cleaner type and spacing.
-            Still free hosting. Still mine.
-          </p>
-        </div>
-        <div class="rounded-2xl border border-sunset-500/15 bg-dusk-800/50 p-5">
-          <h3 class="text-lg font-semibold text-sunset-200">The honest ceiling</h3>
-          <p class="mt-2 text-sm leading-relaxed text-cream-muted">
-            Code won’t turn a cropped screenshot into a magazine shoot — photography is the magic.
-            Add a <span class="text-cream">.com</span> later and it can feel show-car brochure.
-          </p>
-        </div>
-      </div>
-      <p class="mt-8 max-w-2xl text-cream-muted">
-        This is my online home: intentional, owned, growing. Right now we’re warming up.
-        Real dusk shots + a design pass, and we’re in that 8–9 range for a personal Camaro site.
-      </p>
-    </div>
-  </section>
-
-  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <div class="mb-8 flex items-end justify-between gap-4">
-      <div>
-        <h2 class="text-2xl font-semibold text-cream sm:text-3xl">From the log</h2>
-        <p class="mt-2 text-cream-muted">Show nights, maintenance, and the quiet miles in between.</p>
-      </div>
-      <a href={withBase('log/')} class="text-sm font-medium text-sunset-400 hover:text-sunset-300">All entries →</a>
-    </div>
-    <div class="grid gap-5 md:grid-cols-2">
-      {
-        latest.map((post) => (
-          <a
-            href={withBase(`log/${post.id}/`)}
-            class="card-glow rounded-2xl border border-sunset-500/15 bg-dusk-800/60 p-5 transition hover:border-sunset-400/40"
-          >
-            <time class="text-xs uppercase tracking-wider text-sunset-400" datetime={post.data.pubDate.toISOString()}>
-              {formatPostDate(post.data.pubDate)}
-            </time>
-            <h3 class="mt-2 text-xl font-semibold text-cream">{post.data.title}</h3>
-            <p class="mt-2 text-sm text-cream-muted">{post.data.description}</p>
-          </a>
-        ))
-      }
-    </div>
-  </section>
-
-  <section class="border-y border-sunset-500/10 bg-dusk-900/40">
-    <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-      <blockquote class="max-w-3xl text-xl leading-relaxed text-cream sm:text-2xl">
-        “I’m not chasing horsepower charts. I’m chasing golden-hour parking spots and the sound of a stock 305 that still knows how to purr.”
-      </blockquote>
-      <p class="mt-4 text-sm text-sunset-400">— Jenny, somewhere between Norwood nostalgia and the next cruise</p>
-    </div>
+  <section class="min-h-[calc(100vh-4rem)] bg-dusk-950">
+    <figure class="mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl items-center px-2 py-4 sm:px-4 sm:py-6">
+      <img
+        src={withBase('assets/jenny-meet.jpg')}
+        alt="Jenny — white third-gen Camaro at a meet"
+        class="w-full rounded-lg object-contain shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
+        width="2400"
+        height="1800"
+        loading="eager"
+      />
+    </figure>
   </section>
 </Layout>
