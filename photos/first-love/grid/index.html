@@ -136,7 +136,7 @@
     }
     .photo-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
       margin: 12px auto 0;
     }
@@ -145,13 +145,14 @@
       line-height: 0;
       border-radius: 6px;
       overflow: hidden;
+      background: #1a1220;
     }
     .photo-grid img {
       display: block;
       width: 100%;
-      height: 100%;
-      aspect-ratio: 1;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
+      background: #1a1220;
     }
     .lightbox {
       display: none;
@@ -179,39 +180,39 @@
 </head>
 <body>
   <header>
-    <a href="../../../">
-      <img class="logo" src="../../../assets/logo.png?v=2" alt="Jenny Camaro" width="600" height="259" />
+    <a href="/Jenny-Camaro/">
+      <img class="logo" src="/Jenny-Camaro/assets/logo.png?v=2" alt="Jenny Camaro" width="600" height="259" />
     </a>
   </header>
   <main>
 <nav class="cats" aria-label="Categories">
-      <a href="../../../">Home</a>
-      <a href="../../../about/">About</a>
-      <a href="../../../logs/">Logs</a>
-      <a href="../../../photos/">Photos</a>
-      <a href="../../../projects/">Projects</a>
-      <a href="../../../camaro/">Camaro</a>
-      <a href="../../../videos/">Videos</a>
-      <a href="../../../links/">Links</a>
+      <a href="/Jenny-Camaro/">Home</a>
+      <a href="/Jenny-Camaro/about/">About</a>
+      <a href="/Jenny-Camaro/logs/">Logs</a>
+      <a href="/Jenny-Camaro/photos/">Photos</a>
+      <a href="/Jenny-Camaro/projects/">Projects</a>
+      <a href="/Jenny-Camaro/camaro/">Camaro</a>
+      <a href="/Jenny-Camaro/videos/">Videos</a>
+      <a href="/Jenny-Camaro/links/">Links</a>
     </nav>
     <div class="grid-wrap">
-      <a class="back" href="../">← Album</a>
+      <a class="back" href="/Jenny-Camaro/photos/first-love/">← Album</a>
       <p class="blurb">So this was his first love, an 83 Z-28. I don't know what he saw in her.</p>
       <div class="photo-grid">
-      <a href="../../../assets/photos/first-love/03.jpg?v=1" class="zoomable" data-full="../../../assets/photos/first-love/03.jpg?v=1">
-        <img src="../../../assets/photos/first-love/03.jpg?v=1" alt="83 Z-28 front" loading="lazy" width="1400" height="950" />
+      <a href="/Jenny-Camaro/assets/photos/first-love/03.jpg?v=2" class="zoomable" data-full="/Jenny-Camaro/assets/photos/first-love/03.jpg?v=2">
+        <img src="/Jenny-Camaro/assets/photos/first-love/tiles/03.jpg?v=1" alt="83 Z-28 front" width="480" height="480" decoding="async" />
       </a>
-      <a href="../../../assets/photos/first-love/01.jpg?v=1" class="zoomable" data-full="../../../assets/photos/first-love/01.jpg?v=1">
-        <img src="../../../assets/photos/first-love/01.jpg?v=1" alt="On the hood with the plates" loading="lazy" width="1400" height="950" />
+      <a href="/Jenny-Camaro/assets/photos/first-love/01.jpg?v=2" class="zoomable" data-full="/Jenny-Camaro/assets/photos/first-love/01.jpg?v=2">
+        <img src="/Jenny-Camaro/assets/photos/first-love/tiles/01.jpg?v=1" alt="On the hood with the plates" width="480" height="480" decoding="async" />
       </a>
-      <a href="../../../assets/photos/first-love/02.jpg?v=1" class="zoomable" data-full="../../../assets/photos/first-love/02.jpg?v=1">
-        <img src="../../../assets/photos/first-love/02.jpg?v=1" alt="Putting on the rear plate" loading="lazy" width="1400" height="950" />
+      <a href="/Jenny-Camaro/assets/photos/first-love/02.jpg?v=2" class="zoomable" data-full="/Jenny-Camaro/assets/photos/first-love/02.jpg?v=2">
+        <img src="/Jenny-Camaro/assets/photos/first-love/tiles/02.jpg?v=1" alt="Putting on the rear plate" width="480" height="480" decoding="async" />
       </a>
-      <a href="../../../assets/photos/first-love/04.jpg?v=1" class="zoomable" data-full="../../../assets/photos/first-love/04.jpg?v=1">
-        <img src="../../../assets/photos/first-love/04.jpg?v=1" alt="Interior with T-tops off" loading="lazy" width="1400" height="950" />
+      <a href="/Jenny-Camaro/assets/photos/first-love/04.jpg?v=2" class="zoomable" data-full="/Jenny-Camaro/assets/photos/first-love/04.jpg?v=2">
+        <img src="/Jenny-Camaro/assets/photos/first-love/tiles/04.jpg?v=1" alt="Interior with T-tops off" width="480" height="480" decoding="async" />
       </a>
-      <a href="../../../assets/photos/first-love/05.jpg?v=1" class="zoomable" data-full="../../../assets/photos/first-love/05.jpg?v=1">
-        <img src="../../../assets/photos/first-love/05.jpg?v=1" alt="Rear Z28" loading="lazy" width="1400" height="950" />
+      <a href="/Jenny-Camaro/assets/photos/first-love/05.jpg?v=2" class="zoomable" data-full="/Jenny-Camaro/assets/photos/first-love/05.jpg?v=2">
+        <img src="/Jenny-Camaro/assets/photos/first-love/tiles/05.jpg?v=1" alt="Rear Z28" width="480" height="480" decoding="async" />
       </a>
       </div>
     </div>
