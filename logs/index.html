@@ -221,6 +221,24 @@
       border-radius: 6px;
       cursor: zoom-in;
     }
+
+    .log-embed {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      margin: 0.75rem 0 0;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #1a0f24;
+    }
+    .log-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
     .lightbox {
       display: none;
       position: fixed;
@@ -407,6 +425,19 @@
         />
         <div class="log-copy">
           <p>Finally, somebody gave me a bath. I'm a classy lady, how embarrassing to be left in such filth. Unfortunately, the new owner has now seen how bad my seals leak, eek, I hope he doesn't sell me, I definitely don't want to be on the back of an other tow truck. Us old girls leak, tell him ladies. Thankfully, I overheard him say he's ordering new rubber... just wait until he finds out what a nightmare that is to change...</p>
+        </div>
+      </article>
+      <article class="log-entry" id="2026-09-11">
+        <time class="log-date" datetime="2026-09-11">September 11, 2026</time>
+        <div class="log-embed">
+          <iframe
+            src="https://www.youtube.com/embed/KlI5Gs5-oT0"
+            title="September 11, 2026"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
         </div>
       </article>
     </div>
