@@ -127,7 +127,7 @@
       border: 0;
     }
     .vid-cap {
-      margin: 0 0 12px;
+      margin: 10px 0 0;
       text-align: center;
       color: #fff4e6;
       font-size: 16px;
@@ -140,41 +140,32 @@
     }
 
     .about-wrap {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 12px;
-      width: 100%;
       max-width: 720px;
       margin: 0 auto;
-      padding: 0 4px;
+      padding: 0 12px 24px;
       text-align: left;
-      box-sizing: border-box;
+      overflow: auto;
     }
     .about-photo {
-      flex: 0 0 48%;
+      float: left;
       width: 48%;
-      max-width: 48%;
+      max-width: 280px;
       height: auto;
-      margin: 0;
+      margin: 0 14px 10px 0;
       border-radius: 6px;
       display: block;
-      object-fit: cover;
-      object-position: center top;
     }
     .about-copy {
-      flex: 1 1 52%;
-      min-width: 0;
       color: #fff4e6;
-      font-size: 14px;
-      line-height: 1.45;
-      padding-top: 2px;
+      font-size: 15px;
+      line-height: 1.5;
     }
-    @media (min-width: 700px) {
-      .about-copy { font-size: 16px; line-height: 1.55; }
-      .about-wrap { gap: 20px; }
+    .about-copy p {
+      margin: 0 0 0.9em;
     }
-    .about-copy p { margin: 0; }
+    .about-copy p:last-child {
+      margin-bottom: 0;
+    }
 </style>
 </head>
 <body>
@@ -196,13 +187,13 @@
     <div class="about-wrap">
       <img
         class="about-photo"
-        src="../assets/about-jenny.jpg?v=2"
+        src="../assets/about-jenny.jpg?v=3"
         alt="Jenny winning the '84 Camaro"
-        width="600"
-        height="480"
+        width="800"
+        height="600"
       />
       <div class="about-copy">
-        <p>Well, let's start at the beginning. I mean, I've been around for a while, but nobody thought to call me Jenny until now. Who was Jenny? She was the sweet lady</p>
+        <p>Well, let's start at the beginning. I mean, I've been around for a while, but nobody thought to call me Jenny until now. Who was Jenny? She was a sweet lady, but she really didn't drive me very much, and she didn't know that I needed things. It's also quite apparent that other people have gotten their hands on me that I have no idea what they're doing, wires that don't belong here, dirty filters there.</p>
       </div>
     </div>
   </main>
