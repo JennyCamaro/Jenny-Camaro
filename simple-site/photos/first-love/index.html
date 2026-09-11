@@ -85,122 +85,37 @@
       object-fit: cover;
     }
     .thumb.is-active { border-color: #f48c06; }
-    .bio {
+    .blurb {
       max-width: 360px;
-      margin: 36px auto 0;
+      margin: 20px auto 0;
       padding: 0 8px;
       color: #fff4e6;
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.45;
       text-align: center;
     }
-    .page {
-      max-width: 360px;
-      margin: 0 auto;
-      text-align: left;
-      color: #d9c7b0;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-    .page h1 {
+    .page h1, .album h1 {
       color: #fff4e6;
       font-size: 22px;
       font-weight: 600;
       margin: 8px 0 12px;
       text-align: center;
     }
-    .embed {
-      position: relative;
-      width: 100%;
-      max-width: 360px;
-      margin: 0 auto 12px;
-      aspect-ratio: 16 / 9;
-      border-radius: 8px;
-      overflow: hidden;
-      background: #1a0f24;
-    }
-    .embed iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .vid-cap {
-      margin: 10px 0 0;
-      text-align: center;
-      color: #fff4e6;
-      font-size: 16px;
-      line-height: 1.4;
-    }
-    .page a.ext {
-      color: #f48c06;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .gallery {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 4px 24px;
-      text-align: left;
-    }
-    .gallery h1 {
-      color: #fff4e6;
-      font-size: 22px;
-      font-weight: 700;
-      margin: 8px 0 8px;
-      text-align: center;
-    }
-    .gallery .blurb {
-      color: #fff4e6;
-      font-size: 15px;
-      line-height: 1.5;
-      text-align: center;
-      margin: 0 0 16px;
-      padding: 0 8px;
-    }
-    .gallery img {
-      display: block;
-      width: 100%;
-      max-width: 720px;
-      height: auto;
-      margin: 0 auto 12px;
-      border-radius: 8px;
-      cursor: zoom-in;
-    }
     .back {
       display: block;
       text-align: center;
-      margin: 0 0 12px;
+      margin: 0 0 8px;
       color: #f48c06;
       text-decoration: underline;
       text-underline-offset: 3px;
       font-size: 15px;
     }
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: rgba(0,0,0,0.92);
-      padding: 16px;
-      box-sizing: border-box;
-      align-items: center;
-      justify-content: center;
-      cursor: zoom-out;
+    a.cover-link { display: inline-block; line-height: 0; }
+    a.blurb-link {
+      color: #fff4e6;
+      text-decoration: none;
     }
-    .lightbox.is-open { display: flex; }
-    .lightbox img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      border-radius: 4px;
-      margin: 0;
-      cursor: default;
-    }
+    a.blurb-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 </style>
 </head>
 <body>
@@ -220,69 +135,42 @@
       <a href="../../videos/">Videos</a>
       <a href="../../links/">Links</a>
     </nav>
-    <div class="gallery">
+    <div class="album">
       <a class="back" href="../">← Photos</a>
       <h1>83 Z-28</h1>
-      <p class="blurb">So this was his first love, an 83 Z-28. I don't know what he saw in her.</p>
       <img
-        class="zoomable"
+        id="hero"
+        class="photo"
         src="../../assets/photos/first-love/03.jpg?v=1"
-        data-full="../../assets/photos/first-love/03.jpg?v=1"
-        alt="83 Z-28 front — tap to enlarge"
+        alt="83 Z-28"
         width="1400"
-        height="950"
+        height="947"
       />
-      <img
-        class="zoomable"
-        src="../../assets/photos/first-love/01.jpg?v=1"
-        data-full="../../assets/photos/first-love/01.jpg?v=1"
-        alt="On the hood with the plates — tap to enlarge"
-        width="1400"
-        height="950"
-      />
-      <img
-        class="zoomable"
-        src="../../assets/photos/first-love/02.jpg?v=1"
-        data-full="../../assets/photos/first-love/02.jpg?v=1"
-        alt="Putting on the rear plate — tap to enlarge"
-        width="1400"
-        height="950"
-      />
-      <img
-        class="zoomable"
-        src="../../assets/photos/first-love/04.jpg?v=1"
-        data-full="../../assets/photos/first-love/04.jpg?v=1"
-        alt="Interior with T-tops off — tap to enlarge"
-        width="1400"
-        height="950"
-      />
-      <img
-        class="zoomable"
-        src="../../assets/photos/first-love/05.jpg?v=1"
-        data-full="../../assets/photos/first-love/05.jpg?v=1"
-        alt="Rear Z28 — tap to enlarge"
-        width="1400"
-        height="950"
-      />
+      <div class="thumbs" id="thumbs">
+      <button type="button" class="thumb is-active" data-full="../../assets/photos/first-love/03.jpg?v=1" aria-label="Cover"><img src="../../assets/photos/first-love/03.jpg?v=1" alt="" loading="lazy" /></button>
+      <button type="button" class="thumb" data-full="../../assets/photos/first-love/01.jpg?v=1" aria-label="Photo 1"><img src="../../assets/photos/first-love/01.jpg?v=1" alt="" loading="lazy" /></button>
+      <button type="button" class="thumb" data-full="../../assets/photos/first-love/02.jpg?v=1" aria-label="Photo 2"><img src="../../assets/photos/first-love/02.jpg?v=1" alt="" loading="lazy" /></button>
+      <button type="button" class="thumb" data-full="../../assets/photos/first-love/04.jpg?v=1" aria-label="Photo 4"><img src="../../assets/photos/first-love/04.jpg?v=1" alt="" loading="lazy" /></button>
+      <button type="button" class="thumb" data-full="../../assets/photos/first-love/05.jpg?v=1" aria-label="Photo 5"><img src="../../assets/photos/first-love/05.jpg?v=1" alt="" loading="lazy" /></button>
+      </div>
+      <p class="blurb">So this was his first love, an 83 Z-28. I don't know what he saw in her.</p>
     </div>
   </main>
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
-    <img id="lightbox-img" src="" alt="" />
-  </div>
   <script>
     (function () {
-      var box = document.getElementById('lightbox');
-      var img = document.getElementById('lightbox-img');
-      document.querySelectorAll('.zoomable').forEach(function (el) {
-        el.addEventListener('click', function () {
-          img.src = el.getAttribute('data-full') || el.src;
-          img.alt = el.alt || '';
-          box.classList.add('is-open');
+      var DEFAULT = '../../assets/photos/first-love/03.jpg?v=1';
+      var hero = document.getElementById('hero');
+      var thumbs = document.getElementById('thumbs');
+      function setHero(src, btn) {
+        hero.src = src;
+        thumbs.querySelectorAll('.thumb').forEach(function (b) {
+          b.classList.toggle('is-active', b === btn);
         });
-      });
-      box.addEventListener('click', function () {
-        box.classList.remove('is-open');
-        img.src = '';
+      }
+      thumbs.addEventListener('click', function (e) {
+        var btn = e.target.closest('.thumb');
+        if (!btn) return;
+        setHero(btn.getAttribute('data-full'), btn);
       });
     })();
   </script>
