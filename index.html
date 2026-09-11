@@ -27,7 +27,7 @@
       margin: 0 auto;
     }
     main {
-      padding: 12px 16px 32px;
+      padding: 12px 16px 40px;
       text-align: center;
     }
     .photo {
@@ -38,9 +38,36 @@
       margin: 0 auto;
       border-radius: 8px;
     }
+    .thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      max-width: 360px;
+      margin: 12px auto 0;
+      padding: 0;
+    }
+    .thumb {
+      padding: 0;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+      line-height: 0;
+      overflow: hidden;
+    }
+    .thumb img {
+      display: block;
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+    }
+    .thumb.is-active {
+      border-color: #f48c06;
+    }
     .bio {
       max-width: 360px;
-      margin: 18px auto 0;
+      margin: 36px auto 0;
       padding: 0 8px;
       color: #fff4e6;
       font-size: 17px;
@@ -52,7 +79,7 @@
       flex-wrap: nowrap;
       justify-content: center;
       gap: 0.85rem;
-      margin: 28px auto 0;
+      margin: 36px auto 0;
       padding: 0 8px;
       max-width: 360px;
       overflow-x: auto;
@@ -71,34 +98,29 @@
       text-decoration: underline;
       text-underline-offset: 4px;
     }
-    .page {
-      max-width: 360px;
-      margin: 0 auto;
-      text-align: left;
-      color: #d9c7b0;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-    .page h1 {
-      color: #fff4e6;
-      font-size: 22px;
-      font-weight: 600;
-      margin: 8px 0 12px;
-      text-align: center;
-    }
-</style>
+  </style>
 </head>
 <body>
   <header>
-    <a href="./">
+    <a href="./" id="home-logo">
       <img class="logo" src="./assets/logo.png?v=2" alt="Jenny Camaro" width="600" height="259" />
     </a>
   </header>
-    <main>
-    <img class="photo" src="./assets/jenny.jpg?v=6" alt="Jenny — white third-gen Camaro" width="800" height="600" />
+  <main>
+    <img
+      id="hero"
+      class="photo"
+      src="./assets/gallery/01.jpg"
+      alt="Jenny — white third-gen Camaro"
+      width="800"
+      height="600"
+    />
+    <div class="thumbs" id="thumbs">
+      <button type="button" class="thumb" data-full="./assets/gallery/01.jpg" aria-label="Photo 1"><img src="./assets/gallery/01.jpg" alt="" /></button>
+    </div>
     <p class="bio">Hi, I'm Jenny. I may be over 40, but I don't really look my age. Mostly stock, 305 700R4</p>
-        <nav class="cats" aria-label="Categories">
-      <a href="./">Home</a>
+    <nav class="cats" aria-label="Categories">
+      <a href="./" id="home-link">Home</a>
       <a href="./about/">About</a>
       <a href="./photos/">Photos</a>
       <a href="./projects/">Projects</a>
@@ -106,5 +128,45 @@
       <a href="./links/">Links</a>
     </nav>
   </main>
+  <script>
+    (function () {
+      var DEFAULT = './assets/gallery/01.jpg';
+      var hero = document.getElementById('hero');
+      var thumbs = document.getElementById('thumbs');
+
+      function setHero(src, btn) {
+        hero.src = src;
+        thumbs.querySelectorAll('.thumb').forEach(function (b) {
+          b.classList.toggle('is-active', b === btn);
+        });
+      }
+
+      thumbs.addEventListener('click', function (e) {
+        var btn = e.target.closest('.thumb');
+        if (!btn) return;
+        setHero(btn.getAttribute('data-full'), btn);
+      });
+
+      function goHome(e) {
+        // If already on home, reset hero instead of full reload feel
+        if (location.pathname.replace(/\/+$/, '').endsWith('Jenny-Camaro') ||
+            location.pathname.endsWith('/') ||
+            /index\.html$/.test(location.pathname)) {
+          // always reset when Home / logo clicked on this page
+          e.preventDefault();
+          var first = thumbs.querySelector('.thumb');
+          setHero(DEFAULT, first);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+
+      document.getElementById('home-link').addEventListener('click', goHome);
+      document.getElementById('home-logo').addEventListener('click', goHome);
+
+      // mark first active
+      var first = thumbs.querySelector('.thumb');
+      if (first) first.classList.add('is-active');
+    })();
+  </script>
 </body>
 </html>
