@@ -154,6 +154,7 @@
       margin: 0 14px 10px 0;
       border-radius: 6px;
       display: block;
+      cursor: zoom-in;
     }
     .about-copy {
       color: #fff4e6;
@@ -163,8 +164,26 @@
     .about-copy p {
       margin: 0 0 0.9em;
     }
-    .about-copy p:last-child {
-      margin-bottom: 0;
+    .about-copy p:last-child { margin-bottom: 0; }
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.92);
+      padding: 16px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.is-open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
     }
 </style>
 </head>
@@ -187,15 +206,31 @@
     <div class="about-wrap">
       <img
         class="about-photo"
-        src="../assets/about-jenny.jpg?v=3"
-        alt="Jenny winning the '84 Camaro"
-        width="800"
-        height="600"
+        id="about-photo"
+        src="../assets/about-jenny.jpg?v=4"
+        alt="Jenny winning the '84 Camaro — tap to enlarge"
+        width="1320"
+        height="1468"
       />
       <div class="about-copy">
         <p>Well, let's start at the beginning. I mean, I've been around for a while, but nobody thought to call me Jenny until now. Who was Jenny? She was a sweet lady, but she really didn't drive me very much, and she didn't know that I needed things. It's also quite apparent that other people have gotten their hands on me that I have no idea what they're doing, wires that don't belong here, dirty filters there.</p>
       </div>
     </div>
   </main>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <img src="../assets/about-jenny.jpg?v=4" alt="Jenny winning the '84 Camaro" />
+  </div>
+  <script>
+    (function () {
+      var photo = document.getElementById('about-photo');
+      var box = document.getElementById('lightbox');
+      photo.addEventListener('click', function () {
+        box.classList.add('is-open');
+      });
+      box.addEventListener('click', function () {
+        box.classList.remove('is-open');
+      });
+    })();
+  </script>
 </body>
 </html>
