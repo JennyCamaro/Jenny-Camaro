@@ -1,0 +1,34 @@
+---
+import { formatPostDate } from '../lib/site';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  href: string;
+  tags?: string[];
+}
+
+const { title, description, pubDate, href, tags = [] } = Astro.props;
+const formatted = formatPostDate(pubDate);
+---
+
+<a
+  href={href}
+  class="card-glow group block rounded-2xl border border-sunset-500/15 bg-dusk-800/70 p-5 transition hover:border-sunset-400/40 hover:bg-dusk-700/70"
+>
+  <time class="text-xs uppercase tracking-wider text-sunset-400" datetime={pubDate.toISOString()}>
+    {formatted}
+  </time>
+  <h2 class="mt-2 text-xl font-semibold text-cream group-hover:text-sunset-200">{title}</h2>
+  <p class="mt-2 text-sm leading-relaxed text-cream-muted">{description}</p>
+  {
+    tags.length > 0 && (
+      <ul class="mt-4 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <li class="rounded-full bg-dusk-900/80 px-2.5 py-0.5 text-xs text-sunset-200">{tag}</li>
+        ))}
+      </ul>
+    )
+  }
+</a>

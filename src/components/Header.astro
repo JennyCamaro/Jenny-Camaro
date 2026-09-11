@@ -1,0 +1,39 @@
+---
+import { withBase } from '../lib/site';
+
+const path = Astro.url.pathname.replace(/\/+$/, '') || '';
+const homePath = withBase().replace(/\/+$/, '') || '';
+
+const links = [
+  { href: withBase(), label: 'Home', active: path === homePath },
+  { href: withBase('about/'), label: 'About', active: path.endsWith('/about') },
+  { href: withBase('gallery/'), label: 'Gallery', active: path.endsWith('/gallery') },
+  { href: withBase('log/'), label: 'Log', active: path.includes('/log') },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-sunset-500/15 bg-dusk-950/85 backdrop-blur-md">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+    <a href={withBase()} class="group flex items-center gap-2">
+      <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-sunset-500 to-sunset-300 text-sm font-bold text-dusk-950 shadow-[0_0_20px_rgba(255,107,53,0.35)]">
+        J
+      </span>
+      <span class="font-semibold tracking-tight text-cream group-hover:text-sunset-200">
+        Jenny <span class="text-sunset-400">Camaro</span>
+      </span>
+    </a>
+    <nav class="flex flex-wrap items-center justify-end gap-1" aria-label="Primary">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class:list={['nav-link', link.active && 'nav-link-active']}
+            aria-current={link.active ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

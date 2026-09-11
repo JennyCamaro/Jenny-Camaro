@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { withBase } from '../lib/site';
+
+const specs = [
+  { label: 'Make / Model', value: 'Chevrolet Camaro (third-gen)' },
+  { label: 'Color', value: 'White' },
+  { label: 'Engine', value: '305 V8 — very stock' },
+  { label: 'Transmission', value: '700R4 automatic' },
+  { label: 'Build / birthday ref', value: 'October 21, 1983' },
+  { label: 'Hometown vibe', value: 'Norwood, Ohio' },
+  { label: 'Philosophy', value: 'Keep it honest. Keep it stock.' },
+  { label: 'Relationship status', value: "It's complicated." },
+];
+---
+
+<Layout
+  title="About & Specs — Jenny Camaro"
+  description="Meet Jenny: a white third-gen Chevrolet Camaro with a very stock 305 V8 and 700R4 automatic. Norwood, Ohio vibes since October 1983."
+>
+  <section class="hero-gradient">
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+      <p class="text-sm font-medium uppercase tracking-[0.2em] text-sunset-400">About / Specs</p>
+      <h1 class="mt-3 text-4xl font-bold tracking-tight text-cream sm:text-5xl">I’m not a resto-mod. I’m a reminder.</h1>
+      <p class="mt-5 max-w-2xl text-lg leading-relaxed text-cream-muted">
+        Hi again — Jenny here. Over forty, still white, still running a
+        <strong class="text-cream">305</strong> and a
+        <strong class="text-cream">700R4</strong> the way they came. I like sunset light on clean paint
+        more than sticker-shock dyno sheets.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2">
+    <div>
+      <h2 class="text-2xl font-semibold text-sunset-300">The stock philosophy</h2>
+      <div class="prose-jenny mt-4 space-y-4 text-cream-muted">
+        <p>
+          People ask what I’ve “done.” Honest answer: not much, on purpose. The 305 isn’t trying to
+          be a race motor. The 700R4 isn’t trying to be a sequential. I’m a third-gen Camaro that
+          still feels like herself — chrome, curves, and all.
+        </p>
+        <p>
+          Norwood, Ohio is part of the story. That plant built a lot of us. When someone says
+          “Norwood vibe,” I hear assembly-line pride and Midwestern dusk — orange sky, white paint,
+          quiet confidence.
+        </p>
+        <p>
+          Birthday on the paperwork: <strong class="text-cream">October 21, 1983</strong>. I don’t
+          look my age (thanks, polish and good company), but I’m not pretending to be brand new
+          either. Character shows in the details.
+        </p>
+        <p>
+          And yes — relationship status is <em class="text-sunset-300">It’s complicated.</em>
+          Owners, roads, seasons… we work it out one cruise at a time.
+        </p>
+      </div>
+      <a
+        href={withBase('gallery/')}
+        class="mt-8 inline-flex rounded-full border border-sunset-400/40 px-5 py-2.5 text-sm font-semibold text-cream transition hover:border-sunset-300 hover:bg-dusk-800"
+      >
+        See the gallery →
+      </a>
+    </div>
+
+    <div class="card-glow rounded-2xl border border-sunset-500/20 bg-dusk-800/70 p-6 sm:p-8">
+      <h2 class="text-xl font-semibold text-cream">Quick specs</h2>
+      <p class="mt-2 text-sm text-cream-muted">No invented power claims — just what’s true.</p>
+      <dl class="mt-6 divide-y divide-sunset-500/10">
+        {
+          specs.map((row) => (
+            <div class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+              <dt class="text-sm text-cream-muted">{row.label}</dt>
+              <dd class="font-medium text-sunset-200 sm:text-right">{row.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
+    <div class="rounded-2xl border border-sunset-500/15 bg-gradient-to-br from-dusk-800 to-dusk-900 p-6 sm:p-8">
+      <h2 class="text-xl font-semibold text-cream">Work history (tongue-in-cheek)</h2>
+      <p class="mt-3 max-w-3xl text-cream-muted">
+        Let’s say I clocked in at <strong class="text-cream">General Motors</strong> — Norwood
+        assembly, class of ’83. Family tree gets fuzzy (Camaros stick together), but the name on the
+        bumper is Jenny, and the mission is the same: look good at dusk, drive honest, leave a little
+        mystery in the rearview.
+      </p>
+    </div>
+  </section>
+</Layout>

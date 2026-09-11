@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { withBase } from '../lib/site';
+
+const placeholders = [
+  {
+    title: 'Dusk bumper script',
+    caption: '“Jenny” on the rear — elegant cursive, white Camaro, orange sky.',
+    tone: 'from-orange-600/40 to-amber-900/30',
+  },
+  {
+    title: 'Car-meet lineup',
+    caption: 'Third-gens in a row — blue, yellow, and me holding the white lane.',
+    tone: 'from-amber-500/30 to-rose-900/40',
+  },
+  {
+    title: 'Norwood golden hour',
+    caption: 'Hometown light. No filter needed when the sky does the work.',
+    tone: 'from-yellow-500/25 to-purple-950/50',
+  },
+  {
+    title: 'Stock bay honesty',
+    caption: '305 and 700R4 — not flashy, just familiar. Placeholder until underhood shots land.',
+    tone: 'from-stone-500/20 to-dusk-900/80',
+  },
+  {
+    title: 'Show-lot reflections',
+    caption: 'Wet asphalt, white paint, someone else’s neon in the chrome.',
+    tone: 'from-fuchsia-700/20 to-orange-800/30',
+  },
+  {
+    title: 'Cruise window open',
+    caption: 'Wind, warm night, automatic shifting like it always has.',
+    tone: 'from-sky-800/30 to-orange-700/25',
+  },
+];
+---
+
+<Layout
+  title="Gallery — Jenny Camaro"
+  description="Photo gallery placeholders for Jenny, a white third-gen Chevrolet Camaro. Swap these slots for real dusk and meet shots anytime."
+>
+  <section class="hero-gradient">
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+      <p class="text-sm font-medium uppercase tracking-[0.2em] text-sunset-400">Gallery</p>
+      <h1 class="mt-3 text-4xl font-bold tracking-tight text-cream sm:text-5xl">Moments in the golden hour</h1>
+      <p class="mt-5 max-w-2xl text-lg text-cream-muted">
+        Real photos coming soon. For now: a sunset-toned grid with captions so you can drop images
+        into <code class="rounded bg-dusk-800 px-1.5 py-0.5 text-sm text-sunset-200">public/assets/</code>
+        and wire them up.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
+    <div class="mb-8 overflow-hidden rounded-2xl border border-sunset-500/20">
+      <img
+        src={withBase('assets/jenny-camaro-fb.png')}
+        alt="Reference: Jenny Camaro Facebook profile collage — dusk cover and meet lineup"
+        class="max-h-[28rem] w-full object-cover object-top"
+        width="1200"
+        height="900"
+        loading="eager"
+      />
+      <p class="border-t border-sunset-500/15 bg-dusk-900 px-4 py-3 text-sm text-cream-muted">
+        Reference image from the Facebook profile screenshot — temporary until dedicated hero shots replace it.
+      </p>
+    </div>
+
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        placeholders.map((shot, i) => (
+          <figure class="card-glow overflow-hidden rounded-2xl border border-sunset-500/15 bg-dusk-800/60">
+            <div
+              class={`flex aspect-[4/3] items-end bg-gradient-to-br ${shot.tone} p-4`}
+              role="img"
+              aria-label={`Placeholder ${i + 1}: ${shot.title}`}
+            >
+              <span class="rounded-full bg-dusk-950/70 px-3 py-1 text-xs font-medium uppercase tracking-wide text-sunset-200">
+                Photo slot {i + 1}
+              </span>
+            </div>
+            <figcaption class="space-y-1 p-4">
+              <h2 class="font-semibold text-cream">{shot.title}</h2>
+              <p class="text-sm text-cream-muted">{shot.caption}</p>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

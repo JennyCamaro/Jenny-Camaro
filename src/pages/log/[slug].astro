@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+import { withBase, formatPostDate } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('log');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const formatted = formatPostDate(post.data.pubDate);
+---
+
+<Layout title={`${post.data.title} — Jenny Camaro`} description={post.data.description}>
+  <article class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+    <a href={withBase('log/')} class="text-sm text-sunset-400 hover:text-sunset-300">← Back to log</a>
+    <header class="mt-6 border-b border-sunset-500/15 pb-8">
+      <time class="text-xs uppercase tracking-wider text-sunset-400" datetime={post.data.pubDate.toISOString()}>
+        {formatted}
+      </time>
+      <h1 class="mt-3 text-4xl font-bold tracking-tight text-cream">{post.data.title}</h1>
+      <p class="mt-4 text-lg text-cream-muted">{post.data.description}</p>
+      {
+        post.data.tags.length > 0 && (
+          <ul class="mt-5 flex flex-wrap gap-2">
+            {post.data.tags.map((tag: string) => (
+              <li class="rounded-full bg-dusk-800 px-2.5 py-0.5 text-xs text-sunset-200">{tag}</li>
+            ))}
+          </ul>
+        )
+      }
+    </header>
+    <div class="prose-jenny mt-8">
+      <Content />
+    </div>
+  </article>
+</Layout>
