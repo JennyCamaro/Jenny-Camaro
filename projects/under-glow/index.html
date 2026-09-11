@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0b0610" />
-  <title>Projects — Jenny Camaro</title>
+  <title>Under Glow — Jenny Camaro</title>
   <style>
     * { box-sizing: border-box; }
     html, body {
@@ -139,63 +139,57 @@
       text-underline-offset: 3px;
     }
 
-    .project-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      max-width: 360px;
-      margin: 8px auto 0;
-      padding: 0 4px;
-      text-align: left;
-    }
-    .project-thumb {
-      flex: 0 0 88px;
-      width: 88px;
-      height: 88px;
-      border-radius: 8px;
-      object-fit: cover;
-      display: block;
-    }
-    .project-title {
+    .gallery {{
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 4px 24px;
+    }}
+    .gallery h1 {{
       color: #fff4e6;
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 700;
-      letter-spacing: 0.01em;
-      line-height: 1.15;
-      text-decoration: none;
-    }
-    .project-title:hover,
-    .project-title:focus {
+      margin: 8px 0 16px;
+      text-align: center;
+    }}
+    .gallery img {{
+      display: block;
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      margin: 0 auto 12px;
+      border-radius: 8px;
+    }}
+    .back {{
+      display: block;
+      text-align: center;
+      margin: 0 0 16px;
+      color: #f48c06;
       text-decoration: underline;
-      text-underline-offset: 5px;
-      color: #ffffff;
-    }
+      text-underline-offset: 3px;
+      font-size: 15px;
+    }}
 </style>
 </head>
 <body>
   <header>
-    <a href="../">
-      <img class="logo" src="../assets/logo.png?v=2" alt="Jenny Camaro" width="600" height="259" />
+    <a href="../../">
+      <img class="logo" src="../../assets/logo.png?v=2" alt="Jenny Camaro" width="600" height="259" />
     </a>
   </header>
   <main>
     <nav class="cats" aria-label="Categories">
-      <a href="../">Home</a>
-      <a href="../about/">About</a>
-      <a href="../photos/">Photos</a>
-      <a href="../projects/">Projects</a>
-      <a href="../camaro/">Camaro</a>
-      <a href="../videos/">Videos</a>
-      <a href="../links/">Links</a>
+      <a href="../../">Home</a>
+      <a href="../../about/">About</a>
+      <a href="../../photos/">Photos</a>
+      <a href="../../projects/">Projects</a>
+      <a href="../../camaro/">Camaro</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../links/">Links</a>
     </nav>
-    <div class="page">
-      <h1>Projects</h1>
-      <div class="project-row">
-        <a href="under-glow/">
-          <img class="project-thumb" src="../assets/projects/under-glow/thumb.jpg?v=1" alt="Under Glow" width="320" height="320" />
-        </a>
-        <a class="project-title" href="under-glow/">Under Glow</a>
-      </div>
+    <div class="gallery">
+      <a class="back" href="../">← Projects</a>
+      <h1>Under Glow</h1>
+      <img src="../../assets/projects/under-glow/01.jpg?v=1" alt="Jenny with purple under glow" width="1400" height="862" />
     </div>
   </main>
 </body>
