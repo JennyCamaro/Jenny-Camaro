@@ -138,6 +138,38 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
+
+    .project-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 360px;
+      margin: 8px auto 0;
+      padding: 0 4px;
+      text-align: left;
+    }
+    .project-thumb {
+      flex: 0 0 88px;
+      width: 88px;
+      height: 88px;
+      border-radius: 8px;
+      object-fit: cover;
+      display: block;
+    }
+    .project-title {
+      color: #fff4e6;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      text-decoration: none;
+    }
+    .project-title:hover,
+    .project-title:focus {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      color: #ffffff;
+    }
 </style>
 </head>
 <body>
@@ -158,20 +190,12 @@
     </nav>
     <div class="page">
       <h1>Links</h1>
-      <p class="vid-cap">How to tell the difference between all 3rd gen Camaros</p>
-      <div class="embed">
-        <iframe
-          src="https://www.youtube.com/embed/5GCvIetQCCE"
-          title="How to tell the difference between all 3rd gen Camaros"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="strict-origin-when-cross-origin"
-        ></iframe>
+      <div class="project-row">
+        <a href="https://youtu.be/5GCvIetQCCE" target="_blank" rel="noopener noreferrer">
+          <img class="project-thumb" src="../assets/links/3rd-gen-camaro-thumb.jpg?v=1" alt="3rd gen Camaro video" width="320" height="320" />
+        </a>
+        <a class="project-title" href="https://youtu.be/5GCvIetQCCE" target="_blank" rel="noopener noreferrer">How to tell the difference between all 3rd gen Camaros</a>
       </div>
-      <p style="text-align:center;margin-top:8px;">
-        <a class="ext" href="https://youtu.be/5GCvIetQCCE" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
-      </p>
     </div>
   </main>
 </body>
