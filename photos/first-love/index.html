@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0610" />
+  <title>83 Z-28 — Jenny Camaro</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #0b0610;
+      color: #fff4e6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    header {
+      padding: 20px 16px 4px;
+      text-align: center;
+    }
+    header a { display: inline-block; line-height: 0; }
+    .logo {
+      display: block;
+      width: 240px;
+      max-width: 72vw;
+      height: auto;
+      margin: 0 auto;
+    }
+    main {
+      padding: 8px 16px 40px;
+      text-align: center;
+    }
+    nav.cats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 0.9rem;
+      margin: 12px auto 16px;
+      padding: 0 8px;
+      max-width: 400px;
+    }
+    nav.cats a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    nav.cats a:hover,
+    nav.cats a:focus {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .photo {
+      display: block;
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 8px;
+    }
+    .thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      max-width: 360px;
+      margin: 12px auto 0;
+      padding: 0;
+    }
+    .thumb {
+      padding: 0;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+      line-height: 0;
+      overflow: hidden;
+    }
+    .thumb img {
+      display: block;
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+    }
+    .thumb.is-active { border-color: #f48c06; }
+    .bio {
+      max-width: 360px;
+      margin: 36px auto 0;
+      padding: 0 8px;
+      color: #fff4e6;
+      font-size: 17px;
+      line-height: 1.45;
+      text-align: center;
+    }
+    .page {
+      max-width: 360px;
+      margin: 0 auto;
+      text-align: left;
+      color: #d9c7b0;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .page h1 {
+      color: #fff4e6;
+      font-size: 22px;
+      font-weight: 600;
+      margin: 8px 0 12px;
+      text-align: center;
+    }
+    .embed {
+      position: relative;
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto 12px;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #1a0f24;
+    }
+    .embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .vid-cap {
+      margin: 10px 0 0;
+      text-align: center;
+      color: #fff4e6;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    .page a.ext {
+      color: #f48c06;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .gallery {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 4px 24px;
+      text-align: left;
+    }
+    .gallery h1 {
+      color: #fff4e6;
+      font-size: 22px;
+      font-weight: 700;
+      margin: 8px 0 8px;
+      text-align: center;
+    }
+    .gallery .blurb {
+      color: #fff4e6;
+      font-size: 15px;
+      line-height: 1.5;
+      text-align: center;
+      margin: 0 0 16px;
+      padding: 0 8px;
+    }
+    .gallery img {
+      display: block;
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      margin: 0 auto 12px;
+      border-radius: 8px;
+      cursor: zoom-in;
+    }
+    .back {
+      display: block;
+      text-align: center;
+      margin: 0 0 12px;
+      color: #f48c06;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-size: 15px;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.92);
+      padding: 16px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.is-open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+      margin: 0;
+      cursor: default;
+    }
+</style>
+</head>
+<body>
+  <header>
+    <a href="../../">
+      <img class="logo" src="../../assets/logo.png?v=2" alt="Jenny Camaro" width="600" height="259" />
+    </a>
+  </header>
+  <main>
+<nav class="cats" aria-label="Categories">
+      <a href="../../">Home</a>
+      <a href="../../about/">About</a>
+      <a href="../../logs/">Logs</a>
+      <a href="../../photos/">Photos</a>
+      <a href="../../projects/">Projects</a>
+      <a href="../../camaro/">Camaro</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../links/">Links</a>
+    </nav>
+    <div class="gallery">
+      <a class="back" href="../">← Photos</a>
+      <h1>83 Z-28</h1>
+      <p class="blurb">So this was his first love, an 83 Z-28. I don't know what he saw in her.</p>
+      <img
+        class="zoomable"
+        src="../../assets/photos/first-love/03.jpg?v=1"
+        data-full="../../assets/photos/first-love/03.jpg?v=1"
+        alt="83 Z-28 front — tap to enlarge"
+        width="1400"
+        height="950"
+      />
+      <img
+        class="zoomable"
+        src="../../assets/photos/first-love/01.jpg?v=1"
+        data-full="../../assets/photos/first-love/01.jpg?v=1"
+        alt="On the hood with the plates — tap to enlarge"
+        width="1400"
+        height="950"
+      />
+      <img
+        class="zoomable"
+        src="../../assets/photos/first-love/02.jpg?v=1"
+        data-full="../../assets/photos/first-love/02.jpg?v=1"
+        alt="Putting on the rear plate — tap to enlarge"
+        width="1400"
+        height="950"
+      />
+      <img
+        class="zoomable"
+        src="../../assets/photos/first-love/04.jpg?v=1"
+        data-full="../../assets/photos/first-love/04.jpg?v=1"
+        alt="Interior with T-tops off — tap to enlarge"
+        width="1400"
+        height="950"
+      />
+      <img
+        class="zoomable"
+        src="../../assets/photos/first-love/05.jpg?v=1"
+        data-full="../../assets/photos/first-love/05.jpg?v=1"
+        alt="Rear Z28 — tap to enlarge"
+        width="1400"
+        height="950"
+      />
+    </div>
+  </main>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      document.querySelectorAll('.zoomable').forEach(function (el) {
+        el.addEventListener('click', function () {
+          img.src = el.getAttribute('data-full') || el.src;
+          img.alt = el.alt || '';
+          box.classList.add('is-open');
+        });
+      });
+      box.addEventListener('click', function () {
+        box.classList.remove('is-open');
+        img.src = '';
+      });
+    })();
+  </script>
+</body>
+</html>
