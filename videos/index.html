@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0b0610" />
-  <title>Photos — Jenny Camaro</title>
+  <title>Videos — Jenny Camaro</title>
   <style>
     * { box-sizing: border-box; }
     html, body {
@@ -138,6 +138,27 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
+
+    .vid-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 8px 24px;
+      text-align: center;
+    }
+    .vid-wrap h1 {
+      color: #fff4e6;
+      font-size: 22px;
+      font-weight: 600;
+      margin: 8px 0 16px;
+    }
+    .vid-player {
+      display: block;
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      border-radius: 8px;
+      background: #1a0f24;
+    }
 </style>
 </head>
 <body>
@@ -157,9 +178,11 @@
       <a href="../videos/">Videos</a>
       <a href="../links/">Links</a>
     </nav>
-    <div class="page">
-      <h1>Photos</h1>
-      <p>Coming soon — more photos of Jenny.</p>
+    <div class="vid-wrap">
+      <h1>Videos</h1>
+      <video class="vid-player" controls playsinline preload="metadata" src="../assets/videos/preview.mp4?v=1">
+        Sorry, your browser can&apos;t play this video.
+      </video>
     </div>
   </main>
 </body>
