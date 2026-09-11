@@ -8,8 +8,8 @@ import { withBase } from '../lib/site';
   description="Jenny — white third-gen Camaro."
   ogImage="assets/jenny-meet.jpg"
 >
-  <section class="bg-dusk-950">
-    <figure class="mx-auto flex min-h-[calc(100dvh-3.5rem)] max-w-6xl items-center justify-center px-0 py-0 sm:px-4 sm:py-6">
+  <section class="bg-dusk-950 px-3 py-6 sm:px-6 sm:py-10">
+    <figure class="mx-auto max-w-3xl">
       <picture class="block w-full">
         <source
           media="(max-width: 767px)"
@@ -19,7 +19,7 @@ import { withBase } from '../lib/site';
         <img
           src={withBase('assets/jenny-meet.jpg')}
           alt="Jenny — white third-gen Camaro at a meet"
-          class="block h-[calc(100dvh-3.5rem)] w-full object-cover object-[70%_center] sm:h-auto sm:max-h-[calc(100dvh-5rem)] sm:rounded-lg sm:object-contain"
+          class="mx-auto block h-auto w-full max-w-full rounded-md object-contain"
           width="1600"
           height="1200"
           loading="eager"
