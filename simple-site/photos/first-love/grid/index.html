@@ -179,41 +179,63 @@
 </head>
 <body>
   <header>
-    <a href="../../">
-      <img class="logo" src="../../assets/logo.png?v=2" alt="Jenny Camaro" width="600" height="259" />
+    <a href="../../../">
+      <img class="logo" src="../../../assets/logo.png?v=2" alt="Jenny Camaro" width="600" height="259" />
     </a>
   </header>
   <main>
 <nav class="cats" aria-label="Categories">
-      <a href="../../">Home</a>
-      <a href="../../about/">About</a>
-      <a href="../../logs/">Logs</a>
-      <a href="../../photos/">Photos</a>
-      <a href="../../projects/">Projects</a>
-      <a href="../../camaro/">Camaro</a>
-      <a href="../../videos/">Videos</a>
-      <a href="../../links/">Links</a>
+      <a href="../../../">Home</a>
+      <a href="../../../about/">About</a>
+      <a href="../../../logs/">Logs</a>
+      <a href="../../../photos/">Photos</a>
+      <a href="../../../projects/">Projects</a>
+      <a href="../../../camaro/">Camaro</a>
+      <a href="../../../videos/">Videos</a>
+      <a href="../../../links/">Links</a>
     </nav>
-    <div class="album">
-      <a class="back" href="../">← Photos</a>
+    <div class="grid-wrap">
+      <a class="back" href="../">← Album</a>
       <p class="blurb">So this was his first love, an 83 Z-28. I don't know what he saw in her.</p>
-      <a class="slideshow-link" href="grid/" aria-label="Open all photos">
-        <img
-          class="photo"
-          src="../../assets/photos/first-love/03.jpg?v=1"
-          alt="83 Z-28"
-          width="1400"
-          height="947"
-        />
-        <div class="thumbs">
-        <span class="thumb is-active" aria-hidden="true"><img src="../../assets/photos/first-love/03.jpg?v=1" alt="" loading="lazy" /></span>
-        <span class="thumb" aria-hidden="true"><img src="../../assets/photos/first-love/01.jpg?v=1" alt="" loading="lazy" /></span>
-        <span class="thumb" aria-hidden="true"><img src="../../assets/photos/first-love/02.jpg?v=1" alt="" loading="lazy" /></span>
-        <span class="thumb" aria-hidden="true"><img src="../../assets/photos/first-love/04.jpg?v=1" alt="" loading="lazy" /></span>
-        <span class="thumb" aria-hidden="true"><img src="../../assets/photos/first-love/05.jpg?v=1" alt="" loading="lazy" /></span>
-        </div>
+      <div class="photo-grid">
+      <a href="../../assets/photos/first-love/03.jpg?v=1" class="zoomable" data-full="../../assets/photos/first-love/03.jpg?v=1">
+        <img src="../../assets/photos/first-love/03.jpg?v=1" alt="83 Z-28 front" loading="lazy" width="1400" height="950" />
       </a>
+      <a href="../../assets/photos/first-love/01.jpg?v=1" class="zoomable" data-full="../../assets/photos/first-love/01.jpg?v=1">
+        <img src="../../assets/photos/first-love/01.jpg?v=1" alt="On the hood with the plates" loading="lazy" width="1400" height="950" />
+      </a>
+      <a href="../../assets/photos/first-love/02.jpg?v=1" class="zoomable" data-full="../../assets/photos/first-love/02.jpg?v=1">
+        <img src="../../assets/photos/first-love/02.jpg?v=1" alt="Putting on the rear plate" loading="lazy" width="1400" height="950" />
+      </a>
+      <a href="../../assets/photos/first-love/04.jpg?v=1" class="zoomable" data-full="../../assets/photos/first-love/04.jpg?v=1">
+        <img src="../../assets/photos/first-love/04.jpg?v=1" alt="Interior with T-tops off" loading="lazy" width="1400" height="950" />
+      </a>
+      <a href="../../assets/photos/first-love/05.jpg?v=1" class="zoomable" data-full="../../assets/photos/first-love/05.jpg?v=1">
+        <img src="../../assets/photos/first-love/05.jpg?v=1" alt="Rear Z28" loading="lazy" width="1400" height="950" />
+      </a>
+      </div>
     </div>
   </main>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      document.querySelectorAll('.zoomable').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          img.src = el.getAttribute('data-full') || el.getAttribute('href');
+          img.alt = (el.querySelector('img') && el.querySelector('img').alt) || '';
+          box.classList.add('is-open');
+        });
+      });
+      box.addEventListener('click', function () {
+        box.classList.remove('is-open');
+        img.src = '';
+      });
+    })();
+  </script>
 </body>
 </html>
