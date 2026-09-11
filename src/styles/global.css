@@ -73,3 +73,27 @@ body {
 .nav-link-active {
   @apply bg-dusk-700 text-sunset-300;
 }
+
+/* Keep hero photo from dominating / overflowing phones */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+img.jenny-photo {
+  display: block;
+  width: auto;
+  max-width: min(100%, 22rem);
+  max-height: 45vh;
+  height: auto;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  img.jenny-photo {
+    max-width: min(100%, 48rem);
+    max-height: 70vh;
+  }
+}
