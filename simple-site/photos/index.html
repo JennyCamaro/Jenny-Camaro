@@ -74,17 +74,17 @@
       padding: 0;
       border: 1px solid transparent;
       border-radius: 4px;
-      background: transparent;
+      background: #1a1220;
       line-height: 0;
       overflow: hidden;
     }
+    .thumb.is-active { border-color: #f48c06; }
     .thumb img {
       display: block;
       width: 56px;
       height: 56px;
       object-fit: cover;
     }
-    .thumb.is-active { border-color: #f48c06; }
     .blurb {
       max-width: 360px;
       margin: 0 auto 14px;
@@ -94,7 +94,7 @@
       line-height: 1.45;
       text-align: center;
     }
-    .page h1, .album h1 {
+    .page h1 {
       color: #fff4e6;
       font-size: 22px;
       font-weight: 600;
@@ -110,13 +110,7 @@
       text-underline-offset: 3px;
       font-size: 15px;
     }
-    a.cover-link { display: inline-block; line-height: 0; }
-    a.blurb-link {
-      color: #fff4e6;
-      text-decoration: none;
-    }
-    a.blurb-link:hover { text-decoration: underline; text-underline-offset: 4px; }
-    a.slideshow-link {
+    a.album-link {
       display: block;
       max-width: 360px;
       margin: 0 auto;
@@ -124,10 +118,13 @@
       text-decoration: none;
       cursor: pointer;
     }
-    a.slideshow-link:focus-visible {
+    a.album-link:focus-visible {
       outline: 2px solid #f48c06;
       outline-offset: 6px;
       border-radius: 8px;
+    }
+    a.album-link .blurb {
+      margin-bottom: 14px;
     }
     .grid-wrap {
       max-width: 720px;
@@ -136,16 +133,20 @@
     }
     .photo-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 8px;
       margin: 12px auto 0;
     }
-    .photo-grid a {
+    .photo-grid button {
       display: block;
-      line-height: 0;
+      width: 100%;
+      padding: 0;
+      border: 0;
       border-radius: 6px;
       overflow: hidden;
       background: #1a1220;
+      cursor: zoom-in;
+      line-height: 0;
     }
     .photo-grid img {
       display: block;
@@ -159,8 +160,8 @@
       position: fixed;
       inset: 0;
       z-index: 1000;
-      background: rgba(0,0,0,0.92);
-      padding: 16px;
+      background: rgba(0,0,0,0.96);
+      padding: 0;
       box-sizing: border-box;
       align-items: center;
       justify-content: center;
@@ -173,7 +174,6 @@
       width: auto;
       height: auto;
       object-fit: contain;
-      border-radius: 4px;
       cursor: default;
     }
 </style>
@@ -197,10 +197,8 @@
     </nav>
     <div class="page">
       <h1>Photos</h1>
-      <p class="blurb">
-        <a class="blurb-link" href="/Jenny-Camaro/photos/first-love/">So this was his first love, an 83 Z-28. I don't know what he saw in her.</a>
-      </p>
-      <a class="cover-link" href="/Jenny-Camaro/photos/first-love/">
+      <a class="album-link" href="/Jenny-Camaro/photos/first-love/" aria-label="Open 83 Z-28 photos">
+        <p class="blurb">So this was his first love, an 83 Z-28. I don't know what he saw in her.</p>
         <img
           class="photo"
           src="/Jenny-Camaro/assets/photos/first-love/03.jpg?v=2"
@@ -208,6 +206,13 @@
           width="1400"
           height="947"
         />
+        <div class="thumbs">
+        <span class="thumb is-active" aria-hidden="true"><img src="/Jenny-Camaro/assets/photos/first-love/tiles/03.jpg?v=1" alt="" width="480" height="480" /></span>
+        <span class="thumb" aria-hidden="true"><img src="/Jenny-Camaro/assets/photos/first-love/tiles/01.jpg?v=1" alt="" width="480" height="480" /></span>
+        <span class="thumb" aria-hidden="true"><img src="/Jenny-Camaro/assets/photos/first-love/tiles/02.jpg?v=1" alt="" width="480" height="480" /></span>
+        <span class="thumb" aria-hidden="true"><img src="/Jenny-Camaro/assets/photos/first-love/tiles/04.jpg?v=1" alt="" width="480" height="480" /></span>
+        <span class="thumb" aria-hidden="true"><img src="/Jenny-Camaro/assets/photos/first-love/tiles/05.jpg?v=1" alt="" width="480" height="480" /></span>
+        </div>
       </a>
     </div>
   </main>
