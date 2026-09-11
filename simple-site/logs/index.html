@@ -197,6 +197,22 @@
       border-radius: 8px;
       cursor: zoom-in;
     }
+
+    .log-pair {
+      clear: both;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 0.75rem 0 0;
+      max-width: 720px;
+    }
+    .log-pair img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      cursor: zoom-in;
+    }
     .lightbox {
       display: none;
       position: fixed;
@@ -296,24 +312,26 @@
       </article>
       <article class="log-entry" id="2025-04-22">
         <time class="log-date" datetime="2025-04-22">April 22, 2025</time>
-        <img
-          class="log-photo zoomable"
-          src="../assets/logs/2025-04-22-01.jpg?v=1"
-          data-full="../assets/logs/2025-04-22-01.jpg?v=1"
-          alt="Jenny's front seats — tap to enlarge"
-          width="1400"
-          height="1050"
-        />
-        <img
-          class="log-photo right zoomable"
-          src="../assets/logs/2025-04-22-02.jpg?v=1"
-          data-full="../assets/logs/2025-04-22-02.jpg?v=1"
-          alt="Jenny's rear seats — tap to enlarge"
-          width="1400"
-          height="1050"
-        />
         <div class="log-copy">
           <p>Don't hate me because I'm beautiful. Yeah, the seats get a lot of attention. I believe this was 83-84 only, and it's called charcoal / burnt orange-red, delightful...</p>
+        </div>
+        <div class="log-pair">
+          <img
+            class="zoomable"
+            src="../assets/logs/2025-04-22-01.jpg?v=1"
+            data-full="../assets/logs/2025-04-22-01.jpg?v=1"
+            alt="Jenny's front seats — tap to enlarge"
+            width="1400"
+            height="1050"
+          />
+          <img
+            class="zoomable"
+            src="../assets/logs/2025-04-22-02.jpg?v=1"
+            data-full="../assets/logs/2025-04-22-02.jpg?v=1"
+            alt="Jenny's rear seats — tap to enlarge"
+            width="1400"
+            height="1050"
+          />
         </div>
       </article>
     </div>
