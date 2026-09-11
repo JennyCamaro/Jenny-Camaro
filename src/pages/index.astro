@@ -8,16 +8,25 @@ import { withBase } from '../lib/site';
   description="Jenny — white third-gen Camaro."
   ogImage="assets/jenny-meet.jpg"
 >
-  <section class="min-h-[calc(100vh-4rem)] bg-dusk-950">
-    <figure class="mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl items-center px-2 py-4 sm:px-4 sm:py-6">
-      <img
-        src={withBase('assets/jenny-meet.jpg')}
-        alt="Jenny — white third-gen Camaro at a meet"
-        class="w-full rounded-lg object-contain shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
-        width="2400"
-        height="1800"
-        loading="eager"
-      />
+  <section class="bg-dusk-950">
+    <figure class="mx-auto flex min-h-[calc(100dvh-3.5rem)] max-w-6xl items-center justify-center px-0 py-0 sm:px-4 sm:py-6">
+      <picture class="block w-full">
+        <source
+          media="(max-width: 767px)"
+          srcset={withBase('assets/jenny-meet-mobile.jpg')}
+          type="image/jpeg"
+        />
+        <img
+          src={withBase('assets/jenny-meet.jpg')}
+          alt="Jenny — white third-gen Camaro at a meet"
+          class="block h-[calc(100dvh-3.5rem)] w-full object-cover object-[70%_center] sm:h-auto sm:max-h-[calc(100dvh-5rem)] sm:rounded-lg sm:object-contain"
+          width="1600"
+          height="1200"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </picture>
     </figure>
   </section>
 </Layout>
