@@ -142,7 +142,7 @@
     .about-wrap {
       max-width: 720px;
       margin: 0 auto;
-      padding: 0 12px 24px;
+      padding: 0 12px 32px;
       text-align: left;
       overflow: auto;
     }
@@ -156,15 +156,32 @@
       display: block;
       cursor: zoom-in;
     }
+    .about-photo.right {
+      float: right;
+      margin: 0 0 10px 14px;
+    }
     .about-copy {
       color: #fff4e6;
       font-size: 15px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     .about-copy p {
-      margin: 0 0 0.9em;
+      margin: 0 0 0.95em;
     }
     .about-copy p:last-child { margin-bottom: 0; }
+    .about-break {
+      clear: both;
+      height: 1.25rem;
+    }
+    .about-chapter {
+      clear: both;
+      color: #fff4e6;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin: 0.4em 0 0.85em;
+      line-height: 1.2;
+    }
     .lightbox {
       display: none;
       position: fixed;
@@ -175,6 +192,7 @@
       box-sizing: border-box;
       align-items: center;
       justify-content: center;
+      cursor: zoom-out;
     }
     .lightbox.is-open { display: flex; }
     .lightbox img {
@@ -197,6 +215,7 @@
     <nav class="cats" aria-label="Categories">
       <a href="../">Home</a>
       <a href="../about/">About</a>
+      <a href="../logs/">Logs</a>
       <a href="../photos/">Photos</a>
       <a href="../projects/">Projects</a>
       <a href="../camaro/">Camaro</a>
@@ -205,30 +224,52 @@
     </nav>
     <div class="about-wrap">
       <img
-        class="about-photo"
-        id="about-photo"
+        class="about-photo zoomable"
         src="../assets/about-jenny.jpg?v=4"
+        data-full="../assets/about-jenny.jpg?v=4"
         alt="Jenny winning the '84 Camaro — tap to enlarge"
         width="1320"
         height="1468"
       />
       <div class="about-copy">
-        <p>Well, let's start at the beginning. I mean, I've been around for a while, but nobody thought to call me Jenny until now. Who was Jenny? She was a sweet lady, but she really didn't drive me very much, and she didn't know that I needed things. It's also quite apparent that other people have gotten their hands on me that I have no idea what they're doing, wires that don't belong here, dirty filters there.</p>
+        <p>Well, let's start at the beginning. I mean, I've been around for a while, but nobody thought to call me Jenny until now. Jenny was a sweet lady that won me in a radio contest, yeah no joke. Unfortunately she didn't drive me much, and when she did, it was slow and deliberate. I couldn't really crack my knuckles… at least she had the good sense to park me in a garage.</p>
+        <p>She wasn't a mechanic, so she couldn't know that the fuel pump was dying, the carburetor was leaking internally, or that the filters were pretty clogged. No idea about the timing, the plugs, or that the aftermarket radio was the reason my tail light didn't work. All of this, and more, needed attention and that's where the idiot comes in.</p>
+      </div>
+
+      <div class="about-break"></div>
+      <p class="about-chapter">The idiot.</p>
+
+      <img
+        class="about-photo right zoomable"
+        src="../assets/about-idiot.jpg?v=1"
+        data-full="../assets/about-idiot.jpg?v=1"
+        alt="The idiot — tap to enlarge"
+        width="1173"
+        height="975"
+      />
+      <div class="about-copy">
+        <p>So this guy shows up one day and suddenly I'm on a flatbed. I had no idea what to expect, but try to stay cautiously optimistic. Turns out he's gonna deal with this stuff. Sure, he's gonna fumble, whine, bitch, and otherwise act like a suck, but he gets it done. After the third attempt, many screw ups, and when he's finally mad and lost the will to live, things work out.</p>
+        <p>Stay tuned and we can laugh at him together… Jenny</p>
       </div>
     </div>
   </main>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
-    <img src="../assets/about-jenny.jpg?v=4" alt="Jenny winning the '84 Camaro" />
+    <img id="lightbox-img" src="" alt="" />
   </div>
   <script>
     (function () {
-      var photo = document.getElementById('about-photo');
       var box = document.getElementById('lightbox');
-      photo.addEventListener('click', function () {
-        box.classList.add('is-open');
+      var img = document.getElementById('lightbox-img');
+      document.querySelectorAll('.zoomable').forEach(function (el) {
+        el.addEventListener('click', function () {
+          img.src = el.getAttribute('data-full') || el.src;
+          img.alt = el.alt || '';
+          box.classList.add('is-open');
+        });
       });
       box.addEventListener('click', function () {
         box.classList.remove('is-open');
+        img.src = '';
       });
     })();
   </script>
