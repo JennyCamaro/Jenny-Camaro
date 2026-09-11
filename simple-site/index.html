@@ -27,8 +27,30 @@
       margin: 0 auto;
     }
     main {
-      padding: 12px 16px 40px;
+      padding: 8px 16px 40px;
       text-align: center;
+    }
+    nav.cats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 0.9rem;
+      margin: 12px auto 16px;
+      padding: 0 8px;
+      max-width: 360px;
+    }
+    nav.cats a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    nav.cats a:hover,
+    nav.cats a:focus {
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
     .photo {
       display: block;
@@ -62,9 +84,7 @@
       height: 56px;
       object-fit: cover;
     }
-    .thumb.is-active {
-      border-color: #f48c06;
-    }
+    .thumb.is-active { border-color: #f48c06; }
     .bio {
       max-width: 360px;
       margin: 36px auto 0;
@@ -74,31 +94,51 @@
       line-height: 1.45;
       text-align: center;
     }
-    nav.cats {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: center;
-      gap: 0.85rem;
-      margin: 36px auto 0;
-      padding: 0 8px;
+    .page {
       max-width: 360px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+      margin: 0 auto;
+      text-align: left;
+      color: #d9c7b0;
+      font-size: 15px;
+      line-height: 1.5;
     }
-    nav.cats a {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      white-space: nowrap;
+    .page h1 {
+      color: #fff4e6;
+      font-size: 22px;
+      font-weight: 600;
+      margin: 8px 0 12px;
+      text-align: center;
     }
-    nav.cats a:hover,
-    nav.cats a:focus {
+    .embed {
+      position: relative;
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto 12px;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #1a0f24;
+    }
+    .embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .vid-cap {
+      margin: 10px 0 0;
+      text-align: center;
+      color: #fff4e6;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    .page a.ext {
+      color: #f48c06;
       text-decoration: underline;
-      text-underline-offset: 4px;
+      text-underline-offset: 3px;
     }
-  </style>
+</style>
 </head>
 <body>
   <header>
@@ -107,6 +147,15 @@
     </a>
   </header>
   <main>
+    <nav class="cats" aria-label="Categories">
+      <a href="./" id="home-link">Home</a>
+      <a href="./about/">About</a>
+      <a href="./photos/">Photos</a>
+      <a href="./projects/">Projects</a>
+      <a href="./camaro/">Camaro</a>
+      <a href="./videos/">Videos</a>
+      <a href="./links/">Links</a>
+    </nav>
     <img
       id="hero"
       class="photo"
@@ -118,7 +167,7 @@
     <div class="thumbs" id="thumbs">
       <button type="button" class="thumb" data-full="./assets/gallery/01.jpg" aria-label="Photo 1"><img src="./assets/gallery/01.jpg" alt="" loading="lazy" /></button>
       <button type="button" class="thumb" data-full="./assets/gallery/02.jpg" aria-label="Photo 2"><img src="./assets/gallery/02.jpg" alt="" loading="lazy" /></button>
-      <button type="button" class="thumb" data-full="./assets/gallery/03.jpg?v=3" aria-label="Photo 3"><img src="./assets/gallery/03.jpg?v=3" alt="" loading="lazy" /></button>
+      <button type="button" class="thumb" data-full="./assets/gallery/03.jpg" aria-label="Photo 3"><img src="./assets/gallery/03.jpg" alt="" loading="lazy" /></button>
       <button type="button" class="thumb" data-full="./assets/gallery/04.jpg" aria-label="Photo 4"><img src="./assets/gallery/04.jpg" alt="" loading="lazy" /></button>
       <button type="button" class="thumb" data-full="./assets/gallery/05.jpg" aria-label="Photo 5"><img src="./assets/gallery/05.jpg" alt="" loading="lazy" /></button>
       <button type="button" class="thumb" data-full="./assets/gallery/06.jpg" aria-label="Photo 6"><img src="./assets/gallery/06.jpg" alt="" loading="lazy" /></button>
@@ -126,51 +175,31 @@
       <button type="button" class="thumb" data-full="./assets/gallery/08.jpg" aria-label="Photo 8"><img src="./assets/gallery/08.jpg" alt="" loading="lazy" /></button>
     </div>
     <p class="bio">Hi, I'm Jenny. I may be over 40, but I don't really look my age. Mostly stock, 305 700R4</p>
-    <nav class="cats" aria-label="Categories">
-      <a href="./" id="home-link">Home</a>
-      <a href="./about/">About</a>
-      <a href="./photos/">Photos</a>
-      <a href="./projects/">Projects</a>
-      <a href="./camaro/">Camaro</a>
-      <a href="./links/">Links</a>
-    </nav>
   </main>
   <script>
     (function () {
       var DEFAULT = './assets/gallery/01.jpg';
       var hero = document.getElementById('hero');
       var thumbs = document.getElementById('thumbs');
-
       function setHero(src, btn) {
         hero.src = src;
         thumbs.querySelectorAll('.thumb').forEach(function (b) {
           b.classList.toggle('is-active', b === btn);
         });
       }
-
       thumbs.addEventListener('click', function (e) {
         var btn = e.target.closest('.thumb');
         if (!btn) return;
         setHero(btn.getAttribute('data-full'), btn);
       });
-
       function goHome(e) {
-        // If already on home, reset hero instead of full reload feel
-        if (location.pathname.replace(/\/+$/, '').endsWith('Jenny-Camaro') ||
-            location.pathname.endsWith('/') ||
-            /index\.html$/.test(location.pathname)) {
-          // always reset when Home / logo clicked on this page
-          e.preventDefault();
-          var first = thumbs.querySelector('.thumb');
-          setHero(DEFAULT, first);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        e.preventDefault();
+        var first = thumbs.querySelector('.thumb');
+        setHero(DEFAULT, first);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-
       document.getElementById('home-link').addEventListener('click', goHome);
       document.getElementById('home-logo').addEventListener('click', goHome);
-
-      // mark first active
       var first = thumbs.querySelector('.thumb');
       if (first) first.classList.add('is-active');
     })();
