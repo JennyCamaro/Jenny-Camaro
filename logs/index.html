@@ -138,6 +138,75 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
+
+    .logs-stream {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 12px 40px;
+      text-align: left;
+    }
+    .log-entry {
+      margin: 0 0 2.5rem;
+      overflow: auto;
+    }
+    .log-date {
+      display: block;
+      color: #fff4e6;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      margin: 0 0 1rem;
+      padding: 0;
+    }
+    .log-photo {
+      float: left;
+      width: 48%;
+      max-width: 280px;
+      height: auto;
+      margin: 0 14px 10px 0;
+      border-radius: 6px;
+      display: block;
+      cursor: zoom-in;
+    }
+    .log-photo.right {
+      float: right;
+      margin: 0 0 10px 14px;
+    }
+    .log-copy {
+      color: #fff4e6;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .log-copy p {
+      margin: 0 0 0.95em;
+    }
+    .log-copy p:last-child { margin-bottom: 0; }
+    .log-clear {
+      clear: both;
+      height: 0.75rem;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.92);
+      padding: 16px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.is-open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+    }
 </style>
 </head>
 <body>
@@ -157,10 +226,55 @@
       <a href="../videos/">Videos</a>
       <a href="../links/">Links</a>
     </nav>
-    <div class="page">
-      <h1>Logs</h1>
-      <p>Coming soon — ownership log entries.</p>
+    <div class="logs-stream">
+      <article class="log-entry" id="2025-08-10">
+        <time class="log-date" datetime="2025-08-10">August 10, 2025</time>
+        <img
+          class="log-photo zoomable"
+          src="../assets/logs/2025-08-10-01.jpg?v=1"
+          data-full="../assets/logs/2025-08-10-01.jpg?v=1"
+          alt="Jenny on a flatbed — tap to enlarge"
+          width="1400"
+          height="1050"
+        />
+        <div class="log-copy">
+          <p>It's like I said, some guy shows up and now I'm on a flatbed, very embarrassing I might add. Such a long drive, now I'm stuck in some busy area. I don't know what's gonna happen next, cautiously optimistic remember...</p>
+          <p>People were pointing at me while I was on the flatbed, I figure they're laughing at my predicament. I drove onto this flatbed under my own power I'll have you know, so stick it...</p>
+        </div>
+        <div class="log-clear"></div>
+        <img
+          class="log-photo right zoomable"
+          src="../assets/logs/2025-08-10-02.jpg?v=1"
+          data-full="../assets/logs/2025-08-10-02.jpg?v=1"
+          alt="Jenny on the flatbed in a parking lot — tap to enlarge"
+          width="1400"
+          height="1050"
+        />
+        <div class="log-copy">
+          <p>I find myself in a scary parking structure with a bunch of other cars. I'm not used to this, I want my garage back. This is the kind of place you get murdered, and it smells like trash. I'm afraid this isn't a very good start. Maybe it's temporary, if I had fingers I'd cross them...</p>
+        </div>
+      </article>
     </div>
   </main>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      document.querySelectorAll('.zoomable').forEach(function (el) {
+        el.addEventListener('click', function () {
+          img.src = el.getAttribute('data-full') || el.src;
+          img.alt = el.alt || '';
+          box.classList.add('is-open');
+        });
+      });
+      box.addEventListener('click', function () {
+        box.classList.remove('is-open');
+        img.src = '';
+      });
+    })();
+  </script>
 </body>
 </html>
