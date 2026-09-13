@@ -77,22 +77,59 @@
       text-underline-offset: 3px;
       font-size: 15px;
     }
-    .page p {
-      margin: 0 0 1rem;
+    .copy {
+      max-width: 560px;
+      margin: 0 auto 1.25rem;
       padding: 0 8px;
     }
-    .page img {
-      display: block;
-      width: 100%;
-      max-width: 720px;
-      height: auto;
-      margin: 0 auto 12px;
-      border-radius: 8px;
+    .copy p {
+      margin: 0 0 1rem;
     }
+    .copy p:last-child { margin-bottom: 0; }
     .ext {
       color: #6eb6ff;
       text-decoration: underline;
       text-underline-offset: 3px;
+    }
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 0 0 12px;
+      max-width: 720px;
+    }
+    .pair img,
+    .shot {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      cursor: zoom-in;
+    }
+    .shot {
+      margin: 0 auto 12px;
+      max-width: 720px;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.94);
+      padding: 16px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.is-open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
     }
   </style>
 </head>
@@ -116,8 +153,41 @@
     <div class="page">
       <a class="back" href="../">← Projects</a>
       <h1>Seat Belt Latches</h1>
-      <p>Photos, a YouTube link, and writeup coming — drop them here when you’re ready.</p>
+      <div class="copy">
+        <p>I have it on good authority that 40 years of heat cycles, moisture, sunlight, and plain old use can really destroy a plastic seatbelt. Feel free to ignore the check engine light, or that rattling noise, but the seatbelt can save your life.</p>
+        <p>It's not that hard to do either, all it takes is a simple butter knife, and extraordinary patience. As they say, it's all in the wrist. Hawks can set you up with a kit, <a class="ext" href="https://www.hawksmotorsports.com/1983-1992-camaro-firebird-seat-belt-receiver-push-button-repair-kit-new-reproduction-hawks-restoration-parts-set-of-4/?searchid=2880893&search_query=Seat+belt+repair+kit" target="_blank" rel="noopener noreferrer">see link</a>.</p>
+        <p>Check out this video for full instructions.</p>
+      </div>
+      <div class="pair">
+        <img class="zoomable" src="../../assets/projects/seat-belt-latches/01.jpg?v=2" data-full="../../assets/projects/seat-belt-latches/01.jpg?v=2" alt="Worn seatbelt latch before repair" width="1742" height="1320" />
+        <img class="zoomable" src="../../assets/projects/seat-belt-latches/03.jpg?v=2" data-full="../../assets/projects/seat-belt-latches/03.jpg?v=2" alt="Restored seatbelt latch after repair" width="1752" height="1320" />
+      </div>
+      <img class="shot zoomable" src="../../assets/projects/seat-belt-latches/02.jpg?v=2" data-full="../../assets/projects/seat-belt-latches/02.jpg?v=2" alt="Hawks Motorsports seatbelt repair kit" width="1320" height="1762" />
+      <img class="shot zoomable" src="../../assets/projects/seat-belt-latches/04.jpg?v=2" data-full="../../assets/projects/seat-belt-latches/04.jpg?v=2" alt="Seatbelt latch installed beside Camaro seat" width="1600" height="1200" />
+      <p class="copy" style="text-align:center; margin-top:0.5rem;">
+        <a class="ext" href="https://www.hawksmotorsports.com/1983-1992-camaro-firebird-seat-belt-receiver-push-button-repair-kit-new-reproduction-hawks-restoration-parts-set-of-4/?searchid=2880893&search_query=Seat+belt+repair+kit" target="_blank" rel="noopener noreferrer">www.hawksmotorsports.com</a>
+      </p>
     </div>
   </main>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      document.querySelectorAll('.zoomable').forEach(function (el) {
+        el.addEventListener('click', function () {
+          img.src = el.getAttribute('data-full') || el.src;
+          img.alt = el.alt || '';
+          box.classList.add('is-open');
+        });
+      });
+      box.addEventListener('click', function () {
+        box.classList.remove('is-open');
+        img.src = '';
+      });
+    })();
+  </script>
 </body>
 </html>
