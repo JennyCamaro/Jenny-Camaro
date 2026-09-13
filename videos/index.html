@@ -17,24 +17,46 @@
     nav.cats a:hover, nav.cats a:focus { text-decoration:underline; text-underline-offset:4px; }
     .page { max-width:360px; margin:0 auto; text-align:left; color:#d9c7b0; font-size:15px; line-height:1.5; }
     .page h1 { color:#fff4e6; font-size:22px; font-weight:600; margin:8px 0 16px; text-align:center; }
-    .vid-entry { margin:0 0 1.75rem; }
-    .vid-date { display:block; color:#fff4e6; font-size:26px; font-weight:800; letter-spacing:0.02em; line-height:1.2; margin:0 0 0.75rem; padding:0; }
-    .vid-row { display:flex; align-items:center; gap:16px; max-width:360px; margin:0; padding:0 4px; text-align:left; text-decoration:none; color:inherit; }
-    .vid-thumb { flex:0 0 107px; width:107px; height:107px; border-radius:8px; object-fit:cover; display:block; background:#1a1220; }
-    .vid-blurb { color:#fff4e6; font-size:19px; font-weight:700; letter-spacing:0.01em; line-height:1.25; }
-    .vid-row:hover .vid-blurb, .vid-row:focus .vid-blurb { text-decoration:underline; text-underline-offset:5px; color:#fff; }
-    .back { display:block; text-align:center; margin:0 0 12px; color:#f48c06; text-decoration:underline; text-underline-offset:3px; font-size:15px; }
-    .player { width:100%; max-width:360px; margin:0 auto; border-radius:8px; overflow:hidden; background:#1a0f24; line-height:0; }
+    .vid-entry { margin:0 0 2rem; }
+    .vid-date {
+      display:block;
+      color:#fff4e6;
+      font-size:26px;
+      font-weight:800;
+      letter-spacing:0.02em;
+      line-height:1.2;
+      text-align:center;
+      margin:0 0 0.75rem;
+      padding:0;
+    }
+    .player {
+      width:100%;
+      max-width:360px;
+      margin:0 auto;
+      border-radius:8px;
+      overflow:hidden;
+      background:#1a0f24;
+      line-height:0;
+    }
     .player video { display:block; width:100%; height:auto; }
-    .watch-copy { max-width:360px; margin:14px auto 0; padding:0 8px; color:#fff4e6; font-size:16px; line-height:1.45; text-align:center; }
-</style>
+    .vid-blurb {
+      display:block;
+      margin:12px 4px 0;
+      color:#fff4e6;
+      font-size:19px;
+      font-weight:700;
+      letter-spacing:0.01em;
+      line-height:1.25;
+      text-align:center;
+    }
+  </style>
 </head>
 <body>
   <header>
     <a href="/Jenny-Camaro/"><img class="logo" src="/Jenny-Camaro/assets/logo.png?v=2" alt="Jenny Camaro" width="600" height="259" /></a>
   </header>
   <main>
-<nav class="cats" aria-label="Categories">
+    <nav class="cats" aria-label="Categories">
       <a href="/Jenny-Camaro/">Home</a>
       <a href="/Jenny-Camaro/about/">About</a>
       <a href="/Jenny-Camaro/logs/">Logs</a>
@@ -46,12 +68,20 @@
     </nav>
     <div class="page">
       <h1>Videos</h1>
-      <article class="vid-entry">
+      <article class="vid-entry" id="2026-09-07">
         <time class="vid-date" datetime="2026-09-07">September 07, 2026</time>
-        <a class="vid-row" href="/Jenny-Camaro/videos/2026-09-07/">
-          <img class="vid-thumb" src="/Jenny-Camaro/assets/videos/2026-09-07/thumb.jpg?v=1" alt="September 7 video" width="400" height="400" />
-          <span class="vid-blurb">Oh boy, oh boy, don't I look all fancy.</span>
-        </a>
+        <div class="player">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster="/Jenny-Camaro/assets/videos/2026-09-07/poster.jpg?v=1"
+            src="/Jenny-Camaro/assets/videos/preview.mp4"
+          >
+            Sorry, your browser can’t play this clip.
+          </video>
+        </div>
+        <p class="vid-blurb">Oh boy, oh boy, don't I look all fancy.</p>
       </article>
     </div>
   </main>
