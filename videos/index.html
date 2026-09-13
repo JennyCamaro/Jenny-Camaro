@@ -17,7 +17,7 @@
     nav.cats a:hover, nav.cats a:focus { text-decoration:underline; text-underline-offset:4px; }
     .page { max-width:360px; margin:0 auto; text-align:left; color:#d9c7b0; font-size:15px; line-height:1.5; }
     .page h1 { color:#fff4e6; font-size:22px; font-weight:600; margin:8px 0 16px; text-align:center; }
-    .vid-entry { margin:0 0 2rem; }
+    .vid-entry { margin:0 0 1.75rem; }
     .vid-date {
       display:block;
       color:#fff4e6;
@@ -29,25 +29,82 @@
       margin:0 0 0.75rem;
       padding:0;
     }
-    .player {
-      width:100%;
+    .vid-row {
+      display:flex;
+      align-items:center;
+      gap:16px;
       max-width:360px;
-      margin:0 auto;
+      margin:0;
+      padding:0 4px;
+      text-align:left;
+      color:inherit;
+    }
+    .vid-thumb-btn {
+      flex:0 0 107px;
+      width:107px;
+      height:107px;
+      padding:0;
+      border:0;
       border-radius:8px;
       overflow:hidden;
-      background:#1a0f24;
+      background:#1a1220;
+      cursor:pointer;
       line-height:0;
     }
-    .player video { display:block; width:100%; height:auto; }
-    .vid-blurb {
+    .vid-thumb-btn:focus-visible {
+      outline:2px solid #f48c06;
+      outline-offset:3px;
+    }
+    .vid-thumb {
       display:block;
-      margin:12px 4px 0;
+      width:107px;
+      height:107px;
+      object-fit:cover;
+    }
+    .vid-blurb {
       color:#fff4e6;
       font-size:19px;
       font-weight:700;
       letter-spacing:0.01em;
       line-height:1.25;
-      text-align:center;
+    }
+    .vid-lightbox {
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:1000;
+      background:rgba(0,0,0,0.94);
+      padding:16px;
+      box-sizing:border-box;
+      align-items:center;
+      justify-content:center;
+    }
+    .vid-lightbox.is-open { display:flex; }
+    .vid-lightbox-inner {
+      width:min(960px, 100%);
+      max-height:100%;
+      line-height:0;
+    }
+    .vid-lightbox video {
+      display:block;
+      width:100%;
+      max-height:calc(100vh - 32px);
+      height:auto;
+      background:#000;
+      border-radius:8px;
+    }
+    .vid-lightbox-close {
+      position:absolute;
+      top:12px;
+      right:14px;
+      z-index:1001;
+      border:0;
+      background:transparent;
+      color:#fff4e6;
+      font-size:28px;
+      line-height:1;
+      cursor:pointer;
+      padding:4px 8px;
     }
   </style>
 </head>
@@ -70,20 +127,75 @@
       <h1>Videos</h1>
       <article class="vid-entry" id="2026-09-07">
         <time class="vid-date" datetime="2026-09-07">September 07, 2026</time>
-        <div class="player">
-          <video
-            controls
-            playsinline
-            preload="metadata"
-            poster="/Jenny-Camaro/assets/videos/2026-09-07/poster.jpg?v=1"
-            src="/Jenny-Camaro/assets/videos/preview.mp4"
+        <div class="vid-row">
+          <button
+            class="vid-thumb-btn"
+            type="button"
+            data-video-src="/Jenny-Camaro/assets/videos/preview.mp4"
+            data-video-poster="/Jenny-Camaro/assets/videos/2026-09-07/poster.jpg?v=1"
+            aria-label="Play September 7 video"
           >
-            Sorry, your browser can’t play this clip.
-          </video>
+            <img
+              class="vid-thumb"
+              src="/Jenny-Camaro/assets/videos/2026-09-07/thumb.jpg?v=1"
+              alt=""
+              width="400"
+              height="400"
+            />
+          </button>
+          <span class="vid-blurb">Oh boy, oh boy, don't I look all fancy.</span>
         </div>
-        <p class="vid-blurb">Oh boy, oh boy, don't I look all fancy.</p>
       </article>
     </div>
   </main>
+  <div class="vid-lightbox" id="vid-lightbox" role="dialog" aria-modal="true" aria-label="Video player" hidden>
+    <button class="vid-lightbox-close" type="button" id="vid-lightbox-close" aria-label="Close video">&times;</button>
+    <div class="vid-lightbox-inner">
+      <video id="vid-lightbox-video" controls playsinline preload="metadata"></video>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById('vid-lightbox');
+      var video = document.getElementById('vid-lightbox-video');
+      var closeBtn = document.getElementById('vid-lightbox-close');
+
+      function openPlayer(src, poster) {
+        video.poster = poster || '';
+        if (video.getAttribute('src') !== src) {
+          video.src = src;
+        }
+        box.hidden = false;
+        box.classList.add('is-open');
+        var play = video.play();
+        if (play && typeof play.catch === 'function') {
+          play.catch(function () { /* user gesture already happened; controls remain */ });
+        }
+      }
+
+      function closePlayer() {
+        video.pause();
+        box.classList.remove('is-open');
+        box.hidden = true;
+      }
+
+      document.querySelectorAll('.vid-thumb-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          openPlayer(btn.getAttribute('data-video-src'), btn.getAttribute('data-video-poster'));
+        });
+      });
+
+      closeBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closePlayer();
+      });
+      box.addEventListener('click', function (e) {
+        if (e.target === box) closePlayer();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && box.classList.contains('is-open')) closePlayer();
+      });
+    })();
+  </script>
 </body>
 </html>
