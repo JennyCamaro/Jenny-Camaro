@@ -77,15 +77,17 @@
       letter-spacing: 0.02em;
       text-align: center;
     }
+
     .whats-stream {
       max-width: 720px;
       margin: 0 auto;
       text-align: left;
     }
-    .whats-entry {
-      margin: 0 0 2.25rem;
+    .log-entry {
+      margin: 0 0 2.5rem;
+      overflow: auto;
     }
-    .whats-date {
+    .log-date {
       display: block;
       color: #fff4e6;
       font-size: 26px;
@@ -93,28 +95,130 @@
       letter-spacing: 0.02em;
       line-height: 1.2;
       text-align: center;
-      margin: 0 0 0.85rem;
-      text-decoration: none;
+      margin: 0 0 1rem;
+      padding: 0;
     }
-    .whats-date:hover {
-      text-decoration: underline;
-      text-underline-offset: 4px;
+    .log-photo {
+      float: left;
+      width: 48%;
+      max-width: 280px;
+      height: auto;
+      margin: 0 14px 10px 0;
+      border-radius: 6px;
+      display: block;
+      cursor: zoom-in;
     }
-    .whats-photo {
+    .log-photo.small {
+      width: 47.5%;
+      max-width: 250px;
+    }
+    .log-photo.compact {
+      width: 38%;
+      max-width: 190px;
+    }
+    .log-beside {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 0.75rem;
+    }
+    .log-beside img {
+      flex: 0 0 132px;
+      width: 132px;
+      max-width: 36%;
+      height: auto;
+      margin: 0;
+      float: none;
+      border-radius: 6px;
+      cursor: zoom-in;
+    }
+    .log-beside .log-copy {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .log-thumbs-row {
+      clear: both;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0.85rem 0 0;
+      max-width: 720px;
+    }
+    .log-thumbs-row img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      cursor: zoom-in;
+    }
+    .log-photo.right {
+      float: right;
+      margin: 0 0 10px 14px;
+    }
+    .log-copy {
+      color: #fff4e6;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .log-copy p {
+      margin: 0 0 0.95em;
+    }
+    .log-copy p:last-child { margin-bottom: 0; }
+    .log-clear {
+      clear: both;
+      height: 0.75rem;
+    }
+    .log-photo-wide + .log-photo-wide {
+      margin-top: 10px;
+    }
+    .log-photo-wide {
+      clear: both;
       display: block;
       width: 100%;
       max-width: 720px;
       height: auto;
-      margin: 0 auto 0.85rem;
+      margin: 1rem auto 0;
       border-radius: 8px;
+      cursor: zoom-in;
     }
-    .whats-copy {
-      color: #fff4e6;
-      font-size: 15px;
-      line-height: 1.55;
-      padding: 0 4px;
+    .log-pair {
+      clear: both;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 0.75rem 0 0;
+      max-width: 720px;
+      align-items: start;
     }
-    .whats-copy p { margin: 0; }
+    .log-pair img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      cursor: zoom-in;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.92);
+      padding: 16px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.is-open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
     .whats-more {
       display: block;
       margin: 8px auto 0;
@@ -154,35 +258,108 @@
     <p class="bio">Hi, I'm Jenny, I may be over 40 years old, but I don't really look my age. Sure, I've been around the block, and I leak, squeak, and rattle, but nobody's perfect. When you open my hood you'll find no surprises, I'm a mostly stock old girl. 305 LG4 700R4...</p>
     <h2 class="whats-head">What's New</h2>
     <div class="whats-stream">
-      <article class="whats-entry">
-        <a class="whats-date" href="./logs/#2025-09-28">September 28, 2025</a>
-        <a href="./logs/#2025-09-28">
-          <img class="whats-photo" src="./assets/logs/2025-09-28-01.jpg?v=1" alt="Jenny parked outside while meathead keeps an eye from breakfast — tap to enlarge" loading="lazy" />
-        </a>
-        <div class="whats-copy">
+<article class="log-entry" id="2025-09-28">
+        <time class="log-date" datetime="2025-09-28">September 28, 2025</time>
+        <div class="log-copy">
           <p>OMG!! Wait until you get a load of this. He took his wife for breakfast, and demanded a window seat so he could "keep an eye" on me. Loser spent half the time staring out here at me, even now it looks like he's taking a photo. His poor wife deserves better, she got all dressed up and everything, she should leave him. #divorce</p>
         </div>
+        <img
+          class="log-photo-wide zoomable"
+          src="./assets/logs/2025-09-28-01.jpg?v=1"
+          data-full="./assets/logs/2025-09-28-01.jpg?v=1"
+          alt="Jenny parked outside while meathead keeps an eye from breakfast — tap to enlarge"
+          width="1600"
+          height="1200"
+        />
       </article>
-      <article class="whats-entry">
-        <a class="whats-date" href="./logs/#2025-09-27">September 27, 2025</a>
-        <a href="./logs/#2025-09-27">
-          <img class="whats-photo" src="./assets/logs/2025-09-27-01.jpg?v=3" alt="Jenny with the hood up at the Ajax meet — tap to enlarge" loading="lazy" />
-        </a>
-        <div class="whats-copy">
+<article class="log-entry" id="2025-09-27">
+        <time class="log-date" datetime="2025-09-27">September 27, 2025</time>
+        <div class="log-copy">
           <p>I had the chance to be around my peeps again today... anything to get out of that damn storage locker. I also overheard meathead talking about a two car garage... I think we're moving next week. Great, now he's going to be picking at me constantly.</p>
         </div>
-      </article>
-      <article class="whats-entry">
-        <a class="whats-date" href="./logs/#2025-09-21">September 21, 2025</a>
-        <a href="./logs/#2025-09-21">
-          <img class="whats-photo" src="./assets/logs/2025-09-21-01.jpg?v=5" alt="Jenny getting her oil change — tap to enlarge" loading="lazy" />
-        </a>
-        <div class="whats-copy">
-          <p>Oh yeah, this is the life... I got that oil change I was hearing about last week, and now I'm parked in an outside spot, which means I'm going for a drive on this beautiful day, so happy.</p>
+        <img
+          class="log-photo-wide zoomable"
+          src="./assets/logs/2025-09-27-01.jpg?v=3"
+          data-full="./assets/logs/2025-09-27-01.jpg?v=3"
+          alt="Jenny with the hood up at the Ajax meet — tap to enlarge"
+          width="1600"
+          height="900"
+        />
+        <div class="log-pair">
+          <img
+            class="zoomable"
+            src="./assets/logs/2025-09-27-02.jpg?v=5"
+            data-full="./assets/logs/2025-09-27-02.jpg?v=5"
+            alt="Peeps at the Ajax meet — tap to enlarge"
+            width="800"
+            height="1000"
+          />
+          <img
+            class="zoomable"
+            src="./assets/logs/2025-09-27-03.jpg?v=5"
+            data-full="./assets/logs/2025-09-27-03.jpg?v=5"
+            alt="Meathead hanging out of Jenny's hatch — tap to enlarge"
+            width="800"
+            height="1000"
+          />
         </div>
+        <img
+          class="log-photo-wide zoomable"
+          src="./assets/logs/2025-09-27-04.jpg?v=5"
+          data-full="./assets/logs/2025-09-27-04.jpg?v=5"
+          alt="Meathead with arms spread in Jenny's hatch — tap to enlarge"
+          width="1600"
+          height="1200"
+        />
+      </article>
+<article class="log-entry" id="2025-09-21">
+        <time class="log-date" datetime="2025-09-21">September 21, 2025</time>
+        <div class="log-beside">
+          <img
+            class="zoomable"
+            src="./assets/logs/2025-09-21-01.jpg?v=5"
+            data-full="./assets/logs/2025-09-21-01.jpg?v=5"
+            alt="Jenny getting her oil change — tap to enlarge"
+            width="1600"
+            height="1200"
+          />
+          <div class="log-copy">
+            <p>Oh yeah, this is the life... I got that oil change I was hearing about last week, and now I'm parked in an outside spot, which means I'm going for a drive on this beautiful day, so happy.</p>
+          </div>
+        </div>
+        <img
+          class="log-photo-wide zoomable"
+          src="./assets/logs/2025-09-21-02.jpg?v=5"
+          data-full="./assets/logs/2025-09-21-02.jpg?v=5"
+          alt="Jenny jacked up for the oil change — tap to enlarge"
+          width="1600"
+          height="1200"
+        />
       </article>
     </div>
     <a class="whats-more" href="./logs/">See logs for more</a>
   </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      document.querySelectorAll('.zoomable').forEach(function (el) {
+        el.addEventListener('click', function () {
+          img.src = el.getAttribute('data-full') || el.src;
+          img.alt = el.alt || '';
+          box.classList.add('is-open');
+        });
+      });
+      box.addEventListener('click', function () {
+        box.classList.remove('is-open');
+        img.src = '';
+      });
+    })();
+  </script>
+
 </body>
 </html>
