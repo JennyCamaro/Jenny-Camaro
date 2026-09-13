@@ -198,6 +198,21 @@
       flex: 1 1 auto;
       min-width: 0;
     }
+    .log-thumbs-row {
+      clear: both;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0.85rem 0 0;
+      max-width: 720px;
+    }
+    .log-thumbs-row img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      cursor: zoom-in;
+    }
     .log-photo.right {
       float: right;
       margin: 0 0 10px 14px;
@@ -630,36 +645,45 @@
 
       <article class="log-entry" id="2025-09-27">
         <time class="log-date" datetime="2025-09-27">September 27, 2025</time>
-        <div class="log-beside">
+        <img
+          class="log-photo-wide zoomable"
+          src="../assets/logs/2025-09-27-01.jpg?v=1"
+          data-full="../assets/logs/2025-09-27-01.jpg?v=1"
+          alt="Jenny with the hood up at the Ajax meet — tap to enlarge"
+          width="1600"
+          height="900"
+        />
+        <div class="log-copy" style="margin-top: 0.85rem;">
+          <p>I had the chance to be around my peeps again today... anything to get out of that damn storage locker. I also overheard meathead talking about a two car garage... I think we're moving next week. Great, now he's going to be picking at me constantly.</p>
+        </div>
+        <div class="log-thumbs-row">
           <img
             class="zoomable"
-            src="../assets/logs/2025-09-27-01.jpg?v=1"
-            data-full="../assets/logs/2025-09-27-01.jpg?v=1"
+            src="../assets/logs/2025-09-27-02.jpg?v=2"
+            data-full="../assets/logs/2025-09-27-02.jpg?v=2"
             alt="Peeps at the Ajax meet — tap to enlarge"
-            width="1600"
-            height="1200"
+            width="800"
+            height="1000"
           />
-          <div class="log-copy">
-            <p>I had the chance to be around my peeps again today... anything to get out of that damn storage locker. I also overheard meathead talking about a two car garage... I think we're moving next week. Great, now he's going to be picking at me constantly.</p>
-          </div>
+          <img
+            class="zoomable"
+            src="../assets/logs/2025-09-27-03.jpg?v=2"
+            data-full="../assets/logs/2025-09-27-03.jpg?v=2"
+            alt="Meathead hanging out of Jenny's hatch — tap to enlarge"
+            width="800"
+            height="1000"
+          />
+          <img
+            class="zoomable"
+            src="../assets/logs/2025-09-27-04.jpg?v=2"
+            data-full="../assets/logs/2025-09-27-04.jpg?v=2"
+            alt="Meathead kicking back in Jenny's hatch — tap to enlarge"
+            width="800"
+            height="1000"
+          />
         </div>
-        <img
-          class="log-photo-wide zoomable"
-          src="../assets/logs/2025-09-27-02.jpg?v=1"
-          data-full="../assets/logs/2025-09-27-02.jpg?v=1"
-          alt="Meathead hanging out of Jenny's hatch — tap to enlarge"
-          width="1600"
-          height="1200"
-        />
-        <img
-          class="log-photo-wide zoomable"
-          src="../assets/logs/2025-09-27-03.jpg?v=1"
-          data-full="../assets/logs/2025-09-27-03.jpg?v=1"
-          alt="Meathead kicking back in Jenny's hatch — tap to enlarge"
-          width="1600"
-          height="1200"
-        />
       </article>
+
 
 
 
