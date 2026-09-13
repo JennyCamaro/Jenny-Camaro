@@ -178,6 +178,26 @@
       width: 38%;
       max-width: 190px;
     }
+    .log-beside {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 0 0 0.75rem;
+    }
+    .log-beside img {
+      flex: 0 0 132px;
+      width: 132px;
+      max-width: 36%;
+      height: auto;
+      margin: 0;
+      float: none;
+      border-radius: 6px;
+      cursor: zoom-in;
+    }
+    .log-beside .log-copy {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
     .log-photo.right {
       float: right;
       margin: 0 0 10px 14px;
@@ -570,18 +590,19 @@
       </article>
       <article class="log-entry" id="2026-09-21">
         <time class="log-date" datetime="2026-09-21">September 21, 2026</time>
-        <img
-          class="log-photo compact zoomable"
-          src="../assets/logs/2026-09-21-01.jpg?v=2"
-          data-full="../assets/logs/2026-09-21-01.jpg?v=2"
-          alt="Jenny getting her oil change — tap to enlarge"
-          width="1600"
-          height="1200"
-        />
-        <div class="log-copy">
-          <p>Oh yeah, this is the life... I got that oil change I was hearing about last week, and now I'm parked in an outside spot, which means I'm going for a drive on this beautiful day, so happy.</p>
+        <div class="log-beside">
+          <img
+            class="zoomable"
+            src="../assets/logs/2026-09-21-01.jpg?v=3"
+            data-full="../assets/logs/2026-09-21-01.jpg?v=3"
+            alt="Jenny getting her oil change — tap to enlarge"
+            width="1600"
+            height="1200"
+          />
+          <div class="log-copy">
+            <p>Oh yeah, this is the life... I got that oil change I was hearing about last week, and now I'm parked in an outside spot, which means I'm going for a drive on this beautiful day, so happy.</p>
+          </div>
         </div>
-        <div class="log-clear"></div>
         <img
           class="log-photo-wide zoomable"
           src="../assets/logs/2026-09-21-02.jpg?v=1"
