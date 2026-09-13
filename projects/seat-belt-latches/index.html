@@ -131,7 +131,25 @@
       object-fit: contain;
       border-radius: 4px;
     }
-  </style>
+  
+    .embed {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #1a0f24;
+    }
+    .embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+</style>
 </head>
 <body>
   <header>
@@ -167,7 +185,17 @@
       <p class="copy" style="text-align:center; margin-top:0.5rem;">
         <a class="ext" href="https://www.hawksmotorsports.com/1983-1992-camaro-firebird-seat-belt-receiver-push-button-repair-kit-new-reproduction-hawks-restoration-parts-set-of-4/?searchid=2880893&search_query=Seat+belt+repair+kit" target="_blank" rel="noopener noreferrer">www.hawksmotorsports.com</a>
       </p>
-    </div>
+    
+      <div class="embed" style="margin-top:1.25rem;">
+        <iframe
+          src="https://www.youtube.com/embed/GDCSObCIFEA"
+          title="Seat belt latch repair — instructional video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+</div>
   </main>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
     <img id="lightbox-img" src="" alt="" />
