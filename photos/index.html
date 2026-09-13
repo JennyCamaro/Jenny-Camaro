@@ -52,131 +52,58 @@
       text-decoration: underline;
       text-underline-offset: 4px;
     }
-    .photo {
-      display: block;
-      width: 100%;
+    .page {
       max-width: 360px;
-      height: auto;
       margin: 0 auto;
-      border-radius: 8px;
-    }
-    .thumbs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      max-width: 360px;
-      margin: 12px auto 0;
-      padding: 0;
-    }
-    .thumb {
-      display: inline-block;
-      padding: 0;
-      border: 1px solid transparent;
-      border-radius: 4px;
-      background: #1a1220;
-      line-height: 0;
-      overflow: hidden;
-    }
-    .thumb.is-active { border-color: #f48c06; }
-    .thumb img {
-      display: block;
-      width: 56px;
-      height: 56px;
-      object-fit: cover;
-    }
-    .blurb {
-      max-width: 360px;
-      margin: 0 auto 14px;
-      padding: 0 8px;
-      color: #fff4e6;
-      font-size: 16px;
-      line-height: 1.45;
-      text-align: center;
+      text-align: left;
+      color: #d9c7b0;
+      font-size: 15px;
+      line-height: 1.5;
     }
     .page h1 {
       color: #fff4e6;
       font-size: 22px;
       font-weight: 600;
-      margin: 8px 0 12px;
+      margin: 8px 0 16px;
       text-align: center;
     }
-    .back {
-      display: block;
-      text-align: center;
-      margin: 0 0 8px;
-      color: #f48c06;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      font-size: 15px;
+    .album-entry {
+      margin: 0 0 1.75rem;
     }
-    a.album-link {
-      display: block;
-      max-width: 360px;
-      margin: 0 auto;
-      color: inherit;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    a.album-link:focus-visible {
-      outline: 2px solid #f48c06;
-      outline-offset: 6px;
-      border-radius: 8px;
-    }
-    a.album-link .blurb {
-      margin-bottom: 14px;
-    }
-    .grid-wrap {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 4px 24px;
-    }
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      margin: 12px auto 0;
-      align-items: start;
-    }
-    .photo-grid button {
-      display: block;
-      width: 100%;
-      padding: 0;
-      border: 0;
-      border-radius: 6px;
-      overflow: hidden;
-      background: transparent;
-      cursor: zoom-in;
-      line-height: 0;
-    }
-    .photo-grid img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-    }
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: rgba(0,0,0,0.96);
-      padding: 0;
-      box-sizing: border-box;
+    .album-row {
+      display: flex;
       align-items: center;
-      justify-content: center;
-      cursor: zoom-out;
+      gap: 16px;
+      max-width: 360px;
+      margin: 0;
+      padding: 0 4px;
+      text-align: left;
+      text-decoration: none;
+      color: inherit;
     }
-    .lightbox.is-open { display: flex; }
-    .lightbox img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      cursor: default;
+    .album-thumb {
+      flex: 0 0 107px;
+      width: 107px;
+      height: 107px;
+      border-radius: 8px;
+      object-fit: cover;
+      display: block;
+      background: #1a1220;
     }
-</style>
+    .album-copy {
+      color: #fff4e6;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1.25;
+    }
+    .album-row:hover .album-copy,
+    .album-row:focus .album-copy {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      color: #ffffff;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -185,7 +112,7 @@
     </a>
   </header>
   <main>
-<nav class="cats" aria-label="Categories">
+    <nav class="cats" aria-label="Categories">
       <a href="/Jenny-Camaro/">Home</a>
       <a href="/Jenny-Camaro/about/">About</a>
       <a href="/Jenny-Camaro/logs/">Logs</a>
@@ -197,23 +124,18 @@
     </nav>
     <div class="page">
       <h1>Photos</h1>
-      <a class="album-link" href="/Jenny-Camaro/photos/first-love/" aria-label="Open 83 Z-28 photos">
-        <p class="blurb">So this was his first love, an 83 Z-28. I don't know what he saw in her.</p>
-        <img
-          class="photo"
-          src="/Jenny-Camaro/assets/photos/first-love/03.jpg?v=2"
-          alt="83 Z-28"
-          width="1400"
-          height="947"
-        />
-        <div class="thumbs">
-        <span class="thumb is-active" aria-hidden="true"><img src="/Jenny-Camaro/assets/photos/first-love/tiles/03.jpg?v=1" alt="" width="480" height="480" /></span>
-        <span class="thumb" aria-hidden="true"><img src="/Jenny-Camaro/assets/photos/first-love/tiles/01.jpg?v=1" alt="" width="480" height="480" /></span>
-        <span class="thumb" aria-hidden="true"><img src="/Jenny-Camaro/assets/photos/first-love/tiles/02.jpg?v=1" alt="" width="480" height="480" /></span>
-        <span class="thumb" aria-hidden="true"><img src="/Jenny-Camaro/assets/photos/first-love/tiles/04.jpg?v=1" alt="" width="480" height="480" /></span>
-        <span class="thumb" aria-hidden="true"><img src="/Jenny-Camaro/assets/photos/first-love/tiles/05.jpg?v=1" alt="" width="480" height="480" /></span>
-        </div>
-      </a>
+      <article class="album-entry">
+        <a class="album-row" href="/Jenny-Camaro/photos/first-love/" aria-label="Open 83 Z-28 photos">
+          <img
+            class="album-thumb"
+            src="/Jenny-Camaro/assets/photos/first-love/list-thumb.jpg?v=1"
+            alt="83 Z-28"
+            width="640"
+            height="640"
+          />
+          <span class="album-copy">So this was his first love, an 83 Z-28. I don't know what he saw in her.</span>
+        </a>
+      </article>
     </div>
   </main>
 </body>
