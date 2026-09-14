@@ -268,14 +268,48 @@
       cursor: zoom-in;
     }
 
-    .log-entry-wrap > .log-photo {
-      margin-top: 1.1rem;
+
+    .log-wrap-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr;
+      gap: 10px;
+      column-gap: 10px;
+      margin: 1.1rem 0 0;
+      max-width: 720px;
+      align-items: stretch;
     }
-    .log-entry-wrap > .log-photo + .log-photo {
-      margin-top: 1.1rem;
+    .log-wrap-pair > img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      cursor: zoom-in;
+      margin: 0;
+      float: none;
+      max-width: none;
     }
-    .log-entry-wrap > .log-copy:last-of-type {
-      padding-top: 1.35rem;
+    .log-wrap-pair > .log-wrap-a {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .log-wrap-pair > .log-wrap-b {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: start;
+    }
+    .log-wrap-pair > .log-wrap-copy {
+      grid-column: 1;
+      grid-row: 2;
+      align-self: center;
+      color: #fff4e6;
+      font-size: 15px;
+      line-height: 1.55;
+      padding: 0;
+      margin: 0;
+    }
+    .log-wrap-pair > .log-wrap-copy p {
+      margin: 0;
     }
 
     .lightbox {
@@ -910,7 +944,7 @@
           />
         </div>
       </article>
-<article class="log-entry log-entry-wrap" id="2026-02-20">
+<article class="log-entry" id="2026-02-20">
         <time class="log-date" datetime="2026-02-20">February 20, 2026</time>
         <img
           class="log-photo-wide zoomable"
@@ -923,26 +957,27 @@
         <div class="log-copy" style="margin-top:0.85rem;">
           <p>So I overheard that idiot say he's going to butcher my fan shroud to fit that stupid radiator. Well, that's not exactly what he said, but I'm expecting the worst. This radiator belongs in a Nova or Chevelle, maybe a Camaro, but not my generation.</p>
         </div>
-        <img
-          class="log-photo zoomable"
-          src="../assets/logs/2026-02-20-02.jpg?v=1"
-          data-full="../assets/logs/2026-02-20-02.jpg?v=1"
-          alt="Fan shroud on the workbench — tap to enlarge"
-          width="1600"
-          height="1204"
-        />
-        <img
-          class="log-photo zoomable"
-          src="../assets/logs/2026-02-20-03.jpg?v=1"
-          data-full="../assets/logs/2026-02-20-03.jpg?v=1"
-          alt="Radiator and shroud test-fit in Jenny's engine bay — tap to enlarge"
-          width="1320"
-          height="1429"
-        />
-        <div class="log-copy">
-          <p>The only radiator he could find that fits was plastic garbage and tiny. Also, he just insists on keeping the mechanical fan, I mean what is the obsession? A perfectly good set of electric fans would do the job, but no, he resists at every turn. First he replaced the fan with a five blade, then the clutch, and now this, good grief, life doesn't need to be this difficult. Wish me luck.</p>
+        <div class="log-wrap-pair">
+          <img
+            class="log-wrap-a zoomable"
+            src="../assets/logs/2026-02-20-02.jpg?v=1"
+            data-full="../assets/logs/2026-02-20-02.jpg?v=1"
+            alt="Fan shroud on the workbench — tap to enlarge"
+            width="1600"
+            height="1204"
+          />
+          <img
+            class="log-wrap-b zoomable"
+            src="../assets/logs/2026-02-20-03.jpg?v=1"
+            data-full="../assets/logs/2026-02-20-03.jpg?v=1"
+            alt="Radiator and shroud test-fit in Jenny's engine bay — tap to enlarge"
+            width="1320"
+            height="1429"
+          />
+          <div class="log-wrap-copy">
+            <p>The only radiator he could find that fits was plastic garbage and tiny. Also, he just insists on keeping the mechanical fan, I mean what is the obsession? A perfectly good set of electric fans would do the job, but no, he resists at every turn. First he replaced the fan with a five blade, then the clutch, and now this, good grief, life doesn't need to be this difficult. Wish me luck.</p>
+          </div>
         </div>
-        <div class="log-clear"></div>
       </article>
 
 </div>
