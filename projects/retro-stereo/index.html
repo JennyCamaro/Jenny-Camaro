@@ -79,7 +79,7 @@
     }
     .copy {
       max-width: 560px;
-      margin: 0 auto 1.25rem;
+      margin: 0 auto 1.1rem;
       padding: 0 8px;
     }
     .copy p {
@@ -91,13 +91,18 @@
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-    .photo {
+    .shot {
       display: block;
       width: 100%;
-      max-width: 720px;
       height: auto;
-      margin: 0 auto;
+      margin: 0 auto 1.1rem;
       border-radius: 8px;
+    }
+    .shot.hero {
+      max-width: 720px;
+    }
+    .shot.mid {
+      max-width: 560px;
     }
   </style>
 </head>
@@ -121,16 +126,32 @@
     <div class="page">
       <a class="back" href="../">← Projects</a>
       <h1>Retro Stereo</h1>
+      <img
+        class="shot hero"
+        src="../../assets/projects/retro-stereo/01.jpg?v=2"
+        alt="Retro Manufacturing Motor 1B and New York radio face boxes"
+        width="1600"
+        height="1204"
+      />
       <div class="copy">
         <p>So when the guy bought me I had a detachable face deck that was blowing the dash and tail lights. Detachable face? 1997 called... anyway, the deck had to go. He tried to find a proper Delco deck on marketplace, but they were pricy, and the guy likes Bluetooth.</p>
+      </div>
+      <img
+        class="shot mid"
+        src="../../assets/projects/retro-stereo/02.jpg?v=1"
+        alt="New York RetroSound faceplate in the box"
+        width="1320"
+        height="985"
+      />
+      <div class="copy">
         <p>Anyway, turns out you can have your cake and eat it. A company called Retro Manufacturing makes a variety of stereos for many vintage applications. They keep the basic aesthetic and fit in your factory set up. These things aren't exactly cheap either, and some require an amp. Check them out <a class="ext" href="https://www.retromanufacturing.com/" target="_blank" rel="noopener noreferrer">here</a></p>
       </div>
       <img
-        class="photo"
-        src="../../assets/projects/retro-stereo/01.jpg?v=1"
-        alt="Retro Manufacturing Motor 1B stereo and New York radio face boxes"
-        width="1600"
-        height="1204"
+        class="shot mid"
+        src="../../assets/projects/retro-stereo/03.jpg?v=1"
+        alt="RetroSound New York stereo installed in Jenny's dash"
+        width="1320"
+        height="977"
       />
     </div>
   </main>
