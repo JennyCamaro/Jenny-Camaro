@@ -90,19 +90,51 @@
       color: #6eb6ff;
       text-decoration: underline;
       text-underline-offset: 3px;
+      cursor: pointer;
     }
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 0 auto 1.1rem;
+      max-width: 720px;
+    }
+    .pair img,
     .shot {
       display: block;
       width: 100%;
       height: auto;
-      margin: 0 auto 1.1rem;
       border-radius: 8px;
     }
-    .shot.hero {
+    .shot {
       max-width: 720px;
+      margin: 0 auto 1.1rem;
     }
-    .shot.mid {
-      max-width: 560px;
+    .pair img.zoomable,
+    .shot.zoomable {
+      cursor: zoom-in;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.94);
+      padding: 16px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.is-open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+      cursor: default;
     }
   </style>
 </head>
@@ -126,34 +158,67 @@
     <div class="page">
       <a class="back" href="../">← Projects</a>
       <h1>Retro Stereo</h1>
-      <img
-        class="shot hero"
-        src="../../assets/projects/retro-stereo/01.jpg?v=2"
-        alt="Retro Manufacturing Motor 1B and New York radio face boxes"
-        width="1600"
-        height="1204"
-      />
+      <div class="pair">
+        <img class="zoomable" src="../../assets/projects/retro-stereo/01.jpg?v=2" data-full="../../assets/projects/retro-stereo/01.jpg?v=2" alt="Retro Manufacturing Motor 1B and New York radio face boxes" width="1600" height="1204" />
+        <img class="zoomable" src="../../assets/projects/retro-stereo/02.jpg?v=1" data-full="../../assets/projects/retro-stereo/02.jpg?v=1" alt="New York RetroSound faceplate in the box" width="1320" height="985" />
+      </div>
       <div class="copy">
         <p>When I got the car, it had an old detachable face deck, so 1997. Not only was it an eyesore, but it was also responsible for tripping the dash, and tail lights, either way it had to go. I immediately removed it, and drove around for weeks with a giant hole in the dash. If I'm being honest, I really wanted a stock deck, but most of the ones I found were beat up, un-tested, or prohibitively expensive. I decided to scrap that idea for time and convenience reasons.</p>
       </div>
       <img
-        class="shot mid"
-        src="../../assets/projects/retro-stereo/02.jpg?v=1"
-        alt="New York RetroSound faceplate in the box"
-        width="1320"
-        height="985"
-      />
-      <div class="copy">
-        <p>Turns out you can have your cake and eat it. A company called Retro Manufacturing makes a variety of stereos for many vintage applications. They keep the basic aesthetic and fit in your factory set up. These things aren't exactly cheap either, and some require an amp. Check them out <a class="ext" href="https://www.retromanufacturing.com/" target="_blank" rel="noopener noreferrer">here</a></p>
-      </div>
-      <img
-        class="shot mid"
+        class="shot zoomable"
         src="../../assets/projects/retro-stereo/03.jpg?v=1"
+        data-full="../../assets/projects/retro-stereo/03.jpg?v=1"
         alt="RetroSound New York stereo installed in Jenny's dash"
         width="1320"
         height="977"
       />
+      <div class="copy">
+        <p>Turns out you can have your cake and eat it. A company called Retro Manufacturing makes a variety of stereos for many vintage applications. They keep the basic aesthetic and fit in your factory set up. These things aren't exactly cheap either, and some require an amp. Check them out <a class="ext" href="https://www.retromanufacturing.com/" target="_blank" rel="noopener noreferrer">here</a></p>
+      </div>
+      <div class="pair">
+        <img class="zoomable" src="../../assets/projects/retro-stereo/04.jpg?v=1" data-full="../../assets/projects/retro-stereo/04.jpg?v=1" alt="Chilton manual and radio paperwork with harnesses on the counter" width="1320" height="975" />
+        <img class="zoomable" src="../../assets/projects/retro-stereo/05.jpg?v=1" data-full="../../assets/projects/retro-stereo/05.jpg?v=1" alt="Wiring harnesses and RetroSound wiring diagrams" width="1320" height="1037" />
+      </div>
+      <div class="copy">
+        <p>First things first, you have to make a plan. It would be fun to just start chopping, but it's best to gather your harnesses, and review your diagrams. In my case I'm using the Chilton diagram <a class="ext lightbox-open" href="../../assets/projects/retro-stereo/06-chilton.jpg?v=1" data-full="../../assets/projects/retro-stereo/06-chilton.jpg?v=1">here</a>, and the paperwork that came with the radio. Thankfully, I was able to restore all clips in the car so no more butcher job.</p>
+      </div>
     </div>
   </main>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      function openFull(src, alt) {
+        img.src = src;
+        img.alt = alt || '';
+        box.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeFull() {
+        box.classList.remove('is-open');
+        img.src = '';
+        document.body.style.overflow = '';
+      }
+      document.querySelectorAll('.zoomable').forEach(function (el) {
+        el.addEventListener('click', function () {
+          openFull(el.getAttribute('data-full') || el.src, el.alt || '');
+        });
+      });
+      document.querySelectorAll('a.lightbox-open').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          openFull(el.getAttribute('data-full') || el.getAttribute('href'), 'Chilton stereo wiring diagram');
+        });
+      });
+      box.addEventListener('click', closeFull);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && box.classList.contains('is-open')) closeFull();
+      });
+    })();
+  </script>
 </body>
 </html>
