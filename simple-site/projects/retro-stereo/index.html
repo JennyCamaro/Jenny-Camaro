@@ -115,29 +115,34 @@
       cursor: zoom-in;
     }
 
-    .wrap-block {{
+    .wrap-block {
       max-width: 720px;
       margin: 0 auto 1.1rem;
       overflow: auto;
-    }}
-    .wrap-photo {{
+    }
+    .wrap-photo {
       float: left;
-      width: 42%;
-      max-width: 280px;
+      width: 38%;
+      max-width: 220px;
       height: auto;
-      margin: 0 14px 10px 0;
+      margin: 0 16px 12px 0;
       border-radius: 8px;
       cursor: zoom-in;
-    }}
-    .wrap-copy {{
+      display: block;
+    }
+    .wrap-copy {
       max-width: none;
       margin: 0;
       padding: 0 8px 0 0;
-    }}
-    .wrap-clear {{
+    }
+    .wrap-copy p {
+      margin: 0 0 1rem;
+    }
+    .wrap-copy p:last-child { margin-bottom: 0; }
+    .wrap-clear {
       clear: both;
       height: 0;
-    }}
+    }
 
     .lightbox {
       display: none;
@@ -215,18 +220,22 @@
       <div class="copy">
         <p>Once you've had a look at all of your wires, and the diagram, now it's time to actually start connecting some wires. Some people will solder, and some people will tell you not to. I prefer making my own clips, it's neater, easier, and if I have to take all this stuff out it's a simple matter of unplugging it.</p>
       </div>
-      <div class="pair">
-        <img class="zoomable" src="../../assets/projects/retro-stereo/09.jpg?v=1" data-full="../../assets/projects/retro-stereo/09.jpg?v=1" alt="Custom clip harness with Recoil line output converter" width="1600" height="1207" />
-        <img class="zoomable" src="../../assets/projects/retro-stereo/10.jpg?v=1" data-full="../../assets/projects/retro-stereo/10.jpg?v=1" alt="RetroSound deck wired to harness and Recoil converter" width="1320" height="973" />
-      </div>
+      <img
+        class="shot zoomable"
+        src="../../assets/projects/retro-stereo/10.jpg?v=1"
+        data-full="../../assets/projects/retro-stereo/10.jpg?v=1"
+        alt="RetroSound deck wired to harness and Recoil converter"
+        width="1320"
+        height="973"
+      />
       <div class="wrap-block">
         <img
           class="wrap-photo zoomable"
           src="../../assets/projects/retro-stereo/11.jpg?v=1"
           data-full="../../assets/projects/retro-stereo/11.jpg?v=1"
           alt="RetroSound deck installed with console open and wiring exposed"
-          width="1205"
-          height="1600"
+          width="220"
+          height="292"
         />
         <div class="copy wrap-copy">
           <p>Now that that's done, let's see if it fits in the car. Success, like there was ever any doubt. It was a tight fit, the wires and the signal converter ate up a lot of real estate, but thankfully the body of the radio is smaller than usual. That's very likely due to the lack of amplification. As such, I was required to install an amp as well, so I got an entry-level Kenwood and I stuck it in the glove box. Why the glove box?</p>
