@@ -150,14 +150,15 @@
     }
 
 
-    /* shot-center-fix */
-    .shot {
-      clear: both;
-      display: block;
-      width: 100%;
-      max-width: 720px;
-      height: auto;
-      margin: 0 auto 1.1rem;
+
+    .bottom-shot {
+      clear: both !important;
+      float: none !important;
+      display: block !important;
+      width: calc(100% + 16px) !important;
+      max-width: none !important;
+      margin: 0.35rem 0 1.25rem -8px !important;
+      box-sizing: border-box;
       border-radius: 8px;
     }
     .lightbox {
@@ -224,7 +225,7 @@
             width="1320"
             height="1727"
           />
-          <p>The fan clutch is a mechanical system wherein which a coil determines when the fan engages. That coil reacts to the temperature, and this allows the fan to relinquish its drag when it's not needed with no electronics needed.</p>
+          <p>The fan clutch is a mechanical system wherein which a coil determines when the fan engages. a coil reacts to the temperature, and this allows the fan to relinquish its drag when it's not needed with no electronics needed.</p>
         </div>
         <div class="wrap-clear"></div>
       </div>
@@ -236,9 +237,9 @@
         <p>Not only did I replace the clutch, but I upgraded the fan from 3 blades to 5. All that was required was a wire brush, some elbow grease, and some paint. The fan simply bolts on using the same mounting hardware.</p>
       </div>
       <img
-        class="shot zoomable"
-        src="../../assets/projects/fan-and-clutch/05.jpg?v=1"
-        data-full="../../assets/projects/fan-and-clutch/05.jpg?v=1"
+        class="shot bottom-shot zoomable"
+        src="../../assets/projects/fan-and-clutch/05.jpg?v=2"
+        data-full="../../assets/projects/fan-and-clutch/05.jpg?v=2"
         alt="Old three-blade fan beside refurbished five-blade with new clutch"
         width="1818"
         height="1320"
