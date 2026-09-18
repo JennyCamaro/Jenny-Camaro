@@ -217,5 +217,34 @@
   </main>
 
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      function openFull(src, alt) {
+        img.src = src;
+        img.alt = alt || '';
+        box.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeFull() {
+        box.classList.remove('is-open');
+        img.src = '';
+        document.body.style.overflow = '';
+      }
+      document.querySelectorAll('.zoomable').forEach(function (el) {
+        el.addEventListener('click', function () {
+          openFull(el.getAttribute('data-full') || el.src, el.alt || '');
+        });
+      });
+      box.addEventListener('click', closeFull);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && box.classList.contains('is-open')) closeFull();
+      });
+    })();
+  </script>
 </body>
 </html>
