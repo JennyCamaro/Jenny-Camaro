@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#0b0610" />
   <title>Fan &amp; Clutch — Jenny Camaro</title>
   <style>
+
     * { box-sizing: border-box; }
     html, body {
       margin: 0;
@@ -77,14 +78,96 @@
       text-underline-offset: 3px;
       font-size: 15px;
     }
-    .photo {
+    .copy {
+      max-width: 560px;
+      margin: 0 auto 1.1rem;
+      padding: 0 8px;
+    }
+    .copy p {
+      margin: 0 0 1rem;
+    }
+    .copy p:last-child { margin-bottom: 0; }
+    .ext {
+      color: #6eb6ff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+    }
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 0 auto 1.1rem;
+      max-width: 720px;
+    }
+    .pair img,
+    .shot {
       display: block;
       width: 100%;
-      max-width: 560px;
       height: auto;
-      margin: 0 auto;
       border-radius: 8px;
     }
+    .shot {
+      max-width: 720px;
+      margin: 0 auto 1.1rem;
+    }
+    .pair img.zoomable,
+    .shot.zoomable {
+      cursor: zoom-in;
+    }
+
+    .wrap-block {
+      max-width: 720px;
+      margin: 0 auto 1.1rem;
+      overflow: auto;
+    }
+    .wrap-photo {
+      float: left;
+      width: 38%;
+      max-width: 220px;
+      height: auto;
+      margin: 0 16px 12px 0;
+      border-radius: 8px;
+      cursor: zoom-in;
+      display: block;
+    }
+    .wrap-copy {
+      max-width: none;
+      margin: 0;
+      padding: 0 8px 0 0;
+    }
+    .wrap-copy p {
+      margin: 0 0 1rem;
+    }
+    .wrap-copy p:last-child { margin-bottom: 0; }
+    .wrap-clear {
+      clear: both;
+      height: 0;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.94);
+      padding: 16px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.is-open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+      cursor: default;
+    }
+  
   </style>
 </head>
 <body>
@@ -107,14 +190,32 @@
     <div class="page">
       <a class="back" href="../">← Projects</a>
       <h1>Fan &amp; Clutch</h1>
+      <div class="pair">
+        <img class="zoomable" src="../../assets/projects/fan-and-clutch/01.jpg?v=1" data-full="../../assets/projects/fan-and-clutch/01.jpg?v=1" alt="New fan clutch on the workbench" width="1320" height="1744" />
+        <img class="zoomable" src="../../assets/projects/fan-and-clutch/02.jpg?v=1" data-full="../../assets/projects/fan-and-clutch/02.jpg?v=1" alt="Fan clutch face with thermal coil plate" width="1320" height="1727" />
+      </div>
+      <div class="copy">
+        <p>The fan clutch is easily overlooked. When cooling is an issue, the radiator is always the first place people go. I had an 83 years ago, and I was plagued with cooling issues. By necessity, I'd systematically replaced all of the usual suspects, but it was only years later I realized my mistake.</p>
+        <p>The fan clutch is a mechanical system wherein which a coil determines when the fan engages. That coil reacts to the temperature, and this allows the fan to relinquish its drag when it's not needed with no electronics needed.</p>
+      </div>
+      <div class="pair">
+        <img class="zoomable" src="../../assets/projects/fan-and-clutch/03.jpg?v=1" data-full="../../assets/projects/fan-and-clutch/03.jpg?v=1" alt="Five-blade fan with wire brush and sandpaper before paint" width="1786" height="1320" />
+        <img class="zoomable" src="../../assets/projects/fan-and-clutch/04.jpg?v=1" data-full="../../assets/projects/fan-and-clutch/04.jpg?v=1" alt="Freshly painted five-blade fan hanging to dry" width="1752" height="1320" />
+      </div>
+      <div class="copy">
+        <p>Not only did I replace the clutch, but I upgraded the fan from 3 blades to 5. All that was required was a wire brush, some elbow grease, and some paint. The fan simply bolts on using the same mounting hardware.</p>
+      </div>
       <img
-        class="photo"
-        src="../../assets/projects/fan-and-clutch/01.jpg?v=1"
-        alt="New fan clutch"
-        width="845"
-        height="849"
+        class="shot zoomable"
+        src="../../assets/projects/fan-and-clutch/05.jpg?v=1"
+        data-full="../../assets/projects/fan-and-clutch/05.jpg?v=1"
+        alt="Old three-blade fan beside refurbished five-blade with new clutch"
+        width="1818"
+        height="1320"
       />
     </div>
   </main>
+
+
 </body>
 </html>
