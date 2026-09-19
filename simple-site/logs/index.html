@@ -247,7 +247,17 @@
       height: 0.75rem;
     }
 
-    .log-photo-wide + .log-photo-wide {
+    .log-photo-wide + 
+    .log-gif {
+      display: block;
+      width: auto;
+      max-width: min(100%, 320px);
+      height: auto;
+      margin: 1rem auto 0;
+      border-radius: 8px;
+    }
+
+    .log-photo-wide {
       margin-top: 10px;
     }
     .log-photo-wide {
@@ -1192,6 +1202,22 @@
         <div class="log-copy log-copy-after-photos">
           <p>He notices that the dash fuse has blown, good place to start. Unfortunately it just kept blowing fuses, but that didn't stop him from jamming three of them in there like it was gonna fix the goddamn problem. He just drove me home all broke and ashamed. I deserve so much better.</p>
         </div>
+      </article>
+
+      <article class="log-entry" id="2026-08-14">
+        <time class="log-date" datetime="2026-08-14">August 14, 2026</time>
+        <div class="log-copy">
+          <p>So after a bunch of dicking around, dummy figured out that disconnecting my volt meter stops the fuses from blowing, so he's starting there... I could have told him that.</p>
+          <p>He formulated a theory, and without further testing he bought, and replaced the temperature sending unit. Thankfully he ruled out the gauge with a backyard trick... ground the gauge and check its behavior. If it maxes out when grounded, and drops when not, it's probably working fine...duh!</p>
+          <p>So get this... it turned out to be a lose connection at the sensor, but before he figures that out, he changed the sensor, and made one hell of a mess. Here actual video of him removing the sensor without properly draining the cooling system... 😂😂</p>
+        </div>
+        <img
+          class="log-gif"
+          src="../assets/logs/2026-08-14-01.gif?v=1"
+          alt="Geyser eruption — coolant mess energy"
+          width="220"
+          height="293"
+        />
       </article>
 
 
