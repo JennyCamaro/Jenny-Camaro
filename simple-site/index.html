@@ -179,13 +179,23 @@
       height: 0.75rem;
     }
     .log-photo-wide + 
-    .log-gif {
+
+    
+    .log-gif-wrap {
+      clear: both;
       display: block;
+      text-align: center;
+      margin: 1.25rem 0 0;
+      max-width: 720px;
+    }
+    .log-gif {
+      display: inline-block;
       width: auto;
       max-width: min(100%, 320px);
       height: auto;
-      margin: 1rem auto 0;
+      margin: 0;
       border-radius: 8px;
+      vertical-align: top;
     }
 
     .log-photo-wide {
@@ -363,15 +373,17 @@
         <div class="log-copy">
           <p>So after a bunch of dicking around, dummy figured out that disconnecting my volt meter stops the fuses from blowing, so he's starting there... I could have told him that.</p>
           <p>He formulated a theory, and without further testing he bought, and replaced the temperature sending unit. Thankfully he ruled out the gauge with a backyard trick... ground the gauge and check its behavior. If it maxes out when grounded, and drops when not, it's probably working fine...duh!</p>
-          <p>So get this... it turned out to be a lose connection at the sensor, but before he figures that out, he changed the sensor, and made one hell of a mess. Here actual video of him removing the sensor without properly draining the cooling system... 😂😂</p>
+          <p>So get this... it turned out to be a lose connection at the sensor, but before he figures that out, he changed the sensor, and made one hell of a mess. Here actual video of him removing the sensor without properly draining the cooling system... 😂😂 You could see it from space.</p>
         </div>
-        <img
+        <div class="log-gif-wrap">
+          <img
           class="log-gif"
           src="./assets/logs/2026-08-14-01.gif?v=1"
           alt="Geyser eruption — coolant mess energy"
           width="220"
           height="293"
         />
+        </div>
       </article>
 
 <article class="log-entry" id="2026-08-13">
