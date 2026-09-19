@@ -27,7 +27,7 @@
       margin: 0 auto;
     }
     main {
-      padding: 8px 16px 40px;
+      padding: 8px 16px 20px;
       text-align: center;
     }
     nav.cats {
@@ -147,12 +147,15 @@
     .logs-stream {
       max-width: 720px;
       margin: 0 auto;
-      padding: 0 12px 40px;
+      padding: 0 12px 0;
       text-align: left;
     }
     .log-entry {
       margin: 0 0 2.5rem;
       overflow: auto;
+    }
+    .log-entry:last-child {
+      margin-bottom: 0;
     }
     .log-date {
       display: block;
@@ -404,7 +407,7 @@
 
     .whats-more {
       display: block;
-      margin: 1.25rem auto 0;
+      margin: 8px auto 0;
       text-align: center;
       color: #f48c06;
       font-size: 16px;
@@ -1334,14 +1337,8 @@
         </div>
         <div class="log-clear"></div>
       </article>
-
-
-
-
-
-
 </div>
-      <a class="whats-more" href="../photos/">see more in photos</a>
+    <a class="whats-more" href="../photos/">see more in photos</a>
   </main>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
     <img id="lightbox-img" src="" alt="" />
