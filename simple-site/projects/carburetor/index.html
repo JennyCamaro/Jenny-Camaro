@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0610" />
+  <title>Carburetor — Jenny Camaro</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #0b0610;
+      color: #fff4e6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    header {
+      padding: 20px 16px 4px;
+      text-align: center;
+    }
+    header a { display: inline-block; line-height: 0; }
+    .logo {
+      display: block;
+      width: 240px;
+      max-width: 72vw;
+      height: auto;
+      margin: 0 auto;
+    }
+    main {
+      padding: 8px 16px 40px;
+      text-align: center;
+    }
+    nav.cats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 0.9rem;
+      margin: 12px auto 16px;
+      padding: 0 8px;
+      max-width: 400px;
+    }
+    nav.cats a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    nav.cats a:hover,
+    nav.cats a:focus {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: left;
+      color: #fff4e6;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .page h1 {
+      color: #fff4e6;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin: 8px 0 16px;
+      text-align: center;
+    }
+    .back {
+      display: block;
+      text-align: center;
+      margin: 0 0 16px;
+      color: #f48c06;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-size: 15px;
+    }
+    .photo {
+      display: block;
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 8px;
+    }
+
+    .uc {
+      text-align: center;
+      margin: 1.5rem auto 0;
+      max-width: 420px;
+      padding: 0 12px;
+    }
+    .uc-stage {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 1.25rem;
+    }
+    .uc-tire {
+      position: absolute;
+      inset: 18px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, #1a1220 0 28%, transparent 29%),
+        repeating-conic-gradient(#2a2030 0 12deg, #0b0610 12deg 24deg);
+      border: 10px solid #3d3348;
+      box-shadow: inset 0 0 0 6px #111;
+      animation: uc-spin 2.8s linear infinite;
+    }
+    .uc-tire::after {
+      content: "";
+      position: absolute;
+      inset: 42%;
+      border-radius: 50%;
+      background: #f48c06;
+      box-shadow: 0 0 0 3px #0b0610;
+    }
+    .uc-cone {
+      position: absolute;
+      left: 50%;
+      bottom: 8px;
+      width: 0;
+      height: 0;
+      margin-left: -18px;
+      border-left: 18px solid transparent;
+      border-right: 18px solid transparent;
+      border-bottom: 52px solid #f48c06;
+      animation: uc-bounce 0.9s ease-in-out infinite;
+      filter: drop-shadow(0 4px 0 #c45f00);
+      z-index: 2;
+    }
+    .uc-cone::before {
+      content: "";
+      position: absolute;
+      left: -14px;
+      top: 14px;
+      width: 28px;
+      height: 8px;
+      background: #fff4e6;
+      transform: skewY(-8deg);
+    }
+    .uc-cone::after {
+      content: "";
+      position: absolute;
+      left: -22px;
+      bottom: -56px;
+      width: 44px;
+      height: 6px;
+      background: #f48c06;
+      border-radius: 2px;
+    }
+    .uc h2 {
+      margin: 0 0 0.5rem;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #f48c06;
+      animation: uc-blink 1.4s steps(2, end) infinite;
+    }
+    .uc p {
+      margin: 0;
+      color: #fff4e6;
+      font-size: 15px;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+    @keyframes uc-spin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes uc-bounce {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50% { transform: translateY(-14px) rotate(4deg); }
+    }
+    @keyframes uc-blink {
+      50% { opacity: 0.35; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .uc-tire, .uc-cone, .uc h2 { animation: none; }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../../">
+      <img class="logo" src="../../assets/logo.png?v=2" alt="Jenny Camaro" width="600" height="259" />
+    </a>
+  </header>
+  <main>
+    <nav class="cats" aria-label="Categories">
+      <a href="../../">Home</a>
+      <a href="../../about/">About</a>
+      <a href="../../logs/">Logs</a>
+      <a href="../../photos/">Photos</a>
+      <a href="../">Projects</a>
+      <a href="../../camaro/">Camaro</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../links/">Links</a>
+    </nav>
+    <div class="page">
+      <a class="back" href="../">← Projects</a>
+      <h1>Carburetor</h1>
+      <img
+        class="photo"
+        src="../../assets/projects/carburetor/01.jpg?v=1"
+        alt="New silver carburetor installed in the engine bay"
+        width="1752"
+        height="1320"
+      />
+      <div class="uc" role="status">
+        <div class="uc-stage" aria-hidden="true">
+          <div class="uc-tire"></div>
+          <div class="uc-cone"></div>
+        </div>
+        <h2>Under construction</h2>
+        <p>Jenny’s still in the garage on this one. Check back when that dummy finishes the job.</p>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
