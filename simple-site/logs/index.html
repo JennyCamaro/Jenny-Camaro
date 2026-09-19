@@ -261,6 +261,32 @@
       cursor: zoom-in;
     }
 
+    
+    .log-cluster {
+      clear: both;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+      margin: 0.95rem 0 0;
+      max-width: 720px;
+      aspect-ratio: 4 / 3;
+    }
+    .log-cluster > .zoomable:first-child {
+      grid-row: 1 / span 2;
+      grid-column: 1;
+    }
+    .log-cluster img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+      cursor: zoom-in;
+      min-width: 0;
+      min-height: 0;
+    }
+
     .log-pair {
       clear: both;
       display: grid;
@@ -789,7 +815,7 @@
           />
         </div>
         <div class="log-copy" style="margin-top:0.85rem">
-          <p>So idiot comes charging in the garage armed with a butter knife, and that ridiculous light he wears on his head. At first I was concerned, but after a few minutes I realized what he was doing. You see, his seatbelt was pretty worn out, and it didn't latch well. In a crash, he would have went flying, I'd have laughed. Now both front seat belts are as good as new thanks to a kit from Hawks.</p>
+          <p>So idiot comes charging in the garage armed with a butter knife, and that ridiculous light he wears on his head. At first I was concerned, but after a few minutes I realized what he was doing. You see, his seatbelt was pretty worn out, and it didn't latch well. In a crash, he would have went flying, I'd have laughed. Now both front seat belts are as good as new thanks to a kit from Hawks. <a class="ext" href="../projects/seat-belt-latches/">more here</a></p>
         </div>
         <img
           class="log-photo-wide zoomable"
@@ -919,7 +945,7 @@
         <time class="log-date" datetime="2026-01-23">January 23, 2026</time>
         <div class="log-copy">
           <p>Here are a few old photos of the dork that owns me with his old car. The guy can't even get me my own licence plates, I'm stuck with her sloppy seconds. I'm not jealous, you're jealous.</p>
-          <p>Bitch got smashed up anyway... I hope things turn out better for me. It actually wasn't his fault, so at least that's something. <a class="ext" href="../photos/first-love/">See more in photos</a></p>
+          <p>Bitch got smashed up anyway... I hope things turn out better for me. It actually wasn't his fault, so at least that's something. <a class="ext" href="../photos/first-love/">more here</a></p>
         </div>
         <img
           class="log-photo-wide zoomable"
@@ -1098,6 +1124,18 @@
         <div class="log-pair">
           <img class="zoomable" src="../assets/logs/2026-08-08-02.jpg?v=1" data-full="../assets/logs/2026-08-08-02.jpg?v=1" alt="Rain-soaked passenger door with Camaro script — tap to enlarge" width="1754" height="1320" />
           <img class="zoomable" src="../assets/logs/2026-08-08-03.jpg?v=1" data-full="../assets/logs/2026-08-08-03.jpg?v=1" alt="Rain-soaked center console and soaked passengers — tap to enlarge" width="1754" height="1320" />
+        </div>
+      </article>
+
+      <article class="log-entry" id="2026-08-09">
+        <time class="log-date" datetime="2026-08-09">August 9, 2026</time>
+        <div class="log-copy">
+          <p>Oh great, he finally did it, he bought aviator sunglasses. I bet he gonna think he looks so cool now, like Tom Cruise in Top Gun, he's more like an orangutan. Somebody better take this guy down a peg or two before he embarrasses himself.</p>
+        </div>
+        <div class="log-cluster">
+          <img class="zoomable" src="../assets/logs/2026-08-09-01.jpg?v=1" data-full="../assets/logs/2026-08-09-01.jpg?v=1" alt="Aviator sunglasses on the steering wheel — tap to enlarge" width="1758" height="1320" />
+          <img class="zoomable" src="../assets/logs/2026-08-09-02.jpg?v=1" data-full="../assets/logs/2026-08-09-02.jpg?v=1" alt="Tom Cruise as Maverick in Top Gun with aviators — tap to enlarge" width="1320" height="1970" />
+          <img class="zoomable" src="../assets/logs/2026-08-09-03.jpg?v=1" data-full="../assets/logs/2026-08-09-03.jpg?v=1" alt="Orangutan wearing aviator sunglasses — tap to enlarge" width="1320" height="1644" />
         </div>
       </article>
 
