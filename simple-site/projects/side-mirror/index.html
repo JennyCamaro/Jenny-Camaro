@@ -77,109 +77,51 @@
       text-underline-offset: 3px;
       font-size: 15px;
     }
-    .photo {
+    .copy {
+      max-width: 560px;
+      margin: 0 auto 1.1rem;
+      padding: 0 8px;
+    }
+    .copy p {
+      margin: 0 0 1rem;
+    }
+    .copy p:last-child { margin-bottom: 0; }
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 0 auto 1.1rem;
+      max-width: 720px;
+    }
+    .pair img {
       display: block;
       width: 100%;
-      max-width: 560px;
       height: auto;
-      margin: 0 auto;
       border-radius: 8px;
+      cursor: zoom-in;
     }
-
-    .uc {
-      text-align: center;
-      margin: 1.5rem auto 0;
-      max-width: 420px;
-      padding: 0 12px;
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.92);
+      padding: 16px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
     }
-    .uc-stage {
-      position: relative;
-      width: 160px;
-      height: 160px;
-      margin: 0 auto 1.25rem;
+    .lightbox.is-open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+      cursor: zoom-out;
     }
-    .uc-tire {
-      position: absolute;
-      inset: 18px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at center, #1a1220 0 28%, transparent 29%),
-        repeating-conic-gradient(#2a2030 0 12deg, #0b0610 12deg 24deg);
-      border: 10px solid #3d3348;
-      box-shadow: inset 0 0 0 6px #111;
-      animation: uc-spin 2.8s linear infinite;
-    }
-    .uc-tire::after {
-      content: "";
-      position: absolute;
-      inset: 42%;
-      border-radius: 50%;
-      background: #f48c06;
-      box-shadow: 0 0 0 3px #0b0610;
-    }
-    .uc-cone {
-      position: absolute;
-      left: 50%;
-      bottom: 8px;
-      width: 0;
-      height: 0;
-      margin-left: -18px;
-      border-left: 18px solid transparent;
-      border-right: 18px solid transparent;
-      border-bottom: 52px solid #f48c06;
-      animation: uc-bounce 0.9s ease-in-out infinite;
-      filter: drop-shadow(0 4px 0 #c45f00);
-      z-index: 2;
-    }
-    .uc-cone::before {
-      content: "";
-      position: absolute;
-      left: -14px;
-      top: 14px;
-      width: 28px;
-      height: 8px;
-      background: #fff4e6;
-      transform: skewY(-8deg);
-    }
-    .uc-cone::after {
-      content: "";
-      position: absolute;
-      left: -22px;
-      bottom: -56px;
-      width: 44px;
-      height: 6px;
-      background: #f48c06;
-      border-radius: 2px;
-    }
-    .uc h2 {
-      margin: 0 0 0.5rem;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      color: #f48c06;
-      animation: uc-blink 1.4s steps(2, end) infinite;
-    }
-    .uc p {
-      margin: 0;
-      color: #fff4e6;
-      font-size: 15px;
-      line-height: 1.5;
-      opacity: 0.9;
-    }
-    @keyframes uc-spin {
-      to { transform: rotate(360deg); }
-    }
-    @keyframes uc-bounce {
-      0%, 100% { transform: translateY(0) rotate(-4deg); }
-      50% { transform: translateY(-14px) rotate(4deg); }
-    }
-    @keyframes uc-blink {
-      50% { opacity: 0.35; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .uc-tire, .uc-cone, .uc h2 { animation: none; }
-    }
-
   </style>
 </head>
 <body>
@@ -201,23 +143,46 @@
     <div class="page">
       <a class="back" href="../">← Projects</a>
       <h1>Side Mirror</h1>
-      <img
-        class="photo"
-        src="../../assets/projects/side-mirror/01.jpg?v=1"
-        alt="New passenger-side mirror glass — Objects in mirror are closer than they appear"
-        width="1320"
-        height="1745"
-      />
-      <div class="uc" role="status">
-        <div class="uc-stage" aria-hidden="true">
-          <div class="uc-tire"></div>
-          <div class="uc-cone"></div>
-        </div>
-        <h2>Under construction</h2>
-        <p>Jenny’s still in the garage on this one. Check back when that dummy finishes the job.</p>
+      <div class="copy">
+        <p>Somewhere along the way someone replaced the passenger side mirror. As is par for the course with this car, they did a terrible job, and used the wrong parts. Hawks to the rescue again.</p>
       </div>
-
+      <div class="pair">
+        <img class="zoomable" src="../../assets/projects/side-mirror/02.jpg?v=1" data-full="../../assets/projects/side-mirror/02.jpg?v=1" alt="Old passenger mirror glass — worn and discolored" width="1600" height="1200" />
+        <img class="zoomable" src="../../assets/projects/side-mirror/03.jpg?v=1" data-full="../../assets/projects/side-mirror/03.jpg?v=1" alt="Mirror housing after glass removed — red adhesive blobs" width="1600" height="1200" />
+      </div>
+      <div class="copy">
+        <p>First things first, removing the old mirror. I really didn't want to have to remove the mirror from the car because that would require me to remove the inner door panel. These old cars are finicky and it's best to leave well enough alone. Thankfully I was able to remove the old mirror without too much effort, and more importantly, without breaking it into a million small shards of glass.</p>
+      </div>
     </div>
   </main>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      function openFull(src, alt) {
+        img.src = src;
+        img.alt = alt || '';
+        box.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeFull() {
+        box.classList.remove('is-open');
+        img.src = '';
+        document.body.style.overflow = '';
+      }
+      document.querySelectorAll('.zoomable').forEach(function (el) {
+        el.addEventListener('click', function () {
+          openFull(el.getAttribute('data-full') || el.src, el.alt || '');
+        });
+      });
+      box.addEventListener('click', closeFull);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && box.classList.contains('is-open')) closeFull();
+      });
+    })();
+  </script>
 </body>
 </html>
