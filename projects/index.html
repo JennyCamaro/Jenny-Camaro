@@ -67,8 +67,16 @@
       margin: 8px 0 16px;
       text-align: center;
     }
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.35rem 0.85rem;
+      max-width: 360px;
+      margin: 0 auto;
+      padding: 0 4px;
+    }
     .project-entry {
-      margin: 0 0 1.75rem;
+      margin: 0;
     }
     .project-date {
       display: block;
@@ -83,19 +91,20 @@
     }
     .project-row {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 16px;
-      max-width: 360px;
+      gap: 0.55rem;
       margin: 0;
-      padding: 0 4px;
-      text-align: left;
+      padding: 0;
+      text-align: center;
       text-decoration: none;
       color: inherit;
     }
     .project-thumb {
-      flex: 0 0 107px;
-      width: 107px;
-      height: 107px;
+      width: 100%;
+      max-width: 160px;
+      aspect-ratio: 1;
+      height: auto;
       border-radius: 8px;
       object-fit: cover;
       display: block;
@@ -103,10 +112,11 @@
     }
     .project-title {
       color: #fff4e6;
-      font-size: 19px;
+      font-size: 15px;
       font-weight: 700;
       letter-spacing: 0.01em;
       line-height: 1.25;
+      text-align: center;
     }
     .project-row:hover .project-title,
     .project-row:focus .project-title {
@@ -135,6 +145,7 @@
     </nav>
     <div class="page">
       <h1>Projects</h1>
+      <div class="project-grid">
       <article class="project-entry">
         <a class="project-row" href="carburetor/">
           <img class="project-thumb" src="../assets/projects/carburetor/thumb.jpg?v=1" alt="Carburetor" width="640" height="640" />
@@ -190,7 +201,9 @@
           <span class="project-title">Seat Belt Latches</span>
         </a>
       </article>
-</div>
+
+      </div>
+    </div>
   </main>
 </body>
 </html>
