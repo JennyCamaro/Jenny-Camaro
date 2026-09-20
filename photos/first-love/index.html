@@ -242,7 +242,7 @@
       <a href="/links/">Links</a>
     </nav>
     <div class="grid-wrap">
-      <a class="back" href="/photos/">← Photos</a>
+      <a class="back" id="album-back-top" href="/photos/">← Photos</a>
       <p class="blurb">1983 Camaro Z28</p>
       <div class="photo-grid">
       <button type="button" class="zoomable" data-full="/assets/photos/first-love/03.jpg?v=2" aria-label="83 Z-28 front — fullscreen">
@@ -377,5 +377,52 @@
       });
     })();
   </script>
+
+  <script>
+    (function () {
+      var a = document.getElementById('album-back-top');
+      if (!a) return;
+
+      function pathOf(url) {
+        try {
+          var u = new URL(url, location.href);
+          if (u.origin !== location.origin) return null;
+          var p = u.pathname.replace(/\/index\.html$/, '/');
+          if (!p.endsWith('/')) p += '/';
+          return p;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function sourceFrom() {
+        var q = new URLSearchParams(location.search).get('from');
+        if (q === 'logs' || q === 'home') return q;
+        var p = pathOf(document.referrer);
+        if (!p) return null;
+        if (p === '/logs/') return 'logs';
+        if (p === '/') return 'home';
+        return null;
+      }
+
+      var from = sourceFrom();
+      if (!from) return;
+
+      a.textContent = '\u2190 back';
+      a.setAttribute('aria-label', 'Back');
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var refPath = pathOf(document.referrer);
+        var canBack = (from === 'logs' && refPath === '/logs/') ||
+                      (from === 'home' && refPath === '/');
+        if (canBack && window.history.length > 1) {
+          history.back();
+          return;
+        }
+        location.href = from === 'home' ? '/' : '/logs/';
+      });
+    })();
+  </script>
+
 </body>
 </html>
