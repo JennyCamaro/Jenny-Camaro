@@ -199,7 +199,7 @@
       <a href="../../links/">Links</a>
     </nav>
     <div class="page">
-      <a class="back" href="../">← Projects</a>
+      <a class="back" id="project-back-top" href="../">← Projects</a>
       <h1>Carburetor</h1>
       <img
         class="photo"
@@ -220,5 +220,52 @@
       <a class="back" href="../">back to projects</a>
     </div>
   </main>
+
+  <script>
+    (function () {
+      var a = document.getElementById('project-back-top');
+      if (!a) return;
+
+      function pathOf(url) {
+        try {
+          var u = new URL(url, location.href);
+          if (u.origin !== location.origin) return null;
+          var p = u.pathname.replace(/\/index\.html$/, '/');
+          if (!p.endsWith('/')) p += '/';
+          return p;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function sourceFrom() {
+        var q = new URLSearchParams(location.search).get('from');
+        if (q === 'logs' || q === 'home') return q;
+        var p = pathOf(document.referrer);
+        if (!p) return null;
+        if (p === '/logs/') return 'logs';
+        if (p === '/') return 'home';
+        return null;
+      }
+
+      var from = sourceFrom();
+      if (!from) return;
+
+      a.textContent = '\u2190 back';
+      a.setAttribute('aria-label', 'Back');
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var refPath = pathOf(document.referrer);
+        var canBack = (from === 'logs' && refPath === '/logs/') ||
+                      (from === 'home' && refPath === '/');
+        if (canBack && window.history.length > 1) {
+          history.back();
+          return;
+        }
+        location.href = from === 'home' ? '/' : '/logs/';
+      });
+    })();
+  </script>
+
 </body>
 </html>
