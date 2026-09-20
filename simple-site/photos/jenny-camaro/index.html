@@ -113,6 +113,7 @@
       align-items: center;
       justify-content: center;
       cursor: zoom-out;
+      touch-action: pan-y;
     }
     .lightbox.is-open { display: flex; }
     .lightbox img {
@@ -122,7 +123,51 @@
       height: auto;
       object-fit: contain;
       cursor: default;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-select: none;
     }
+    .lightbox-nav {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 22%;
+      max-width: 88px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      font-size: 42px;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0.55;
+      -webkit-tap-highlight-color: transparent;
+      z-index: 2;
+    }
+    .lightbox-nav:active { opacity: 0.95; }
+    .lightbox-prev { left: 0; }
+    .lightbox-next { right: 0; }
+    .lightbox-close {
+      position: absolute;
+      top: max(8px, env(safe-area-inset-top));
+      right: max(10px, env(safe-area-inset-right));
+      z-index: 3;
+      width: 44px;
+      height: 44px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 22px;
+      background: rgba(0,0,0,0.35);
+      color: #fff;
+      font-size: 28px;
+      line-height: 44px;
+      cursor: pointer;
+      opacity: 0.75;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .lightbox-close:active { opacity: 1; }
   </style>
 </head>
 <body>
@@ -216,15 +261,33 @@
     </div>
   </main>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fullscreen photo">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+    <button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous photo">‹</button>
     <img id="lightbox-img" src="" alt="" />
+    <button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next photo">›</button>
   </div>
   <script>
     (function () {
       var box = document.getElementById('lightbox');
       var img = document.getElementById('lightbox-img');
-      function openFull(src, alt) {
-        img.src = src;
-        img.alt = alt || '';
+      var btnPrev = document.getElementById('lightbox-prev');
+      var btnNext = document.getElementById('lightbox-next');
+      var btnClose = document.getElementById('lightbox-close');
+      var items = Array.prototype.slice.call(document.querySelectorAll('.zoomable'));
+      var index = 0;
+      var touchX = null;
+      var touchY = null;
+
+      function show(i) {
+        if (!items.length) return;
+        index = (i + items.length) % items.length;
+        var el = items[index];
+        var thumb = el.querySelector('img');
+        img.src = el.getAttribute('data-full');
+        img.alt = (thumb && thumb.alt) || '';
+      }
+      function openAt(i) {
+        show(i);
         box.classList.add('is-open');
         document.body.style.overflow = 'hidden';
       }
@@ -232,15 +295,55 @@
         box.classList.remove('is-open');
         img.src = '';
         document.body.style.overflow = '';
+        touchX = null;
+        touchY = null;
       }
-      document.querySelectorAll('.zoomable').forEach(function (el) {
-        el.addEventListener('click', function () {
-          openFull(el.getAttribute('data-full'), el.querySelector('img').alt);
-        });
+      function prev() { show(index - 1); }
+      function next() { show(index + 1); }
+
+      items.forEach(function (el, i) {
+        el.addEventListener('click', function () { openAt(i); });
       });
-      box.addEventListener('click', closeFull);
+      btnPrev.addEventListener('click', function (e) {
+        e.stopPropagation();
+        prev();
+      });
+      btnNext.addEventListener('click', function (e) {
+        e.stopPropagation();
+        next();
+      });
+      btnClose.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closeFull();
+      });
+      box.addEventListener('click', function (e) {
+        if (e.target === box) closeFull();
+      });
       document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && box.classList.contains('is-open')) closeFull();
+        if (!box.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeFull();
+        else if (e.key === 'ArrowLeft') prev();
+        else if (e.key === 'ArrowRight') next();
+      });
+      box.addEventListener('touchstart', function (e) {
+        if (e.touches.length !== 1) return;
+        touchX = e.touches[0].clientX;
+        touchY = e.touches[0].clientY;
+      }, { passive: true });
+      box.addEventListener('touchmove', function (e) {
+        if (touchX === null || e.touches.length !== 1) return;
+        var dx = e.touches[0].clientX - touchX;
+        var dy = e.touches[0].clientY - touchY;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+          if (dx > 0) prev();
+          else next();
+          touchX = null;
+          touchY = null;
+        }
+      }, { passive: true });
+      box.addEventListener('touchend', function () {
+        touchX = null;
+        touchY = null;
       });
     })();
   </script>
