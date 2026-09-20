@@ -80,23 +80,26 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 8px;
       margin: 12px auto 0;
-      align-items: start;
+      align-items: stretch;
     }
     .photo-grid button {
       display: block;
       width: 100%;
+      aspect-ratio: 1;
       padding: 0;
       border: 0;
       border-radius: 6px;
       overflow: hidden;
-      background: transparent;
+      background: #1a1220;
       cursor: zoom-in;
       line-height: 0;
     }
     .photo-grid img {
       display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
       border-radius: 6px;
     }
     .lightbox {
@@ -142,39 +145,43 @@
       <a class="back" href="/photos/">← Photos</a>
       <p class="blurb">Jenny Camaro</p>
       <div class="photo-grid">
-      <button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/01.jpg?v=1" aria-label="Jenny in the rain — fullscreen">
+      
+
+<button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/01.jpg?v=1" aria-label="Jenny in the rain — fullscreen">
         <img src="/assets/photos/jenny-camaro/grid-01.jpg?v=1" alt="Jenny — white Camaro in a wet parking lot" width="1320" height="977" decoding="async" />
       </button>
-      <button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/02.jpg?v=1" aria-label="Front interior — red and orange CAMARO seats — fullscreen">
+<button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/02.jpg?v=1" aria-label="Front interior — red and orange CAMARO seats — fullscreen">
         <img src="/assets/photos/jenny-camaro/grid-02.jpg?v=1" alt="Jenny front seats with CAMARO cloth" width="711" height="900" decoding="async" />
       </button>
-      <button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/03.jpg?v=1" aria-label="Rear CAMARO bucket seats — fullscreen">
+<button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/03.jpg?v=1" aria-label="Rear CAMARO bucket seats — fullscreen">
         <img src="/assets/photos/jenny-camaro/grid-03.jpg?v=1" alt="Jenny rear seats with CAMARO cloth" width="688" height="900" decoding="async" />
       </button>
-      <button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/04.jpg?v=1" aria-label="Interior from the passenger door — fullscreen">
+<button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/04.jpg?v=1" aria-label="Interior from the passenger door — fullscreen">
         <img src="/assets/photos/jenny-camaro/grid-04.jpg?v=1" alt="Jenny interior through the open passenger door" width="718" height="900" decoding="async" />
       </button>
-      <button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/05.jpg?v=1" aria-label="White Camaro with 17 on the hood — fullscreen">
+<button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/05.jpg?v=1" aria-label="White Camaro with 17 on the hood — fullscreen">
         <img src="/assets/photos/jenny-camaro/grid-05.jpg?v=1" alt="Jenny — white Camaro number 17" width="662" height="900" decoding="async" />
       </button>
-      <button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/06.jpg?v=1" aria-label="Dash and steering wheel — fullscreen">
+<button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/06.jpg?v=1" aria-label="Dash and steering wheel — fullscreen">
         <img src="/assets/photos/jenny-camaro/grid-06.jpg?v=1" alt="Jenny dash gauges and steering wheel" width="900" height="684" decoding="async" />
       </button>
-      <button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/07.jpg?v=1" aria-label="On the flatbed at the intersection — fullscreen">
+<button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/07.jpg?v=1" aria-label="On the flatbed at the intersection — fullscreen">
         <img src="/assets/photos/jenny-camaro/grid-07.jpg?v=1" alt="Jenny on a flatbed at Huron Street" width="900" height="482" decoding="async" />
       </button>
-      <button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/08.jpg?v=1" aria-label="Front in the parking garage — fullscreen">
+<button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/08.jpg?v=1" aria-label="Front in the parking garage — fullscreen">
         <img src="/assets/photos/jenny-camaro/grid-08.jpg?v=1" alt="Jenny in the underground garage — black hood stripes" width="900" height="682" decoding="async" />
       </button>
-      <button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/09.jpg?v=1" aria-label="Rear taillight glowing — fullscreen">
+<button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/09.jpg?v=1" aria-label="Rear taillight glowing — fullscreen">
         <img src="/assets/photos/jenny-camaro/grid-09.jpg?v=1" alt="Jenny left taillight lit" width="900" height="678" decoding="async" />
       </button>
-      <button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/10.jpg?v=1" aria-label="Street profile with T-tops — fullscreen">
+<button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/10.jpg?v=1" aria-label="Street profile with T-tops — fullscreen">
         <img src="/assets/photos/jenny-camaro/grid-10.jpg?v=1" alt="Jenny parked on the street with T-tops" width="900" height="466" decoding="async" />
       </button>
-      <button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/11.jpg?v=1" aria-label="Rear wheel close-up — fullscreen">
+<button type="button" class="zoomable" data-full="/assets/photos/jenny-camaro/11.jpg?v=1" aria-label="Rear wheel close-up — fullscreen">
         <img src="/assets/photos/jenny-camaro/grid-11.jpg?v=1" alt="Jenny rear Z28 wheel and gold trim" width="900" height="677" decoding="async" />
       </button>
+      
+      
       </div>
     </div>
   </main>
