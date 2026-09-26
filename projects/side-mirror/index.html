@@ -118,14 +118,21 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      align-items: start;
+      align-items: stretch;
       margin: 0 auto 1.1rem;
       max-width: 720px;
     }
-    .split img {
-      display: block;
+    .split-photo {
+      position: relative;
+      min-height: 0;
+    }
+    .split-photo img {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
       border-radius: 8px;
       cursor: zoom-in;
     }
@@ -197,8 +204,10 @@
         <p>So I found this beauty at the link above. It looks good, it came fast, and it fits great. Now I just had to remove the inner plastic so I could scrape away the old adhesive, clean up the part, and give a fresh start for reinstallation.</p>
       </div>
       <div class="split">
-        <img class="zoomable" src="../../assets/projects/side-mirror/05.jpg?v=1" data-full="../../assets/projects/side-mirror/05.jpg?v=1" alt="Gorilla Clear Grip contact adhesive" width="1320" height="2001" />
-        <p>So I bought this stuff to stick the mirror back on. Was it the correct stuff for this application? I don't know. Is that new mirror ever coming off, even with dynamite? Probably not. Guess I'd better not break it.</p>
+        <div class="split-photo">
+          <img class="zoomable" src="../../assets/projects/side-mirror/05.jpg?v=1" data-full="../../assets/projects/side-mirror/05.jpg?v=1" alt="Gorilla Clear Grip contact adhesive" width="1320" height="2001" />
+        </div>
+        <p>So I bought this stuff to stick the mirror back on. Was it the correct stuff for this application? I don't know. Is that new mirror ever coming off, even with dynamite? Probably not. Guess I'd better not break it. <a class="ext" href="https://a.co/d/0io8BWkz" target="_blank" rel="noopener noreferrer">more here</a></p>
       </div>
       <div class="copy">
         <p>Once I was happy with the positioning, I taped it in place and left it for 24 hours.</p>
