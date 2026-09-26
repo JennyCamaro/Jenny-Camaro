@@ -77,109 +77,68 @@
       text-underline-offset: 3px;
       font-size: 15px;
     }
-    .photo {
+    .copy {
+      max-width: 560px;
+      margin: 0 auto 1.1rem;
+      padding: 0 8px;
+    }
+    .copy p {
+      margin: 0 0 1rem;
+    }
+    .copy p:last-child { margin-bottom: 0; }
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 0 auto 1.1rem;
+      max-width: 720px;
+    }
+    .pair img {
       display: block;
       width: 100%;
-      max-width: 560px;
       height: auto;
-      margin: 0 auto;
       border-radius: 8px;
+      cursor: zoom-in;
     }
-
-    .uc {
-      text-align: center;
-      margin: 1.5rem auto 0;
-      max-width: 420px;
-      padding: 0 12px;
+    .pair-end img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 5 / 4;
+      object-fit: cover;
     }
-    .uc-stage {
-      position: relative;
-      width: 160px;
-      height: 160px;
-      margin: 0 auto 1.25rem;
+    .pair-end img:first-child { object-position: left center; }
+    .pair-end img:last-child { object-position: right center; }
+    .shot {
+      display: block;
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      margin: 0 auto 1.1rem;
+      border-radius: 8px;
+      cursor: zoom-in;
     }
-    .uc-tire {
-      position: absolute;
-      inset: 18px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at center, #1a1220 0 28%, transparent 29%),
-        repeating-conic-gradient(#2a2030 0 12deg, #0b0610 12deg 24deg);
-      border: 10px solid #3d3348;
-      box-shadow: inset 0 0 0 6px #111;
-      animation: uc-spin 2.8s linear infinite;
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.92);
+      padding: 16px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
     }
-    .uc-tire::after {
-      content: "";
-      position: absolute;
-      inset: 42%;
-      border-radius: 50%;
-      background: #f48c06;
-      box-shadow: 0 0 0 3px #0b0610;
+    .lightbox.is-open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+      cursor: zoom-out;
     }
-    .uc-cone {
-      position: absolute;
-      left: 50%;
-      bottom: 8px;
-      width: 0;
-      height: 0;
-      margin-left: -18px;
-      border-left: 18px solid transparent;
-      border-right: 18px solid transparent;
-      border-bottom: 52px solid #f48c06;
-      animation: uc-bounce 0.9s ease-in-out infinite;
-      filter: drop-shadow(0 4px 0 #c45f00);
-      z-index: 2;
-    }
-    .uc-cone::before {
-      content: "";
-      position: absolute;
-      left: -14px;
-      top: 14px;
-      width: 28px;
-      height: 8px;
-      background: #fff4e6;
-      transform: skewY(-8deg);
-    }
-    .uc-cone::after {
-      content: "";
-      position: absolute;
-      left: -22px;
-      bottom: -56px;
-      width: 44px;
-      height: 6px;
-      background: #f48c06;
-      border-radius: 2px;
-    }
-    .uc h2 {
-      margin: 0 0 0.5rem;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      color: #f48c06;
-      animation: uc-blink 1.4s steps(2, end) infinite;
-    }
-    .uc p {
-      margin: 0;
-      color: #fff4e6;
-      font-size: 15px;
-      line-height: 1.5;
-      opacity: 0.9;
-    }
-    @keyframes uc-spin {
-      to { transform: rotate(360deg); }
-    }
-    @keyframes uc-bounce {
-      0%, 100% { transform: translateY(0) rotate(-4deg); }
-      50% { transform: translateY(-14px) rotate(4deg); }
-    }
-    @keyframes uc-blink {
-      50% { opacity: 0.35; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .uc-tire, .uc-cone, .uc h2 { animation: none; }
-    }
-
   </style>
 </head>
 <body>
@@ -201,25 +160,70 @@
     <div class="page">
       <a class="back" id="project-back-top" href="../">← Projects</a>
       <h1>Front Signals</h1>
+      <div class="copy">
+        <p>So the car took a hit on the front passenger side in 2015, long before I owned it. When I was looking it over, I noticed that the front signal lights were a mess. Not only did they not line up with their respective openings, but the passenger side one sat an inch back, and was flapping in the wind.</p>
+      </div>
       <img
-        class="photo"
-        src="../../assets/projects/front-signals/01.jpg?v=1"
-        alt="Front signal light on — polished and mounted"
-        width="2202"
+        class="shot zoomable"
+        src="../../assets/projects/front-signals/03.jpg?v=1"
+        data-full="../../assets/projects/front-signals/03.jpg?v=1"
+        alt="Smoked front signal sitting recessed in the white bumper opening"
+        width="1750"
         height="1320"
       />
-      <div class="uc" role="status">
-        <div class="uc-stage" aria-hidden="true">
-          <div class="uc-tire"></div>
-          <div class="uc-cone"></div>
-        </div>
-        <h2>Under construction</h2>
-        <p>Jenny’s still in the garage on this one. Check back when that dummy finishes the job.</p>
+      <div class="copy">
+        <p>Truth is, the crash bar needs more work, it needs to be pulled out more, but the car looks great, and I don't want to start pulling it apart. Instead, I decided to change the mounting points of the lights so no one will ever notice.</p>
       </div>
-
+      <div class="pair">
+        <img class="zoomable" src="../../assets/projects/front-signals/04.jpg?v=1" data-full="../../assets/projects/front-signals/04.jpg?v=1" alt="Cracked smoked signal lens on the workbench" width="1736" height="1320" />
+        <img class="zoomable" src="../../assets/projects/front-signals/05.jpg?v=1" data-full="../../assets/projects/front-signals/05.jpg?v=1" alt="Rear of the black signal housing with broken mounting tabs" width="1760" height="1320" />
+      </div>
+      <div class="copy">
+        <p>The first step was to remove both signal lights so I could see what I'm dealing with. Once they were out, I could see why they were flopping around. Most of the mounting points were broken due to the age of the plastic, and the residual crash damage.</p>
+      </div>
+      <div class="pair">
+        <img class="zoomable" src="../../assets/projects/front-signals/07.jpg?v=1" data-full="../../assets/projects/front-signals/07.jpg?v=1" alt="Forming new mounting brackets on the signal housing" width="1752" height="1320" />
+        <img class="zoomable" src="../../assets/projects/front-signals/08.jpg?v=1" data-full="../../assets/projects/front-signals/08.jpg?v=1" alt="Tapping a new mounting hole in the signal housing" width="1754" height="1320" />
+      </div>
+      <div class="copy">
+        <p>Now that I know what I'm dealing with, I made a plan. Obviously all the existing mounts needed to go. They're in the wrong place, and they're useless anyway. After some fumbling around, and measuring twice, I made new mounting brackets using stuff I had laying around. I also gave the plastic lens a wet sand to remove paint, and years of damage. Is it perfect, nope, I'll just make sure I don't ask.</p>
+      </div>
+      <div class="pair pair-end">
+        <img class="zoomable" src="../../assets/projects/front-signals/09.jpg?v=1" data-full="../../assets/projects/front-signals/09.jpg?v=1" alt="Custom L-brackets bolted onto the rear of the signal housing" width="1736" height="1320" />
+        <img class="zoomable" src="../../assets/projects/front-signals/06.jpg?v=2" data-full="../../assets/projects/front-signals/06.jpg?v=2" alt="Finished amber front signal lit and sitting flush in the white bumper" width="1740" height="1320" />
+      </div>
       <a class="back" href="../">back to projects</a>
     </div>
   </main>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      function openFull(src, alt) {
+        img.src = src;
+        img.alt = alt || '';
+        box.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeFull() {
+        box.classList.remove('is-open');
+        img.src = '';
+        document.body.style.overflow = '';
+      }
+      document.querySelectorAll('.zoomable').forEach(function (el) {
+        el.addEventListener('click', function () {
+          openFull(el.getAttribute('data-full') || el.src, el.alt || '');
+        });
+      });
+      box.addEventListener('click', closeFull);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && box.classList.contains('is-open')) closeFull();
+      });
+    })();
+  </script>
 
   <script>
     (function () {
