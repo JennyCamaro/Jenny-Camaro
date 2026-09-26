@@ -95,17 +95,18 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      align-items: stretch;
       margin: 0 auto 1.1rem;
       max-width: 720px;
+      align-items: stretch;
     }
     .pair img {
       display: block;
       width: 100%;
-      height: auto;
-      aspect-ratio: 1600 / 970;
+      height: 100%;
+      min-height: 0;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
-      object-position: center center;
+      object-position: center;
       border-radius: 8px;
       cursor: zoom-in;
     }
