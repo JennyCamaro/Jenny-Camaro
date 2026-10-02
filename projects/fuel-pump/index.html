@@ -77,20 +77,31 @@
       text-underline-offset: 3px;
       font-size: 15px;
     }
-    .photo {
-      display: block;
-      width: 100%;
+    .copy {
       max-width: 560px;
-      height: auto;
-      margin: 0 auto;
-      border-radius: 8px;
+      margin: 0 auto 1.1rem;
+      padding: 0 4px;
     }
-
+    .copy p {
+      margin: 0 0 1rem;
+    }
+    .copy p:last-child { margin-bottom: 0; }
+    .beside {
+      float: left;
+      width: 54%;
+      max-width: 280px;
+      height: auto;
+      margin: 0.35rem 0.7rem 0.35rem 0;
+      border-radius: 8px;
+      cursor: zoom-in;
+    }
+    .under { clear: both; }
     .uc {
       text-align: center;
       margin: 1.5rem auto 0;
       max-width: 420px;
       padding: 0 12px;
+      clear: both;
     }
     .uc-stage {
       position: relative;
@@ -179,7 +190,28 @@
     @media (prefers-reduced-motion: reduce) {
       .uc-tire, .uc-cone, .uc h2 { animation: none; }
     }
-
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.92);
+      padding: 16px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.is-open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+      cursor: zoom-out;
+    }
   </style>
 </head>
 <body>
@@ -201,13 +233,10 @@
     <div class="page">
       <a class="back" id="project-back-top" href="../">← Projects</a>
       <h1>Fuel Pump</h1>
-      <img
-        class="photo"
-        src="../../assets/projects/fuel-pump/01.jpg?v=1"
-        alt="New mechanical fuel pump"
-        width="1070"
-        height="1469"
-      />
+      <div class="copy">
+        <p>Based on the beat up and corroded condition of the existing fuel pump, and other parts on this car, <img class="beside zoomable" src="../../assets/projects/fuel-pump/01.jpg?v=2" data-full="../../assets/projects/fuel-pump/01.jpg?v=2" alt="Corroded mechanical fuel pump still on the engine, weeping at the diaphragm" width="1320" height="1653" /> I can only speculate that it's the original pump from 1984. Sure, it was pumping just fine, but it was also weeping, it was probably tired, and I was already doing the fuel lines.</p>
+        <p class="under">On the 305ci LG4 of this era, the fuel pump is mechanical, and located on the front right side of the engine. The front of the camshaft has a special lobe that activates a pushrod. The pump is just a diaphragm inside of an enclosure, and that pushrod fights a spring causing the diaphragm to pulsate (pump). Changing it seems pretty straightforward, just 3 fuel lines and two bolts... but not so fast!!...</p>
+      </div>
       <div class="uc" role="status">
         <div class="uc-stage" aria-hidden="true">
           <div class="uc-tire"></div>
@@ -216,10 +245,38 @@
         <h2>Under construction</h2>
         <p>Jenny’s still in the garage on this one. Check back when that dummy finishes the job.</p>
       </div>
-
       <a class="back" href="../">back to projects</a>
     </div>
   </main>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      function openFull(src, alt) {
+        img.src = src;
+        img.alt = alt || '';
+        box.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeFull() {
+        box.classList.remove('is-open');
+        img.src = '';
+        document.body.style.overflow = '';
+      }
+      document.querySelectorAll('.zoomable').forEach(function (el) {
+        el.addEventListener('click', function () {
+          openFull(el.getAttribute('data-full') || el.src, el.alt || '');
+        });
+      });
+      box.addEventListener('click', closeFull);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && box.classList.contains('is-open')) closeFull();
+      });
+    })();
+  </script>
 
   <script>
     (function () {
@@ -266,6 +323,5 @@
       });
     })();
   </script>
-
 </body>
 </html>
