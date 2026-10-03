@@ -120,100 +120,6 @@
       cursor: zoom-in;
       clear: both;
     }
-    .uc {
-      text-align: center;
-      margin: 1.5rem auto 0;
-      max-width: 420px;
-      padding: 0 12px;
-      clear: both;
-    }
-    .uc-stage {
-      position: relative;
-      width: 160px;
-      height: 160px;
-      margin: 0 auto 1.25rem;
-    }
-    .uc-tire {
-      position: absolute;
-      inset: 18px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at center, #1a1220 0 28%, transparent 29%),
-        repeating-conic-gradient(#2a2030 0 12deg, #0b0610 12deg 24deg);
-      border: 10px solid #3d3348;
-      box-shadow: inset 0 0 0 6px #111;
-      animation: uc-spin 2.8s linear infinite;
-    }
-    .uc-tire::after {
-      content: "";
-      position: absolute;
-      inset: 42%;
-      border-radius: 50%;
-      background: #f48c06;
-      box-shadow: 0 0 0 3px #0b0610;
-    }
-    .uc-cone {
-      position: absolute;
-      left: 50%;
-      bottom: 8px;
-      width: 0;
-      height: 0;
-      margin-left: -18px;
-      border-left: 18px solid transparent;
-      border-right: 18px solid transparent;
-      border-bottom: 52px solid #f48c06;
-      animation: uc-bounce 0.9s ease-in-out infinite;
-      filter: drop-shadow(0 4px 0 #c45f00);
-      z-index: 2;
-    }
-    .uc-cone::before {
-      content: "";
-      position: absolute;
-      left: -14px;
-      top: 14px;
-      width: 28px;
-      height: 8px;
-      background: #fff4e6;
-      transform: skewY(-8deg);
-    }
-    .uc-cone::after {
-      content: "";
-      position: absolute;
-      left: -22px;
-      bottom: -56px;
-      width: 44px;
-      height: 6px;
-      background: #f48c06;
-      border-radius: 2px;
-    }
-    .uc h2 {
-      margin: 0 0 0.5rem;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      color: #f48c06;
-      animation: uc-blink 1.4s steps(2, end) infinite;
-    }
-    .uc p {
-      margin: 0;
-      color: #fff4e6;
-      font-size: 15px;
-      line-height: 1.5;
-      opacity: 0.9;
-    }
-    @keyframes uc-spin {
-      to { transform: rotate(360deg); }
-    }
-    @keyframes uc-bounce {
-      0%, 100% { transform: translateY(0) rotate(-4deg); }
-      50% { transform: translateY(-14px) rotate(4deg); }
-    }
-    @keyframes uc-blink {
-      50% { opacity: 0.35; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .uc-tire, .uc-cone, .uc h2 { animation: none; }
-    }
     .lightbox {
       display: none;
       position: fixed;
@@ -279,13 +185,8 @@
         <p>This fuel pump has 3 lines, fuel in (3/8 rubber), fuel out (3/8 inverted flare metal), and a return line (1/4 rubber). The return line sends excess fuel <img class="beside zoomable" src="../../assets/projects/fuel-pump/04.jpg?v=1" data-full="../../assets/projects/fuel-pump/04.jpg?v=1" alt="Installed silver fuel pump with rubber and metal fuel lines" width="1320" height="1737" /> back to the tank, stabilizing pressure, and avoiding vapor lock. Without this cycling back, the fuel can heat up, vaporize, and restarting the engine can be challenging, particularly in warm weather conditions. <a class="ext" href="https://driving.ca/column/corner-wrench/corner-wrench-the-keys-to-escaping-vapour-lock" target="_blank" rel="noopener noreferrer">more here</a></p>
         <p>Once you've got the pushrod dealt with it really is just a matter of lines and bolts. Grab a 9/16 wrench and do your thing. Once the old pump is off you must clean all the old gasket material off of the engine block. You can use a solvent, but I usually scrap with a razor, and hit it with light sandpaper. Putting the pump back on is just a reversing of the steps, but don't over tighten. People are always temped to crank it on, but 30lbs will do the job.</p>
       </div>
-      <div class="uc" role="status">
-        <div class="uc-stage" aria-hidden="true">
-          <div class="uc-tire"></div>
-          <div class="uc-cone"></div>
-        </div>
-        <h2>Under construction</h2>
-        <p>Jenny’s still in the garage on this one. Check back when that dummy finishes the job.</p>
+      <div class="copy stack">
+        <p>Try as I may, I couldn't find an OEM pump. I ended up finding this Carter from RockAuto. <img class="beside zoomable" src="../../assets/projects/fuel-pump/05.jpg?v=1" data-full="../../assets/projects/fuel-pump/05.jpg?v=1" alt="New Carter fuel pump held in a hand" width="1097" height="1274" /> It was supposed to be a direct replacement, but it wasn't and that created two new issues. First, the metal line going to the carburetor was ever so slightly out of alignment, requiring much fiddling around. Then the pressure was too high (7-9lbs).. these old carburetors like to stay below 6lbs. The additional pressure forced fuel past the seat, which was causing the carburetor to flood. Apparently this is quite common. Now it would seem that I need a fuel pressure regulator... I wish someone had told me before I wasted a bunch of time and energy figuring it out. <a class="ext" href="https://www.rockauto.com/en/catalog/chevrolet,1984,camaro,5.0l+305cid+v8,1035492,fuel+&amp;+air,fuel+pump,6256" target="_blank" rel="noopener noreferrer">pump here</a></p>
       </div>
       <a class="back" href="../">back to projects</a>
     </div>
