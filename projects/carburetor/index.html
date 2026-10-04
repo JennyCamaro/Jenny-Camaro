@@ -85,6 +85,7 @@
     .copy p {
       margin: 0;
     }
+    .copy p + p { margin-top: 1rem; }
     .copy.stack { clear: both; }
     .beside {
       float: left;
@@ -108,6 +109,16 @@
       color: #6eb6ff;
       text-decoration: underline;
       text-underline-offset: 3px;
+    }
+    .shot {
+      display: block;
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      margin: 0 auto 1.1rem;
+      border-radius: 8px;
+      cursor: zoom-in;
+      clear: both;
     }
     .lightbox {
       display: none;
@@ -255,10 +266,16 @@
       </div>
       <div class="copy stack">
         <p>I removed the airhorn and grabbed a ruler. It was apparent to me that this carburetor was pretty warped. <img class="beside zoomable" src="../../assets/projects/carburetor/04.jpg?v=1" data-full="../../assets/projects/carburetor/04.jpg?v=1" alt="Carburetor body and loose parts laid out on a white FRAM box" width="1320" height="1724" /> People often crank these down too much, and they can get twisted up. You really only need 12 ft/lbs. I already had the rebuild kit, so I had noting to lose by installing it.</p>
+        <p>Instead of using the standard airhorn gasket, I special ordered an extra thick airhorn gasket <a class="ext" href="https://quadrajetparts.com/quadrajet-gaskets-seals-c-128_25.html" target="_blank" rel="noopener noreferrer">here</a>. These thicker gaskets can make up for some of the warpage. Unfortunately, it didn't work for my application, and I ended up wasting a bunch of energy taking this apart 3 times, and having it off the car twice.</p>
       </div>
-      <div class="copy stack">
-        <p>Instead of using the standard airhorn gasket, I special ordered an extra thick airhorn gasket <a class="ext" href="https://quadrajetparts.com/quadrajet-gaskets-seals-c-128_25.html" target="_blank" rel="noopener noreferrer">here</a>. <img class="beside zoomable" src="../../assets/projects/carburetor/05.jpg?v=1" data-full="../../assets/projects/carburetor/05.jpg?v=1" alt="Rebuilt silver Quadrajet on a wooden stand on the workbench" width="1320" height="947" /> These thicker gaskets can make up for some of the warpage. Unfortunately, it didn't work for my application, and I ended up wasting a bunch of energy taking this apart 3 times, and having it off the car twice.</p>
-      </div>
+      <img
+        class="shot zoomable"
+        src="../../assets/projects/carburetor/05.jpg?v=1"
+        data-full="../../assets/projects/carburetor/05.jpg?v=1"
+        alt="Rebuilt silver Quadrajet on a wooden stand on the workbench"
+        width="1320"
+        height="947"
+      />
       <div class="uc" role="status">
         <div class="uc-stage" aria-hidden="true">
           <div class="uc-tire"></div>
