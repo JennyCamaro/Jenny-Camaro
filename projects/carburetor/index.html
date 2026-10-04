@@ -77,20 +77,51 @@
       text-underline-offset: 3px;
       font-size: 15px;
     }
-    .photo {
-      display: block;
-      width: 100%;
+    .copy {
       max-width: 560px;
-      height: auto;
-      margin: 0 auto;
-      border-radius: 8px;
+      margin: 0 auto 1.1rem;
+      padding: 0 4px;
     }
-
+    .copy p {
+      margin: 0;
+    }
+    .beside {
+      float: left;
+      width: 54%;
+      max-width: 280px;
+      height: auto;
+      margin: 0.35rem 0.7rem 0.35rem 0;
+      border-radius: 8px;
+      cursor: zoom-in;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.92);
+      padding: 16px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.is-open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+      cursor: zoom-out;
+    }
     .uc {
       text-align: center;
       margin: 1.5rem auto 0;
       max-width: 420px;
       padding: 0 12px;
+      clear: both;
     }
     .uc-stage {
       position: relative;
@@ -201,13 +232,9 @@
     <div class="page">
       <a class="back" id="project-back-top" href="../">← Projects</a>
       <h1>Carburetor</h1>
-      <img
-        class="photo"
-        src="../../assets/projects/carburetor/01.jpg?v=1"
-        alt="New silver carburetor installed in the engine bay"
-        width="1752"
-        height="1320"
-      />
+      <div class="copy">
+        <p>So here I am with a 42 year old carburetor, a "Quadrajunk" ... yeah the Quadrajet gets a bad reputation, some guys don't like them, but I think those guys just don't understand. You only have to hear those secondary throttle blades open one time to fall in love with the sound. They're a pain in the ass, but they're a good solid carb when you get them dialed in. <img class="beside zoomable" src="../../assets/projects/carburetor/02.jpg?v=1" data-full="../../assets/projects/carburetor/02.jpg?v=1" alt="Engine bay looking down at the Quadrajet, with the fan shroud in front" width="1052" height="1418" /> I really wanted to keep my QJet, I tried, but it just wouldn't co-operate with me. In the end I caved and bought a cheap knock off from China. Same basic shape and function, substandard materials and quality. Before making this decision, I went through hell, settle back and prepare to laugh at my ineptitude.</p>
+      </div>
       <div class="uc" role="status">
         <div class="uc-stage" aria-hidden="true">
           <div class="uc-tire"></div>
@@ -220,6 +247,35 @@
       <a class="back" href="../">back to projects</a>
     </div>
   </main>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      function openFull(src, alt) {
+        img.src = src;
+        img.alt = alt || '';
+        box.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeFull() {
+        box.classList.remove('is-open');
+        img.src = '';
+        document.body.style.overflow = '';
+      }
+      document.querySelectorAll('.zoomable').forEach(function (el) {
+        el.addEventListener('click', function () {
+          openFull(el.getAttribute('data-full') || el.src, el.alt || '');
+        });
+      });
+      box.addEventListener('click', closeFull);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && box.classList.contains('is-open')) closeFull();
+      });
+    })();
+  </script>
 
   <script>
     (function () {
