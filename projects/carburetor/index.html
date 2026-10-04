@@ -202,7 +202,6 @@
         muted
         loop
         playsinline
-        controls
         preload="metadata"
         width="1920"
         height="1080"
@@ -285,6 +284,15 @@
           return;
         }
         location.href = from === 'home' ? '/' : '/logs/';
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      var v = document.querySelector('video.clip');
+      if (!v) return;
+      v.addEventListener('click', function () {
+        v.controls = true;
       });
     })();
   </script>
