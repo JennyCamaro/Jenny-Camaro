@@ -152,101 +152,6 @@
       border-radius: 4px;
       cursor: zoom-out;
     }
-    .uc {
-      text-align: center;
-      margin: 1.5rem auto 0;
-      max-width: 420px;
-      padding: 0 12px;
-      clear: both;
-    }
-    .uc-stage {
-      position: relative;
-      width: 160px;
-      height: 160px;
-      margin: 0 auto 1.25rem;
-    }
-    .uc-tire {
-      position: absolute;
-      inset: 18px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at center, #1a1220 0 28%, transparent 29%),
-        repeating-conic-gradient(#2a2030 0 12deg, #0b0610 12deg 24deg);
-      border: 10px solid #3d3348;
-      box-shadow: inset 0 0 0 6px #111;
-      animation: uc-spin 2.8s linear infinite;
-    }
-    .uc-tire::after {
-      content: "";
-      position: absolute;
-      inset: 42%;
-      border-radius: 50%;
-      background: #f48c06;
-      box-shadow: 0 0 0 3px #0b0610;
-    }
-    .uc-cone {
-      position: absolute;
-      left: 50%;
-      bottom: 8px;
-      width: 0;
-      height: 0;
-      margin-left: -18px;
-      border-left: 18px solid transparent;
-      border-right: 18px solid transparent;
-      border-bottom: 52px solid #f48c06;
-      animation: uc-bounce 0.9s ease-in-out infinite;
-      filter: drop-shadow(0 4px 0 #c45f00);
-      z-index: 2;
-    }
-    .uc-cone::before {
-      content: "";
-      position: absolute;
-      left: -14px;
-      top: 14px;
-      width: 28px;
-      height: 8px;
-      background: #fff4e6;
-      transform: skewY(-8deg);
-    }
-    .uc-cone::after {
-      content: "";
-      position: absolute;
-      left: -22px;
-      bottom: -56px;
-      width: 44px;
-      height: 6px;
-      background: #f48c06;
-      border-radius: 2px;
-    }
-    .uc h2 {
-      margin: 0 0 0.5rem;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      color: #f48c06;
-      animation: uc-blink 1.4s steps(2, end) infinite;
-    }
-    .uc p {
-      margin: 0;
-      color: #fff4e6;
-      font-size: 15px;
-      line-height: 1.5;
-      opacity: 0.9;
-    }
-    @keyframes uc-spin {
-      to { transform: rotate(360deg); }
-    }
-    @keyframes uc-bounce {
-      0%, 100% { transform: translateY(0) rotate(-4deg); }
-      50% { transform: translateY(-14px) rotate(4deg); }
-    }
-    @keyframes uc-blink {
-      50% { opacity: 0.35; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .uc-tire, .uc-cone, .uc h2 { animation: none; }
-    }
-
   </style>
 </head>
 <body>
@@ -275,7 +180,7 @@
         <p>I installed a new <a class="ext" href="../fuel-pump/">fuel pump</a> and was immediately confronted with a flooding carb. Surely it was no <img class="beside-right zoomable" src="../../assets/projects/carburetor/03.jpg?v=1" data-full="../../assets/projects/carburetor/03.jpg?v=1" alt="Carburetor with the top off, fuel bowls open and yellow fuel in the bowl" width="1320" height="1704" /> coincidence that these things happened at the same time, so I just figured debris was plugging the needle and seat. Debris from changing lines, and just generally agitating the system. The fix for this issue is to replace the needle and seat inside the carburetor. I was quite reluctant to open a new can of worms by taking this carburetor off, so I did the idiotic thing, tried to do a <a class="ext" href="https://quadrajetpower.com/products/qb1-quick-ez-kit" target="_blank" rel="noopener noreferrer">rebuild kit</a> while the body of the carb was still in place.</p>
       </div>
       <div class="copy stack">
-        <p>I removed the airhorn and grabbed a ruler. It was apparent to me that this carburetor was pretty warped. <img class="beside zoomable" src="../../assets/projects/carburetor/04.jpg?v=1" data-full="../../assets/projects/carburetor/04.jpg?v=1" alt="Carburetor body and loose parts laid out on a white FRAM box" width="1320" height="1724" /> People often crank these down too much, and they can get twisted up. You really only need 12 ft/lbs. I already had the rebuild kit, so I had noting to lose by installing it.</p>
+        <p>I removed the airhorn and grabbed a ruler. It was apparent to me that this carburetor was pretty warped. People often crank these down too much, and they can get twisted up. <img class="beside zoomable" src="../../assets/projects/carburetor/04.jpg?v=1" data-full="../../assets/projects/carburetor/04.jpg?v=1" alt="Carburetor body and loose parts laid out on a white FRAM box" width="1320" height="1724" /> You really only need 12 ft/lbs. I already had the rebuild kit, so I had noting to lose by installing it.</p>
         <p>Instead of using the standard airhorn gasket, I special ordered an extra thick airhorn gasket <a class="ext" href="https://quadrajetparts.com/quadrajet-gaskets-seals-c-128_25.html" target="_blank" rel="noopener noreferrer">here</a>. These thicker gaskets can make up for some of the warpage. Unfortunately, it didn't work for my application, and I ended up wasting a bunch of energy taking this apart 3 times, and having it off the car twice.</p>
       </div>
       <img
@@ -293,8 +198,11 @@
         class="clip"
         src="../../assets/projects/carburetor/knockoff.mp4?v=1"
         poster="../../assets/projects/carburetor/knockoff-poster.jpg?v=1"
-        controls
+        autoplay
+        muted
+        loop
         playsinline
+        controls
         preload="metadata"
         width="1920"
         height="1080"
@@ -302,15 +210,6 @@
       <div class="copy">
         <p>That's where I am now. The rebuild kit with the thicker gasket didn't cut it. There's a guy nearby that takes these old cores, and straightens them back out, does a full and complete rebuild, that will likely be my next step. These things went out of production in 1989 are not available anymore.</p>
       </div>
-      <div class="uc" role="status">
-        <div class="uc-stage" aria-hidden="true">
-          <div class="uc-tire"></div>
-          <div class="uc-cone"></div>
-        </div>
-        <h2>Under construction</h2>
-        <p>Jenny’s still in the garage on this one. Check back when that dummy finishes the job.</p>
-      </div>
-
       <a class="back" href="../">back to projects</a>
     </div>
   </main>
@@ -389,6 +288,5 @@
       });
     })();
   </script>
-
 </body>
 </html>
