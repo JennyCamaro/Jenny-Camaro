@@ -77,109 +77,56 @@
       text-underline-offset: 3px;
       font-size: 15px;
     }
-    .photo {
+    .copy {
+      max-width: 560px;
+      margin: 0 auto 1.1rem;
+      padding: 0 4px;
+    }
+    .copy p {
+      margin: 0;
+    }
+    .copy p + p { margin-top: 1rem; }
+    .beside-right {
+      float: right;
+      width: 48%;
+      max-width: 210px;
+      height: auto;
+      margin: 0.4rem 0 0.45rem 0.75rem;
+      border-radius: 8px;
+      cursor: zoom-in;
+    }
+    .shot {
       display: block;
       width: 100%;
-      max-width: 560px;
+      max-width: 720px;
       height: auto;
-      margin: 0 auto;
+      margin: 0 auto 1.1rem;
       border-radius: 8px;
+      cursor: zoom-in;
+      clear: both;
     }
-
-    .uc {
-      text-align: center;
-      margin: 1.5rem auto 0;
-      max-width: 420px;
-      padding: 0 12px;
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.92);
+      padding: 16px;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
     }
-    .uc-stage {
-      position: relative;
-      width: 160px;
-      height: 160px;
-      margin: 0 auto 1.25rem;
+    .lightbox.is-open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 4px;
+      cursor: zoom-out;
     }
-    .uc-tire {
-      position: absolute;
-      inset: 18px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at center, #1a1220 0 28%, transparent 29%),
-        repeating-conic-gradient(#2a2030 0 12deg, #0b0610 12deg 24deg);
-      border: 10px solid #3d3348;
-      box-shadow: inset 0 0 0 6px #111;
-      animation: uc-spin 2.8s linear infinite;
-    }
-    .uc-tire::after {
-      content: "";
-      position: absolute;
-      inset: 42%;
-      border-radius: 50%;
-      background: #f48c06;
-      box-shadow: 0 0 0 3px #0b0610;
-    }
-    .uc-cone {
-      position: absolute;
-      left: 50%;
-      bottom: 8px;
-      width: 0;
-      height: 0;
-      margin-left: -18px;
-      border-left: 18px solid transparent;
-      border-right: 18px solid transparent;
-      border-bottom: 52px solid #f48c06;
-      animation: uc-bounce 0.9s ease-in-out infinite;
-      filter: drop-shadow(0 4px 0 #c45f00);
-      z-index: 2;
-    }
-    .uc-cone::before {
-      content: "";
-      position: absolute;
-      left: -14px;
-      top: 14px;
-      width: 28px;
-      height: 8px;
-      background: #fff4e6;
-      transform: skewY(-8deg);
-    }
-    .uc-cone::after {
-      content: "";
-      position: absolute;
-      left: -22px;
-      bottom: -56px;
-      width: 44px;
-      height: 6px;
-      background: #f48c06;
-      border-radius: 2px;
-    }
-    .uc h2 {
-      margin: 0 0 0.5rem;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      color: #f48c06;
-      animation: uc-blink 1.4s steps(2, end) infinite;
-    }
-    .uc p {
-      margin: 0;
-      color: #fff4e6;
-      font-size: 15px;
-      line-height: 1.5;
-      opacity: 0.9;
-    }
-    @keyframes uc-spin {
-      to { transform: rotate(360deg); }
-    }
-    @keyframes uc-bounce {
-      0%, 100% { transform: translateY(0) rotate(-4deg); }
-      50% { transform: translateY(-14px) rotate(4deg); }
-    }
-    @keyframes uc-blink {
-      50% { opacity: 0.35; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .uc-tire, .uc-cone, .uc h2 { animation: none; }
-    }
-
   </style>
 </head>
 <body>
@@ -200,26 +147,58 @@
     <div class="page">
       <a class="back" id="project-back-top" href="../">← Projects</a>
       <h1>Underglow</h1>
-      <img
-        class="photo"
-        src="../../assets/projects/underglow/poster.jpg?v=1"
-        alt="Jenny underglow at night"
-        width="1280"
-        height="720"
-      />
-      <div class="uc" role="status">
-        <div class="uc-stage" aria-hidden="true">
-          <div class="uc-tire"></div>
-          <div class="uc-cone"></div>
-        </div>
-        <h2>Under construction</h2>
-        <p>Jenny’s still in the garage on this one. Check back when that dummy finishes the job.</p>
+      <div class="copy">
+        <p>I bought these clips hoping the light strip would fit in them. Using a clip gets the strip off of the <img class="beside-right zoomable" src="../../assets/projects/underglow/03.jpg?v=1" data-full="../../assets/projects/underglow/03.jpg?v=1" alt="Underglow strip held along the rocker with orange wire ties" width="1320" height="966" />body enough to use a wire tie. Most of these lights come with double sided tape, but I don't trust that. Wire ties provide two benefits, strength, and the ability to easily remove the lights for any maintenance.</p>
+        <p>I drilled and tapped new holes, and used machine screws, and lock washers for a clean and complete job. Each light strip is held in place by several of these clips, and wire ties.</p>
       </div>
-
+      <img
+        class="shot zoomable"
+        src="../../assets/projects/underglow/01.jpg?v=1"
+        data-full="../../assets/projects/underglow/01.jpg?v=1"
+        alt="Black plastic underglow clip on a wooden workbench"
+        width="792"
+        height="716"
+      />
+      <img
+        class="shot zoomable"
+        src="../../assets/projects/underglow/02.jpg?v=1"
+        data-full="../../assets/projects/underglow/02.jpg?v=1"
+        alt="Tap handle drilling a new hole in the rocker pinch weld"
+        width="1320"
+        height="945"
+      />
       <a class="back" href="../">back to projects</a>
     </div>
   </main>
-
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  <script>
+    (function () {
+      var box = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      function openFull(src, alt) {
+        img.src = src;
+        img.alt = alt || '';
+        box.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeFull() {
+        box.classList.remove('is-open');
+        img.src = '';
+        document.body.style.overflow = '';
+      }
+      document.querySelectorAll('.zoomable').forEach(function (el) {
+        el.addEventListener('click', function () {
+          openFull(el.getAttribute('data-full') || el.src, el.alt || '');
+        });
+      });
+      box.addEventListener('click', closeFull);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && box.classList.contains('is-open')) closeFull();
+      });
+    })();
+  </script>
   <script>
     (function () {
       var a = document.getElementById('project-back-top');
@@ -265,6 +244,5 @@
       });
     })();
   </script>
-
 </body>
 </html>
