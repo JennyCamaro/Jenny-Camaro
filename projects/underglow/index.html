@@ -86,6 +86,7 @@
       margin: 0;
     }
     .copy p + p { margin-top: 1rem; }
+    .lead { display: block; }
     .beside-right {
       float: right;
       width: 48%;
@@ -95,15 +96,19 @@
       border-radius: 8px;
       cursor: zoom-in;
     }
-    .shot {
-      display: block;
-      width: 100%;
+    .pair {
+      display: flex;
+      gap: 0.55rem;
       max-width: 720px;
-      height: auto;
       margin: 0 auto 1.1rem;
+      clear: both;
+    }
+    .pair img {
+      flex: 1 1 0;
+      width: 50%;
+      height: auto;
       border-radius: 8px;
       cursor: zoom-in;
-      clear: both;
     }
     .lightbox {
       display: none;
@@ -148,25 +153,13 @@
       <a class="back" id="project-back-top" href="../">← Projects</a>
       <h1>Underglow</h1>
       <div class="copy">
-        <p>I bought these clips hoping the light strip would fit in them. Using a clip gets the strip off of the <img class="beside-right zoomable" src="../../assets/projects/underglow/03.jpg?v=1" data-full="../../assets/projects/underglow/03.jpg?v=1" alt="Underglow strip held along the rocker with orange wire ties" width="1320" height="966" />body enough to use a wire tie. Most of these lights come with double sided tape, but I don't trust that. Wire ties provide two benefits, strength, and the ability to easily remove the lights for any maintenance.</p>
+        <p><span class="lead">I bought these clips hoping the light strip would fit in them. Using a clip gets the strip off of the body enough to use a wire tie.</span> <img class="beside-right zoomable" src="../../assets/projects/underglow/01.jpg?v=1" data-full="../../assets/projects/underglow/01.jpg?v=1" alt="Black plastic underglow clip on a wooden workbench" width="792" height="716" />Most of these lights come with double sided tape, but I don't trust that. Wire ties provide two benefits, strength, and the ability to easily remove the lights for any maintenance.</p>
         <p>I drilled and tapped new holes, and used machine screws, and lock washers for a clean and complete job. Each light strip is held in place by several of these clips, and wire ties.</p>
       </div>
-      <img
-        class="shot zoomable"
-        src="../../assets/projects/underglow/01.jpg?v=1"
-        data-full="../../assets/projects/underglow/01.jpg?v=1"
-        alt="Black plastic underglow clip on a wooden workbench"
-        width="792"
-        height="716"
-      />
-      <img
-        class="shot zoomable"
-        src="../../assets/projects/underglow/02.jpg?v=1"
-        data-full="../../assets/projects/underglow/02.jpg?v=1"
-        alt="Tap handle drilling a new hole in the rocker pinch weld"
-        width="1320"
-        height="945"
-      />
+      <div class="pair">
+        <img class="zoomable" src="../../assets/projects/underglow/03.jpg?v=1" data-full="../../assets/projects/underglow/03.jpg?v=1" alt="Underglow strip held along the rocker with orange wire ties" width="1320" height="966" />
+        <img class="zoomable" src="../../assets/projects/underglow/02.jpg?v=1" data-full="../../assets/projects/underglow/02.jpg?v=1" alt="Tap handle drilling a new hole in the rocker pinch weld" width="1320" height="945" />
+      </div>
       <a class="back" href="../">back to projects</a>
     </div>
   </main>
