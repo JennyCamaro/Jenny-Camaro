@@ -114,6 +114,100 @@
       border-radius: 8px;
       cursor: zoom-in;
     }
+    .uc {
+      text-align: center;
+      margin: 1.5rem auto 0;
+      max-width: 420px;
+      padding: 0 12px;
+      clear: both;
+    }
+    .uc-stage {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 1.25rem;
+    }
+    .uc-tire {
+      position: absolute;
+      inset: 18px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, #1a1220 0 28%, transparent 29%),
+        repeating-conic-gradient(#2a2030 0 12deg, #0b0610 12deg 24deg);
+      border: 10px solid #3d3348;
+      box-shadow: inset 0 0 0 6px #111;
+      animation: uc-spin 2.8s linear infinite;
+    }
+    .uc-tire::after {
+      content: "";
+      position: absolute;
+      inset: 42%;
+      border-radius: 50%;
+      background: #f48c06;
+      box-shadow: 0 0 0 3px #0b0610;
+    }
+    .uc-cone {
+      position: absolute;
+      left: 50%;
+      bottom: 8px;
+      width: 0;
+      height: 0;
+      margin-left: -18px;
+      border-left: 18px solid transparent;
+      border-right: 18px solid transparent;
+      border-bottom: 52px solid #f48c06;
+      animation: uc-bounce 0.9s ease-in-out infinite;
+      filter: drop-shadow(0 4px 0 #c45f00);
+      z-index: 2;
+    }
+    .uc-cone::before {
+      content: "";
+      position: absolute;
+      left: -14px;
+      top: 14px;
+      width: 28px;
+      height: 8px;
+      background: #fff4e6;
+      transform: skewY(-8deg);
+    }
+    .uc-cone::after {
+      content: "";
+      position: absolute;
+      left: -22px;
+      bottom: -56px;
+      width: 44px;
+      height: 6px;
+      background: #f48c06;
+      border-radius: 2px;
+    }
+    .uc h2 {
+      margin: 0 0 0.5rem;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #f48c06;
+      animation: uc-blink 1.4s steps(2, end) infinite;
+    }
+    .uc p {
+      margin: 0;
+      color: #fff4e6;
+      font-size: 15px;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+    @keyframes uc-spin {
+      to { transform: rotate(360deg); }
+    }
+    @keyframes uc-bounce {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50% { transform: translateY(-14px) rotate(4deg); }
+    }
+    @keyframes uc-blink {
+      50% { opacity: 0.35; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .uc-tire, .uc-cone, .uc h2 { animation: none; }
+    }
     .lightbox {
       display: none;
       position: fixed;
@@ -162,6 +256,14 @@
       </div>
       <div class="copy">
         <p>At some point, someone put in a larger radiator. Unfortunately that was a very long time ago, <img class="beside zoomable" src="../../assets/projects/radiator/03.jpg?v=1" data-full="../../assets/projects/radiator/03.jpg?v=1" alt="Old radiator in the engine bay with a Motomas hose and clamp" width="1320" height="1875" /> and that rad is past the end of its life. This puts me in a bad position, because these radiator hoses are still usable, but don't line up with any of the radiators specifically available for my car. I had to search through a bunch of radiators to both meet my cooling needs, and also have the same geometry as the existing radiator. Otherwise I'll end up needing hoses too, and I'm having trouble finding parts.</p>
+      </div>
+      <div class="uc" role="status">
+        <div class="uc-stage" aria-hidden="true">
+          <div class="uc-tire"></div>
+          <div class="uc-cone"></div>
+        </div>
+        <h2>Under construction</h2>
+        <p>Jenny’s still in the garage on this one. Check back when that dummy finishes the job.</p>
       </div>
       <a class="back" href="../">back to projects</a>
     </div>
