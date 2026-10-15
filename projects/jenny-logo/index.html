@@ -284,6 +284,7 @@
       if (!a) return;
 
       function pathOf(url) {
+        if (!url) return null;
         try {
           var u = new URL(url, location.href);
           if (u.origin !== location.origin) return null;
@@ -295,6 +296,10 @@
         }
       }
 
+      function isProjectPage(p) {
+        return /^\/projects\/[^/]+\/$/.test(p);
+      }
+
       function sourceFrom() {
         var q = new URLSearchParams(location.search).get('from');
         if (q === 'logs' || q === 'home') return q;
@@ -302,25 +307,39 @@
         if (!p) return null;
         if (p === '/logs/') return 'logs';
         if (p === '/') return 'home';
+        if (isProjectPage(p) && p !== pathOf(location.href)) return 'project';
         return null;
       }
 
       var from = sourceFrom();
       if (!from) return;
+      var bottom = document.querySelector('a.back:not(#project-back-top)');
 
-      a.textContent = '\u2190 back';
-      a.setAttribute('aria-label', 'Back');
-      a.addEventListener('click', function (e) {
+      function onBack(e) {
         e.preventDefault();
         var refPath = pathOf(document.referrer);
         var canBack = (from === 'logs' && refPath === '/logs/') ||
-                      (from === 'home' && refPath === '/');
+                      (from === 'home' && refPath === '/') ||
+                      (from === 'project' && isProjectPage(refPath));
         if (canBack && window.history.length > 1) {
           history.back();
           return;
         }
-        location.href = from === 'home' ? '/' : '/logs/';
-      });
+        if (from === 'home') location.href = '/';
+        else if (from === 'logs') location.href = '/logs/';
+        else if (from === 'project' && refPath) location.href = refPath;
+        else location.href = '../';
+      }
+
+      if (from === 'project') {
+        a.addEventListener('click', onBack);
+        if (bottom) bottom.addEventListener('click', onBack);
+        return;
+      }
+
+      a.textContent = '\u2190 back';
+      a.setAttribute('aria-label', 'Back');
+      a.addEventListener('click', onBack);
     })();
   </script>
 
