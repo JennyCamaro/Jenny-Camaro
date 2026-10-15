@@ -300,6 +300,28 @@
         return /^\/projects\/[^/]+\/$/.test(p);
       }
 
+      var projectNames = {
+        'aux-fuse-panel': 'Aux Fuse Panel',
+        'carburetor': 'Carburetor',
+        'fan-and-clutch': 'Fan & Clutch',
+        'front-signals': 'Front Signals',
+        'fuel-pump': 'Fuel Pump',
+        'jenny-logo': 'Jenny Logo',
+        'pressure-regulator': 'Pressure Regulator',
+        'radiator': 'Radiator',
+        'retro-stereo': 'Retro Stereo',
+        'seat-belt-latches': 'Seat Belt Latches',
+        'side-mirror': 'Side Mirror',
+        'steering-shaft': 'Steering Shaft',
+        'underglow': 'Underglow',
+        'water-pump': 'Water Pump'
+      };
+
+      function projectTitle(p) {
+        var m = /^\/projects\/([^/]+)\/$/.exec(p || '');
+        return m ? (projectNames[m[1]] || null) : null;
+      }
+
       function sourceFrom() {
         var q = new URLSearchParams(location.search).get('from');
         if (q === 'logs' || q === 'home') return q;
@@ -332,6 +354,11 @@
       }
 
       if (from === 'project') {
+        var name = projectTitle(pathOf(document.referrer));
+        if (name) {
+          a.textContent = '\u2190 ' + name;
+          if (bottom) bottom.textContent = 'back to ' + name.toLowerCase();
+        }
         a.addEventListener('click', onBack);
         if (bottom) bottom.addEventListener('click', onBack);
         return;
