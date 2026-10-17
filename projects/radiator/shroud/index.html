@@ -77,14 +77,32 @@
       text-underline-offset: 3px;
       font-size: 15px;
     }
-    .shot {
+    .collage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+      max-width: 720px;
+      margin: 0 auto 16px;
+    }
+    .collage img {
       display: block;
       width: 100%;
-      max-width: 720px;
-      height: auto;
-      margin: 0 auto 1.1rem;
+      height: 100%;
+      margin: 0;
+      object-fit: cover;
       border-radius: 8px;
       cursor: zoom-in;
+    }
+    .collage .wide {
+      grid-column: 1 / -1;
+      aspect-ratio: 4 / 3;
+    }
+    .collage .tile {
+      aspect-ratio: 3 / 4;
+    }
+    .collage .portrait {
+      grid-column: 1 / -1;
+      aspect-ratio: 3 / 4;
     }
     .lightbox {
       display: none;
@@ -128,9 +146,14 @@
     <div class="page">
       <a class="back" id="project-back-top" href="../">← Radiator</a>
       <h1>Fan Shroud</h1>
-      <img class="shot zoomable" src="../../../assets/projects/radiator/08.jpg?v=1" data-full="../../../assets/projects/radiator/08.jpg?v=1" alt="New radiator standing on end against the Camaro" width="1776" height="1320" />
-      <img class="shot zoomable" src="../../../assets/projects/radiator/09.jpg?v=1" data-full="../../../assets/projects/radiator/09.jpg?v=1" alt="New radiator on the floor in front of the Camaro" width="1320" height="1657" />
-      <img class="shot zoomable" src="../../../assets/projects/radiator/10.jpg?v=1" data-full="../../../assets/projects/radiator/10.jpg?v=1" alt="New radiator installed in the Camaro engine bay" width="1320" height="1742" />
+      <div class="collage">
+        <img class="wide zoomable" src="../../../assets/projects/radiator/shroud/01.jpg?v=1" data-full="../../../assets/projects/radiator/shroud/01.jpg?v=1" alt="Modified fan shroud on the workbench" width="1760" height="1320" />
+        <img class="tile zoomable" src="../../../assets/projects/radiator/shroud/02.jpg?v=1" data-full="../../../assets/projects/radiator/shroud/02.jpg?v=1" alt="Dremel cutting the fan shroud" width="1320" height="1760" />
+        <img class="tile zoomable" src="../../../assets/projects/radiator/shroud/03.jpg?v=1" data-full="../../../assets/projects/radiator/shroud/03.jpg?v=1" alt="Cut corner of the fan shroud" width="1320" height="1760" />
+        <img class="wide zoomable" src="../../../assets/projects/radiator/shroud/04.jpg?v=1" data-full="../../../assets/projects/radiator/shroud/04.jpg?v=1" alt="Fan shroud held at the front corner of the Camaro" width="1760" height="1320" />
+        <img class="wide zoomable" src="../../../assets/projects/radiator/shroud/05.jpg?v=1" data-full="../../../assets/projects/radiator/shroud/05.jpg?v=1" alt="Cut edge of the fan shroud at the Camaro corner" width="1760" height="1320" />
+        <img class="portrait zoomable" src="../../../assets/projects/radiator/shroud/06.jpg?v=1" data-full="../../../assets/projects/radiator/shroud/06.jpg?v=1" alt="Fan shroud installed in the engine bay" width="1320" height="1760" />
+      </div>
       <a class="back" href="../">back to radiator</a>
     </div>
   </main>
